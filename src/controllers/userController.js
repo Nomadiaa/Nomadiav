@@ -303,3 +303,36 @@ export async function addVoyageAndChecklist(req, res) {
   }
 }
 
+// Affiche le profil public ou privé d'un autre utilisateur
+export async function renderPublicProfile(req, res) {
+  const userId = req.params.id;
+  // Si l'utilisateur regarde son propre profil, redirige vers /profil
+  if (req.user && String(req.user.id) === userId) {
+    return res.redirect('/profil');
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { id: Number(userId) },
+    include: {
+      userVoyages: { include: { destination: true } }
+    }
+  });
+
+  if (!user) {
+    return res.status(404).render('404.twig', { message: 'Utilisateur introuvable.' });
+  }
+
+  if (!user.isPublic) {
+    // PROFIL PRIVÉ : n’affiche que l’essentiel
+    return res.render('user/publicProfile', {
+      user,
+      isPrivate: true
+    });
+  }
+
+  // PROFIL PUBLIC : affiche tout
+  return res.render('user/publicProfile', {
+    user,
+    isPrivate: false
+  });
+}

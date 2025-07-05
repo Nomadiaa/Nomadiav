@@ -1,0 +1,71 @@
+{% extends "base.twig" %}
+{% block title %}Profil de {{ user.prenom }} {{ user.nom }}{% endblock %}
+{% block style %}<link rel="stylesheet" href="/assets/css/profil.css">{% endblock %}
+{% block main %}
+  <div class="profile-wrapper">
+    <div class="profile-banner">
+      <img src="{{ user.coverImage ?? '/uploads/default-cover.jpg' }}" alt="Couverture" class="cover-img">
+      <div class="avatar-wrapper">
+        <img src="{{ user.avatar ?? '/uploads/default-avatar.png' }}" alt="Avatar" class="avatar-img">
+      </div>
+    </div>
+    <div class="info-bio">
+      <h1 class="profile-name">{{ user.prenom }} {{ user.nom }}</h1>
+      <p class="bio">{{ user.bio }}</p>
+    </div>
+    {% if not isPrivate %}
+      <!-- Statistiques et voyages visibles si public -->
+        {% if user.instagram or user.youtube or user.facebook %}
+        <div class="social-grid">
+          {% if user.instagram %}
+            <a href="{{ user.instagram }}" target="_blank" aria-label="Instagram">
+              <img src="/image/instagram.webp" alt="Instagram">
+            </a>
+          {% endif %}
+          {% if user.youtube %}
+            <a href="{{ user.youtube }}" target="_blank" aria-label="YouTube">
+              <img src="/image/youtube-play(1).png" alt="YouTube">
+            </a>
+          {% endif %}
+          {% if user.facebook %}
+            <a href="{{ user.facebook }}" target="_blank" aria-label="Facebook">
+              <img src="/image/facebook-new(1).png" alt="Facebook">
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="profile-stats">
+        <div class="stat-block">
+          <div class="stat-label">{{ user.adventurerType ?? 'Aventurier' }}</div>
+        </div>
+        <div class="divider"></div>
+        <div class="stat-block">
+          <div class="stat-value">{{ user.userVoyages | length }}</div>
+          <div class="stat-label">Voyages</div>
+        </div>
+      </div>
+      <section class="profile-section">
+        <h2>Mes prochains voyages</h2>
+        <div class="voyage-list">
+          {% for trip in user.userVoyages %}
+            {% set voyage = trip.destination %}
+            {% set imagePath = voyage.imagePrincipale starts with '/uploads/' ? voyage.imagePrincipale : '/uploads/' ~ voyage.imagePrincipale %}
+            <a href="/destination/{{ voyage.id }}" class="voyage-card" style="background-image: url('{{ imagePath }}')">
+              <div class="overlay">
+                <h3>{{ voyage.titre }}</h3>
+                <p>{{ voyage.pays }}</p>
+              </div>
+            </a>
+          {% else %}
+            <p>Aucun voyage prévu pour le moment.</p>
+          {% endfor %}
+        </div>
+      </section>
+    
+    {% else %}
+      <p class="profile-private-msg" style="margin:2em 0; text-align:center;">
+        <i>Ce profil est privé.</i>
+      </p>
+    {% endif %}
+  </div>
+{% endblock %}

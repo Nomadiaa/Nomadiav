@@ -18,10 +18,17 @@ export async function getAllUsers(req, res) {
 
 // POST : Supprimer un utilisateur par son ID
 export async function deleteUserById(req, res) {
-  const { id } = req.params;
+  const { userId } = req.params;
+  console.log('Suppression utilisateur, userId =', userId, typeof userId);
+
+  if (!userId || isNaN(Number(userId))) {
+    console.error('ID utilisateur invalide pour suppression:', userId);
+    return res.status(400).send("ID utilisateur invalide");
+  }
+
   try {
     await prisma.user.delete({
-      where: { id: Number(id) }
+      where: { id: Number(userId) }
     });
     res.redirect('/admin/adminUserView');
   } catch (err) {
@@ -120,7 +127,6 @@ export async function unbanUser(req, res) {
   });
   res.redirect('/admin/adminUserView');
 }
-
 
 // POST /admin/users/:userId/ban  (depuis la liste utilisateurs)
 export async function banUserFromList(req, res) {

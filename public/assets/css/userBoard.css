@@ -7,9 +7,6 @@
   box-sizing: border-box;
 }
 
-
-
-
 body {
   font-family: 'Helvetica Neue', sans-serif;
   margin: 0;
@@ -60,13 +57,11 @@ body {
   margin: 2.5rem 0;
   padding: 2rem 0 2.5rem 0;
   width: 100%;
-  max-width: 1100px;     /* max un peu plus large que le carousel-track */
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
 }
-
-
 
 /* ----------- Titre du continent ----------- */
 .continent-title {
@@ -74,17 +69,21 @@ body {
   font-weight: 600;
   margin-bottom: 1.5rem;
   padding-left: 1rem;
-  background: none; /* plus de fond blanc ici */
+  background: none;
 }
 
 /* ----------- Carousel ----------- */
 .carousel-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   position: relative;
-  padding: 0; /* plus de padding latéral ici ! */
+  padding: 0 24px;
   width: 100%;
+  box-sizing: border-box;
+  max-width: 850px; /* largeur pour 4 cartes + gaps */
+  margin: 0 auto;
 }
 
 /* ----------- Flèches ----------- */
@@ -104,6 +103,7 @@ body {
   justify-content: center;
   opacity: 1;
   pointer-events: auto;
+  position: relative;
 }
 
 .carousel-arrow:disabled,
@@ -122,41 +122,27 @@ body {
 /* ----------- Carousel track ----------- */
 .carousel-track {
   display: flex;
-  gap: 1.2rem;   /* un peu moins que 1.5rem pour alléger */
-  overflow: hidden;
+  gap: 1.2rem;
+  overflow: hidden;          /* cache les cartes hors écran */
   scroll-behavior: smooth;
-  justify-content: center;
-  align-items: flex-end;
-  min-height: 260px;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  width: calc(4 * 180px + 3 * 1.2rem); /* 4 cartes + 3 gaps */
+  min-width: 0;
+  align-items: stretch;
 }
-
-@media (max-width: 1200px) {
-  .carousel-track { max-width: 800px; }
-}
-@media (max-width: 900px) {
-  .carousel-track { max-width: 470px; }
-}
-@media (max-width: 600px) {
-  .carousel-track { max-width: 220px; }
-}
-
 
 /* ----------- Carte Individuelle ----------- */
 .destination-card {
-  display: block;
+  flex: 0 0 180px;
   width: 180px;
   height: 260px;
+  display: block;
   position: relative;
   border-radius: 1rem;
   overflow: hidden;
   text-decoration: none;
   background-color: #000;
   transition: transform 0.3s ease;
-  color: white;  
-  flex: 0 0 180px;      /* Taille fixe, jamais étirée ! */ 
+  color: white;
   margin: 0;
 }
 
@@ -167,10 +153,6 @@ body {
 .rose-fonce {
   background-color: #ffd2bd;
 }
-
-/* Optionnel, tu peux adoucir encore plus si besoin : */
-/* .rose-clair { background: #fff3ee; }
-   .rose-fonce { background: #ffd8ca; } */
 
 .destination-card:hover {
   transform: scale(1.03);
@@ -201,7 +183,6 @@ body {
   font-weight: bold;
 }
 
-/* Description cachée par défaut */
 .destination-card .info p {
   margin-top: 0.5rem;
   font-size: 0.9rem;
@@ -211,7 +192,6 @@ body {
   transition: all 0.4s ease;
 }
 
-/* Hover : on glisse le bloc info vers le haut et on révèle le texte */
 .destination-card:hover .info {
   transform: translateY(-2rem);
 }
@@ -235,4 +215,29 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ----------- Responsive : 2 cartes sur mobile ----------- */
+@media (max-width: 900px) {
+  .carousel-container {
+    max-width: 370px;
+    padding: 0 8px;
+  }
+  .carousel-track {
+    width: calc(2 * 160px + 1 * 1rem); /* 2 cartes + 1 gap */
+    gap: 1rem;
+  }
+  .destination-card {
+    flex: 0 0 160px;
+    width: 160px;
+    height: 210px;
+  }
+  .carousel-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+  .destination-card img {
+    height: 100%;
+  }
 }

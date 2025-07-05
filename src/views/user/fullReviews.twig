@@ -28,7 +28,9 @@
           />
           <div class="testimonial-content">
             <span class="testimonial-name">
-              {{ review.user.prenom }}
+              <a href="/profil/{{ review.user.id }}">
+    {{ review.user.prenom }}
+  </a>
               <span class="stars">
                 {% for i in 1..review.rating %}★{% endfor %}
                 {% for i in review.rating+1..5 %}<span style="opacity:.2;">★</span>{% endfor %}

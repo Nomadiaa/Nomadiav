@@ -28,6 +28,14 @@
   letter-spacing: 1px;
 }
 
+.footer-logo img {
+  width: 120px;        /* Ajuste la taille comme tu veux (50-100px c'est idéal) */
+  max-width: 100%;    /* Pour éviter le débordement sur petits écrans */
+  height: auto;       /* Garde les proportions du logo */
+  display: block;
+  margin: 0 auto;     /* Centre le logo dans son div */
+}
+
 /* === LIENS DU FOOTER === */
 .footer-links {
   display: flex;
