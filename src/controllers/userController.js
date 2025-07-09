@@ -306,33 +306,69 @@ export async function addVoyageAndChecklist(req, res) {
 // Affiche le profil public ou privé d'un autre utilisateur
 export async function renderPublicProfile(req, res) {
   const userId = req.params.id;
+
   // Si l'utilisateur regarde son propre profil, redirige vers /profil
   if (req.user && String(req.user.id) === userId) {
     return res.redirect('/profil');
   }
 
-  const user = await prisma.user.findUnique({
-    where: { id: Number(userId) },
-    include: {
-      userVoyages: { include: { destination: true } }
-    }
-  });
-
-  if (!user) {
-    return res.status(404).render('404.twig', { message: 'Utilisateur introuvable.' });
-  }
-
-  if (!user.isPublic) {
-    // PROFIL PRIVÉ : n’affiche que l’essentiel
-    return res.render('user/publicProfile', {
-      user,
-      isPrivate: true
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: Number(userId) },
+      include: {
+        userVoyages: { include: { destination: true } }
+      }
     });
-  }
 
-  // PROFIL PUBLIC : affiche tout
-  return res.render('user/publicProfile', {
-    user,
-    isPrivate: false
-  });
+    if (!user) {
+      return res.status(404).render('404.twig', { message: 'Utilisateur introuvable.' });
+    }
+
+    // 📘 On récupère ses carnets publics
+    const publicJournals = await prisma.travelJournal.findMany({
+      where: {
+        userId: user.id,
+        isPublic: true
+      },
+      include: {
+        destination: true,
+        photos: true
+      },
+      orderBy: { createdAt: 'desc' }
+    });
+
+    const isPrivate = !user.isPublic;
+
+    res.render('user/publicProfile', {
+      user,
+      isPrivate,
+      publicJournals
+    });
+
+  } catch (err) {
+    console.error('❌ Erreur renderPublicProfile :', err);
+    res.status(500).send('Erreur lors du chargement du profil public');
+  }
+}
+
+
+export async function getUserJournals(req, res) {
+  const userId = req.session.user?.id;
+  if (!userId) return res.redirect('/login');
+
+  try {
+    const journals = await prisma.travelJournal.findMany({
+      where: { userId },
+      include: {
+        destination: true,
+        photos: true
+      },
+      orderBy: { createdAt: 'desc' }
+    });
+
+    res.render('user/myCarnets.twig', { journals });
+  } catch (err) {
+    console.error("Erreur récupération carnets :", err);
+    res.status(500).send("Erreur serveur");
+  }
 }

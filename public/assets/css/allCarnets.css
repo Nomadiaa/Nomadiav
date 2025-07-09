@@ -1,0 +1,118 @@
+/* ==== Carnets de voyage ==== */
+.travel-journals {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.testimonial-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.testimonial-banner-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.testimonial-banner {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  filter: brightness(0.7);
+  border-radius: 12px;
+}
+
+.testimonial-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* 🟣 Liste des carnets */
+.testimonial-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* 🖼 Image carnet */
+.testimonial-card .avatar {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0 2px #eee;
+}
+
+/* 👤 Nom + note */
+.testimonial-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  color: #333;
+}
+
+/* ⭐ Étoiles */
+.stars {
+  font-size: 1rem;
+  color: #ffc107;
+  margin-bottom: 0.8rem;
+}
+
+/* ✍️ Contenu */
+.testimonial-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+  text-align: center;
+  min-height: 80px;
+}
+
+/* 📅 Date + lien */
+.testimonial-card span,
+.testimonial-card a {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.testimonial-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #db7dc0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.testimonial-card a:hover {
+  color: #b553a6;
+}

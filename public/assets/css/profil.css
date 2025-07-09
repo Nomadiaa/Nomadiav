@@ -465,3 +465,27 @@ h1{
   height: 40px;
   background-color: #ccc;
 }
+
+/* ======= BOUTON CARNETS DE VOYAGE ======= */
+.carnet-button-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-carnet {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff5c1c, #e95b0c 80%);
+  color: white;
+  padding: 14px 26px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(255, 92, 28, 0.12);
+  transition: background 0.25s, transform 0.2s;
+}
+
+.btn-carnet:hover {
+  background: #e95b0c;
+  transform: scale(1.03);
+}

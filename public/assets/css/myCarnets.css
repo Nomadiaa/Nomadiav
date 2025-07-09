@@ -1,0 +1,102 @@
+.full-reviews {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.reviews-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.reviews-separator {
+  width: 60px;
+  height: 4px;
+  background-color: #db7dc0;
+  margin: 0 auto;
+  border: none;
+  border-radius: 2px;
+}
+
+/* 🟣 Liste des carnets */
+.testimonial-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* 🖼 Image carnet */
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0 2px #e5e5e5;
+}
+
+/* 📘 Titre carnet */
+.testimonial-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  color: #333;
+}
+
+/* ⭐ Étoiles */
+.stars {
+  font-size: 1rem;
+  color: #ffc107;
+  margin-bottom: 0.8rem;
+}
+
+/* 📖 Résumé */
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #555;
+  text-align: center;
+  margin-bottom: 1rem;
+  min-height: 80px;
+}
+
+/* 🔗 Lien "Lire" */
+.like-btn {
+  display: inline-block;
+  background-color: #db7dc0;
+  color: #fff;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.like-btn:hover {
+  background-color: #c262ac;
+}

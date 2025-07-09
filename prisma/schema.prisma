@@ -34,6 +34,8 @@ model User {
   reviews Review[]
   reviewLikes ReviewLike[]
   userVoyages    UserVoyage[]
+  travelJournals   TravelJournal[]
+
 
   notifications      Notification[] @relation("NotifRecipient")  // Notifs reçues
   sentNotifications  Notification[] @relation("NotifSender")     // Notifs envoyées
@@ -62,6 +64,8 @@ model Destination {
   reviews Review[]
   userVoyages     UserVoyage[]
   notifications Notification[]
+  travelJournals   TravelJournal[]
+
 }
 
 model Section {
@@ -224,5 +228,41 @@ model Notification {
   checklistItem ChecklistItem? @relation(fields: [checklistItemId], references: [id])
 }
 
+model TravelJournal {
+  id              String   @id @default(cuid())
+  userId          Int
+  destinationId   String
 
+  titre           String
+  contenu         String?     @db.Text
+  note            Int?        // de 1 à 5
+  dateDebut       DateTime?
+  dateFin         DateTime?
+  isPublic        Boolean     @default(false)
+  tags            JournalTag[]
 
+  photos          JournalPhoto[]
+
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  destination     Destination @relation(fields: [destinationId], references: [id], onDelete: Cascade)
+}
+
+model JournalPhoto {
+  id         String   @id @default(cuid())
+  url        String
+  alt        String?
+  journalId  String
+
+  journal    TravelJournal @relation(fields: [journalId], references: [id], onDelete: Cascade)
+}
+
+model JournalTag {
+  id         String   @id @default(cuid())
+  label      String
+
+  journalId  String
+  journal    TravelJournal @relation(fields: [journalId], references: [id], onDelete: Cascade)
+}

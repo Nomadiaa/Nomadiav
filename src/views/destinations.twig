@@ -1,6 +1,5 @@
 {% extends "base.twig" %}
 
-
 {% block title %}{{ destination.titre }} - {{ destination.pays }}{% endblock %}
 
 {% block style %}
@@ -9,8 +8,6 @@
 {% endblock %}
 
 {% block main %}
-
-
 
 {# ✅ Corrige le chemin de l'image principale #}
 {% set mainImagePath = destination.imagePrincipale starts with '/uploads/' ? destination.imagePrincipale : '/uploads/' ~ destination.imagePrincipale %}
@@ -22,18 +19,18 @@
       <h1 class="destination-title">{{ destination.titre }}</h1>
       <p class="destination-country">{{ destination.pays }}</p>
 
-      <!-- Nouveau conteneur flex pour aligner les boutons -->
+      <!-- ✅ Boutons d’action -->
       <div style="display: flex; gap: 1rem; margin-top: 1.2rem;">
         <form method="POST" action="/add-checklist-and-voyage/{{ destination.id }}">
           <button class="add-trip-btn" type="submit">Ajouter ce voyage</button>
         </form>
-       
-      </div>
 
+        <!-- ✅ Lien vers création de carnet -->
+        <a href="/destination/{{ destination.id }}/carnet/new" class="add-trip-btn">✍️ Écrire un carnet</a>
+      </div>
     </div>
   </div>
 </div>
-
 
 <div class="destination-sections">
   {% for section in destination.sections %}
@@ -41,7 +38,6 @@
       <h2>{{ section.titre }}</h2>
       <p>{{ section.contenu }}</p>
 
-      {# ✅ Affichage des images liées à cette section #}
       {% if section.images.length > 0 %}
         <div class="section-images">
           {% for image in section.images %}
@@ -51,7 +47,6 @@
         </div>
       {% endif %}
 
-      {# ✅ Liste simple de bullet points #}
       {% if section.bulletPoints.length > 0 %}
         <ul class="bullet-list">
           {% for bullet in section.bulletPoints %}
@@ -60,7 +55,6 @@
         </ul>
       {% endif %}
 
-      {# ✅ Groupes de bullet points #}
       {% if section.groupedPoints.length > 0 %}
         <div class="grouped-bullets">
           {% for group in section.groupedPoints %}
@@ -76,8 +70,10 @@
     </section>
   {% endfor %}
 </div>
+
 <hr style="margin-top: 3rem; margin-bottom: 2rem;">
 
+<!-- ✅ Bloc AVIS -->
 <section class="last-reviews">
   <div class="testimonial-header">
     <div class="testimonial-banner-container">
@@ -87,9 +83,7 @@
   </div>
 
   <div class="testimonial-actions">
-    <a href="/destination/{{ destination.id }}/reviews" class="add-review-btn">
-      Ajouter un commentaire
-    </a>
+    <a href="/destination/{{ destination.id }}/reviews" class="add-review-btn">Ajouter un commentaire</a>
   </div>
 
   {% if lastTwoReviews is empty %}
@@ -101,11 +95,7 @@
             ? review.user.avatar 
             : '/uploads/' ~ (review.user.avatar ?: 'default-avatar.png') %}
         <div class="testimonial-card">
-          <img
-            class="avatar"
-            src="{{ avatarPath }}"
-            alt="{{ review.user.prenom }} {{ review.user.nom }}"
-          />
+          <img class="avatar" src="{{ avatarPath }}" alt="{{ review.user.prenom }} {{ review.user.nom }}" />
           <div class="testimonial-content">
             <span class="testimonial-name">
               {{ review.user.prenom }}
@@ -125,16 +115,65 @@
       {% endfor %}
     </div>
     <div class="testimonial-actions">
-      <a href="/destination/{{ destination.id }}/reviews" style="font-weight: bold;">
-        Voir tous les avis &rarr;
-      </a>
+      <a href="/destination/{{ destination.id }}/reviews" style="font-weight: bold;">Voir tous les avis &rarr;</a>
     </div>
   {% endif %}
 </section>
 
+<!-- ✅ Bloc CARNETS DE VOYAGE -->
+<section class="travel-journals">
+  <div class="testimonial-header">
+    <div class="testimonial-banner-container">
+      <img src="/assets/image/11191.jpg" alt="Carnets de voyage" class="testimonial-banner">
+      <h2 class="testimonial-title">Carnets de voyage</h2>
+    </div>
+  </div>
 
+  {% if travelJournals is empty %}
+    <p style="text-align:center; margin-top:2em;">Aucun carnet de voyage n’a encore été partagé pour cette destination.</p>
+  {% else %}
+    <div class="testimonial-list">
+      {% for journal in travelJournals %}
+        {% if journal.photos is defined and journal.photos|length > 0 %}
+          {% set firstPhoto = journal.photos[0] %}
+          {% set photoPath = firstPhoto.url starts with '/uploads/' 
+            ? firstPhoto.url 
+            : '/uploads/' ~ firstPhoto.url %}
+        {% else %}
+          {% set photoPath = '/uploads/default.jpg' %}
+        {% endif %}
 
+        <div class="testimonial-card">
+          <img class="avatar" src="{{ photoPath }}" alt="Photo carnet" />
+          <div class="testimonial-content">
+            <span class="testimonial-name">
+              {{ journal.user.prenom }} {{ journal.user.nom }}
+              <span class="stars">
+                {% for i in 1..(journal.note ?: 0) %}★{% endfor %}
+                {% for i in (journal.note ?: 0)+1..5 %}<span style="opacity:.2;">★</span>{% endfor %}
+              </span>
+            </span>
+            <div class="testimonial-text">
+              {{ journal.contenu|slice(0, 160) ~ '…' }}
+            </div>
+            <div style="margin-top:8px;">
+              <span style="font-size:14px; color:#888;">
+                📅 du {{ journal.dateDebut|date("d/m/Y") }} au {{ journal.dateFin|date("d/m/Y") }}
+              </span>
+              <br>
+              <a href="/carnet/{{ journal.id }}" style="font-weight: bold;">Lire le carnet →</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
 
+    <!-- ✅ Affiche le bouton ici, en dehors de la boucle -->
+    <div class="testimonial-actions">
+      <a href="/destination/{{ destination.id }}/carnets" class="add-review-btn">Voir tous les carnets</a>
+    </div>
+  {% endif %}
+</section>
 
 
 {% endblock %}

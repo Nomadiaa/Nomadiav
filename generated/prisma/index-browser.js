@@ -251,6 +251,33 @@ exports.Prisma.NotificationScalarFieldEnum = {
   isRead: 'isRead'
 };
 
+exports.Prisma.TravelJournalScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  destinationId: 'destinationId',
+  titre: 'titre',
+  contenu: 'contenu',
+  note: 'note',
+  dateDebut: 'dateDebut',
+  dateFin: 'dateFin',
+  isPublic: 'isPublic',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.JournalPhotoScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  alt: 'alt',
+  journalId: 'journalId'
+};
+
+exports.Prisma.JournalTagScalarFieldEnum = {
+  id: 'id',
+  label: 'label',
+  journalId: 'journalId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -358,6 +385,26 @@ exports.Prisma.NotificationOrderByRelevanceFieldEnum = {
   checklistItemId: 'checklistItemId',
   checklistId: 'checklistId'
 };
+
+exports.Prisma.TravelJournalOrderByRelevanceFieldEnum = {
+  id: 'id',
+  destinationId: 'destinationId',
+  titre: 'titre',
+  contenu: 'contenu'
+};
+
+exports.Prisma.JournalPhotoOrderByRelevanceFieldEnum = {
+  id: 'id',
+  url: 'url',
+  alt: 'alt',
+  journalId: 'journalId'
+};
+
+exports.Prisma.JournalTagOrderByRelevanceFieldEnum = {
+  id: 'id',
+  label: 'label',
+  journalId: 'journalId'
+};
 exports.Role = exports.$Enums.Role = {
   user: 'user',
   admin: 'admin'
@@ -386,7 +433,10 @@ exports.Prisma.ModelName = {
   Review: 'Review',
   ReviewLike: 'ReviewLike',
   UserVoyage: 'UserVoyage',
-  Notification: 'Notification'
+  Notification: 'Notification',
+  TravelJournal: 'TravelJournal',
+  JournalPhoto: 'JournalPhoto',
+  JournalTag: 'JournalTag'
 };
 
 /**

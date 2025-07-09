@@ -1,0 +1,51 @@
+{% extends "base.twig" %}
+
+{% block title %}Nouveau carnet - {{ destination.titre }}{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="/assets/css/newCarnet.css">
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+    <h1>✍️ Nouveau carnet pour <strong>{{ destination.titre }}</strong></h1>
+
+    <form action="/carnets" method="POST" enctype="multipart/form-data">
+      <!-- Identifiant de destination (invisible mais requis) -->
+      <input type="hidden" name="destinationId" value="{{ destination.id }}">
+
+      <label for="titre">Titre *</label>
+      <input type="text" name="titre" id="titre" required>
+
+      <label for="contenu">Récit de voyage *</label>
+      <textarea name="contenu" id="contenu" rows="6" required></textarea>
+
+      <label for="note">Note (1 à 5)</label>
+      <select name="note" id="note">
+        <option value="">-- Sélectionner une note --</option>
+        {% for i in 1..5 %}
+          <option value="{{ i }}">{{ i }} ⭐</option>
+        {% endfor %}
+      </select>
+
+      <label for="dateDebut">Date de début *</label>
+      <input type="date" name="dateDebut" id="dateDebut" required>
+
+      <label for="dateFin">Date de fin *</label>
+      <input type="date" name="dateFin" id="dateFin" required>
+
+      <label for="tags">Tags (séparés par virgule)</label>
+      <input type="text" name="tags" id="tags" placeholder="Ex: Aventure, Désert, Culture">
+
+      <label for="photo">Photos du voyage</label>
+      <input type="file" name="photo" id="photo" multiple accept="image/*">
+
+      <label for="isPublic" style="margin-top: 1rem;">
+        <input type="checkbox" name="isPublic" id="isPublic">
+        Rendre ce carnet public
+      </label>
+
+      <button type="submit" class="btn" style="margin-top: 1.5rem;">📘 Publier le carnet</button>
+    </form>
+  </div>
+{% endblock %}

@@ -83,6 +83,21 @@ export type UserVoyage = $Result.DefaultSelection<Prisma.$UserVoyagePayload>
  * 
  */
 export type Notification = $Result.DefaultSelection<Prisma.$NotificationPayload>
+/**
+ * Model TravelJournal
+ * 
+ */
+export type TravelJournal = $Result.DefaultSelection<Prisma.$TravelJournalPayload>
+/**
+ * Model JournalPhoto
+ * 
+ */
+export type JournalPhoto = $Result.DefaultSelection<Prisma.$JournalPhotoPayload>
+/**
+ * Model JournalTag
+ * 
+ */
+export type JournalTag = $Result.DefaultSelection<Prisma.$JournalTagPayload>
 
 /**
  * Enums
@@ -381,6 +396,36 @@ export class PrismaClient<
     * ```
     */
   get notification(): Prisma.NotificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.travelJournal`: Exposes CRUD operations for the **TravelJournal** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TravelJournals
+    * const travelJournals = await prisma.travelJournal.findMany()
+    * ```
+    */
+  get travelJournal(): Prisma.TravelJournalDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.journalPhoto`: Exposes CRUD operations for the **JournalPhoto** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JournalPhotos
+    * const journalPhotos = await prisma.journalPhoto.findMany()
+    * ```
+    */
+  get journalPhoto(): Prisma.JournalPhotoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.journalTag`: Exposes CRUD operations for the **JournalTag** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JournalTags
+    * const journalTags = await prisma.journalTag.findMany()
+    * ```
+    */
+  get journalTag(): Prisma.JournalTagDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -834,7 +879,10 @@ export namespace Prisma {
     Review: 'Review',
     ReviewLike: 'ReviewLike',
     UserVoyage: 'UserVoyage',
-    Notification: 'Notification'
+    Notification: 'Notification',
+    TravelJournal: 'TravelJournal',
+    JournalPhoto: 'JournalPhoto',
+    JournalTag: 'JournalTag'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -853,7 +901,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "destination" | "section" | "bulletPoint" | "groupedBulletPoint" | "bulletPointContent" | "image" | "checklist" | "checklistCategory" | "checklistItem" | "review" | "reviewLike" | "userVoyage" | "notification"
+      modelProps: "user" | "destination" | "section" | "bulletPoint" | "groupedBulletPoint" | "bulletPointContent" | "image" | "checklist" | "checklistCategory" | "checklistItem" | "review" | "reviewLike" | "userVoyage" | "notification" | "travelJournal" | "journalPhoto" | "journalTag"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1781,6 +1829,204 @@ export namespace Prisma {
           }
         }
       }
+      TravelJournal: {
+        payload: Prisma.$TravelJournalPayload<ExtArgs>
+        fields: Prisma.TravelJournalFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TravelJournalFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TravelJournalPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TravelJournalFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TravelJournalPayload>
+          }
+          findFirst: {
+            args: Prisma.TravelJournalFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TravelJournalPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TravelJournalFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TravelJournalPayload>
+          }
+          findMany: {
+            args: Prisma.TravelJournalFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TravelJournalPayload>[]
+          }
+          create: {
+            args: Prisma.TravelJournalCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TravelJournalPayload>
+          }
+          createMany: {
+            args: Prisma.TravelJournalCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.TravelJournalDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TravelJournalPayload>
+          }
+          update: {
+            args: Prisma.TravelJournalUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TravelJournalPayload>
+          }
+          deleteMany: {
+            args: Prisma.TravelJournalDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TravelJournalUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.TravelJournalUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TravelJournalPayload>
+          }
+          aggregate: {
+            args: Prisma.TravelJournalAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTravelJournal>
+          }
+          groupBy: {
+            args: Prisma.TravelJournalGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TravelJournalGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TravelJournalCountArgs<ExtArgs>
+            result: $Utils.Optional<TravelJournalCountAggregateOutputType> | number
+          }
+        }
+      }
+      JournalPhoto: {
+        payload: Prisma.$JournalPhotoPayload<ExtArgs>
+        fields: Prisma.JournalPhotoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JournalPhotoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalPhotoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JournalPhotoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalPhotoPayload>
+          }
+          findFirst: {
+            args: Prisma.JournalPhotoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalPhotoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JournalPhotoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalPhotoPayload>
+          }
+          findMany: {
+            args: Prisma.JournalPhotoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalPhotoPayload>[]
+          }
+          create: {
+            args: Prisma.JournalPhotoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalPhotoPayload>
+          }
+          createMany: {
+            args: Prisma.JournalPhotoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.JournalPhotoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalPhotoPayload>
+          }
+          update: {
+            args: Prisma.JournalPhotoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalPhotoPayload>
+          }
+          deleteMany: {
+            args: Prisma.JournalPhotoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JournalPhotoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.JournalPhotoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalPhotoPayload>
+          }
+          aggregate: {
+            args: Prisma.JournalPhotoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJournalPhoto>
+          }
+          groupBy: {
+            args: Prisma.JournalPhotoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JournalPhotoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JournalPhotoCountArgs<ExtArgs>
+            result: $Utils.Optional<JournalPhotoCountAggregateOutputType> | number
+          }
+        }
+      }
+      JournalTag: {
+        payload: Prisma.$JournalTagPayload<ExtArgs>
+        fields: Prisma.JournalTagFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JournalTagFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalTagPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JournalTagFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalTagPayload>
+          }
+          findFirst: {
+            args: Prisma.JournalTagFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalTagPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JournalTagFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalTagPayload>
+          }
+          findMany: {
+            args: Prisma.JournalTagFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalTagPayload>[]
+          }
+          create: {
+            args: Prisma.JournalTagCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalTagPayload>
+          }
+          createMany: {
+            args: Prisma.JournalTagCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.JournalTagDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalTagPayload>
+          }
+          update: {
+            args: Prisma.JournalTagUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalTagPayload>
+          }
+          deleteMany: {
+            args: Prisma.JournalTagDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JournalTagUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.JournalTagUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JournalTagPayload>
+          }
+          aggregate: {
+            args: Prisma.JournalTagAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJournalTag>
+          }
+          groupBy: {
+            args: Prisma.JournalTagGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JournalTagGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JournalTagCountArgs<ExtArgs>
+            result: $Utils.Optional<JournalTagCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1879,6 +2125,9 @@ export namespace Prisma {
     reviewLike?: ReviewLikeOmit
     userVoyage?: UserVoyageOmit
     notification?: NotificationOmit
+    travelJournal?: TravelJournalOmit
+    journalPhoto?: JournalPhotoOmit
+    journalTag?: JournalTagOmit
   }
 
   /* Types for Logging */
@@ -1978,6 +2227,7 @@ export namespace Prisma {
     reviews: number
     reviewLikes: number
     userVoyages: number
+    travelJournals: number
     notifications: number
     sentNotifications: number
   }
@@ -1988,6 +2238,7 @@ export namespace Prisma {
     reviews?: boolean | UserCountOutputTypeCountReviewsArgs
     reviewLikes?: boolean | UserCountOutputTypeCountReviewLikesArgs
     userVoyages?: boolean | UserCountOutputTypeCountUserVoyagesArgs
+    travelJournals?: boolean | UserCountOutputTypeCountTravelJournalsArgs
     notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
     sentNotifications?: boolean | UserCountOutputTypeCountSentNotificationsArgs
   }
@@ -2041,6 +2292,13 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
+  export type UserCountOutputTypeCountTravelJournalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TravelJournalWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
   export type UserCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: NotificationWhereInput
   }
@@ -2063,6 +2321,7 @@ export namespace Prisma {
     reviews: number
     userVoyages: number
     notifications: number
+    travelJournals: number
   }
 
   export type DestinationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2071,6 +2330,7 @@ export namespace Prisma {
     reviews?: boolean | DestinationCountOutputTypeCountReviewsArgs
     userVoyages?: boolean | DestinationCountOutputTypeCountUserVoyagesArgs
     notifications?: boolean | DestinationCountOutputTypeCountNotificationsArgs
+    travelJournals?: boolean | DestinationCountOutputTypeCountTravelJournalsArgs
   }
 
   // Custom InputTypes
@@ -2117,6 +2377,13 @@ export namespace Prisma {
    */
   export type DestinationCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: NotificationWhereInput
+  }
+
+  /**
+   * DestinationCountOutputType without action
+   */
+  export type DestinationCountOutputTypeCountTravelJournalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TravelJournalWhereInput
   }
 
 
@@ -2330,6 +2597,46 @@ export namespace Prisma {
    */
   export type ReviewCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: NotificationWhereInput
+  }
+
+
+  /**
+   * Count Type TravelJournalCountOutputType
+   */
+
+  export type TravelJournalCountOutputType = {
+    tags: number
+    photos: number
+  }
+
+  export type TravelJournalCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tags?: boolean | TravelJournalCountOutputTypeCountTagsArgs
+    photos?: boolean | TravelJournalCountOutputTypeCountPhotosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TravelJournalCountOutputType without action
+   */
+  export type TravelJournalCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournalCountOutputType
+     */
+    select?: TravelJournalCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TravelJournalCountOutputType without action
+   */
+  export type TravelJournalCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JournalTagWhereInput
+  }
+
+  /**
+   * TravelJournalCountOutputType without action
+   */
+  export type TravelJournalCountOutputTypeCountPhotosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JournalPhotoWhereInput
   }
 
 
@@ -2628,6 +2935,7 @@ export namespace Prisma {
     reviews?: boolean | User$reviewsArgs<ExtArgs>
     reviewLikes?: boolean | User$reviewLikesArgs<ExtArgs>
     userVoyages?: boolean | User$userVoyagesArgs<ExtArgs>
+    travelJournals?: boolean | User$travelJournalsArgs<ExtArgs>
     notifications?: boolean | User$notificationsArgs<ExtArgs>
     sentNotifications?: boolean | User$sentNotificationsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2661,6 +2969,7 @@ export namespace Prisma {
     reviews?: boolean | User$reviewsArgs<ExtArgs>
     reviewLikes?: boolean | User$reviewLikesArgs<ExtArgs>
     userVoyages?: boolean | User$userVoyagesArgs<ExtArgs>
+    travelJournals?: boolean | User$travelJournalsArgs<ExtArgs>
     notifications?: boolean | User$notificationsArgs<ExtArgs>
     sentNotifications?: boolean | User$sentNotificationsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2674,6 +2983,7 @@ export namespace Prisma {
       reviews: Prisma.$ReviewPayload<ExtArgs>[]
       reviewLikes: Prisma.$ReviewLikePayload<ExtArgs>[]
       userVoyages: Prisma.$UserVoyagePayload<ExtArgs>[]
+      travelJournals: Prisma.$TravelJournalPayload<ExtArgs>[]
       notifications: Prisma.$NotificationPayload<ExtArgs>[]
       sentNotifications: Prisma.$NotificationPayload<ExtArgs>[]
     }
@@ -3039,6 +3349,7 @@ export namespace Prisma {
     reviews<T extends User$reviewsArgs<ExtArgs> = {}>(args?: Subset<T, User$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     reviewLikes<T extends User$reviewLikesArgs<ExtArgs> = {}>(args?: Subset<T, User$reviewLikesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewLikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     userVoyages<T extends User$userVoyagesArgs<ExtArgs> = {}>(args?: Subset<T, User$userVoyagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserVoyagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    travelJournals<T extends User$travelJournalsArgs<ExtArgs> = {}>(args?: Subset<T, User$travelJournalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     notifications<T extends User$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sentNotifications<T extends User$sentNotificationsArgs<ExtArgs> = {}>(args?: Subset<T, User$sentNotificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -3549,6 +3860,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.travelJournals
+   */
+  export type User$travelJournalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    where?: TravelJournalWhereInput
+    orderBy?: TravelJournalOrderByWithRelationInput | TravelJournalOrderByWithRelationInput[]
+    cursor?: TravelJournalWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TravelJournalScalarFieldEnum | TravelJournalScalarFieldEnum[]
+  }
+
+  /**
    * User.notifications
    */
   export type User$notificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3851,6 +4186,7 @@ export namespace Prisma {
     reviews?: boolean | Destination$reviewsArgs<ExtArgs>
     userVoyages?: boolean | Destination$userVoyagesArgs<ExtArgs>
     notifications?: boolean | Destination$notificationsArgs<ExtArgs>
+    travelJournals?: boolean | Destination$travelJournalsArgs<ExtArgs>
     _count?: boolean | DestinationCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["destination"]>
 
@@ -3876,6 +4212,7 @@ export namespace Prisma {
     reviews?: boolean | Destination$reviewsArgs<ExtArgs>
     userVoyages?: boolean | Destination$userVoyagesArgs<ExtArgs>
     notifications?: boolean | Destination$notificationsArgs<ExtArgs>
+    travelJournals?: boolean | Destination$travelJournalsArgs<ExtArgs>
     _count?: boolean | DestinationCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -3888,6 +4225,7 @@ export namespace Prisma {
       reviews: Prisma.$ReviewPayload<ExtArgs>[]
       userVoyages: Prisma.$UserVoyagePayload<ExtArgs>[]
       notifications: Prisma.$NotificationPayload<ExtArgs>[]
+      travelJournals: Prisma.$TravelJournalPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4245,6 +4583,7 @@ export namespace Prisma {
     reviews<T extends Destination$reviewsArgs<ExtArgs> = {}>(args?: Subset<T, Destination$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     userVoyages<T extends Destination$userVoyagesArgs<ExtArgs> = {}>(args?: Subset<T, Destination$userVoyagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserVoyagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     notifications<T extends Destination$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, Destination$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    travelJournals<T extends Destination$travelJournalsArgs<ExtArgs> = {}>(args?: Subset<T, Destination$travelJournalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4762,6 +5101,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Destination.travelJournals
+   */
+  export type Destination$travelJournalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    where?: TravelJournalWhereInput
+    orderBy?: TravelJournalOrderByWithRelationInput | TravelJournalOrderByWithRelationInput[]
+    cursor?: TravelJournalWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TravelJournalScalarFieldEnum | TravelJournalScalarFieldEnum[]
   }
 
   /**
@@ -16704,6 +17067,2926 @@ export namespace Prisma {
 
 
   /**
+   * Model TravelJournal
+   */
+
+  export type AggregateTravelJournal = {
+    _count: TravelJournalCountAggregateOutputType | null
+    _avg: TravelJournalAvgAggregateOutputType | null
+    _sum: TravelJournalSumAggregateOutputType | null
+    _min: TravelJournalMinAggregateOutputType | null
+    _max: TravelJournalMaxAggregateOutputType | null
+  }
+
+  export type TravelJournalAvgAggregateOutputType = {
+    userId: number | null
+    note: number | null
+  }
+
+  export type TravelJournalSumAggregateOutputType = {
+    userId: number | null
+    note: number | null
+  }
+
+  export type TravelJournalMinAggregateOutputType = {
+    id: string | null
+    userId: number | null
+    destinationId: string | null
+    titre: string | null
+    contenu: string | null
+    note: number | null
+    dateDebut: Date | null
+    dateFin: Date | null
+    isPublic: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TravelJournalMaxAggregateOutputType = {
+    id: string | null
+    userId: number | null
+    destinationId: string | null
+    titre: string | null
+    contenu: string | null
+    note: number | null
+    dateDebut: Date | null
+    dateFin: Date | null
+    isPublic: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TravelJournalCountAggregateOutputType = {
+    id: number
+    userId: number
+    destinationId: number
+    titre: number
+    contenu: number
+    note: number
+    dateDebut: number
+    dateFin: number
+    isPublic: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TravelJournalAvgAggregateInputType = {
+    userId?: true
+    note?: true
+  }
+
+  export type TravelJournalSumAggregateInputType = {
+    userId?: true
+    note?: true
+  }
+
+  export type TravelJournalMinAggregateInputType = {
+    id?: true
+    userId?: true
+    destinationId?: true
+    titre?: true
+    contenu?: true
+    note?: true
+    dateDebut?: true
+    dateFin?: true
+    isPublic?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TravelJournalMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    destinationId?: true
+    titre?: true
+    contenu?: true
+    note?: true
+    dateDebut?: true
+    dateFin?: true
+    isPublic?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TravelJournalCountAggregateInputType = {
+    id?: true
+    userId?: true
+    destinationId?: true
+    titre?: true
+    contenu?: true
+    note?: true
+    dateDebut?: true
+    dateFin?: true
+    isPublic?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TravelJournalAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TravelJournal to aggregate.
+     */
+    where?: TravelJournalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TravelJournals to fetch.
+     */
+    orderBy?: TravelJournalOrderByWithRelationInput | TravelJournalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TravelJournalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TravelJournals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TravelJournals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TravelJournals
+    **/
+    _count?: true | TravelJournalCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TravelJournalAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TravelJournalSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TravelJournalMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TravelJournalMaxAggregateInputType
+  }
+
+  export type GetTravelJournalAggregateType<T extends TravelJournalAggregateArgs> = {
+        [P in keyof T & keyof AggregateTravelJournal]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTravelJournal[P]>
+      : GetScalarType<T[P], AggregateTravelJournal[P]>
+  }
+
+
+
+
+  export type TravelJournalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TravelJournalWhereInput
+    orderBy?: TravelJournalOrderByWithAggregationInput | TravelJournalOrderByWithAggregationInput[]
+    by: TravelJournalScalarFieldEnum[] | TravelJournalScalarFieldEnum
+    having?: TravelJournalScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TravelJournalCountAggregateInputType | true
+    _avg?: TravelJournalAvgAggregateInputType
+    _sum?: TravelJournalSumAggregateInputType
+    _min?: TravelJournalMinAggregateInputType
+    _max?: TravelJournalMaxAggregateInputType
+  }
+
+  export type TravelJournalGroupByOutputType = {
+    id: string
+    userId: number
+    destinationId: string
+    titre: string
+    contenu: string | null
+    note: number | null
+    dateDebut: Date | null
+    dateFin: Date | null
+    isPublic: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: TravelJournalCountAggregateOutputType | null
+    _avg: TravelJournalAvgAggregateOutputType | null
+    _sum: TravelJournalSumAggregateOutputType | null
+    _min: TravelJournalMinAggregateOutputType | null
+    _max: TravelJournalMaxAggregateOutputType | null
+  }
+
+  type GetTravelJournalGroupByPayload<T extends TravelJournalGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TravelJournalGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TravelJournalGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TravelJournalGroupByOutputType[P]>
+            : GetScalarType<T[P], TravelJournalGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TravelJournalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    destinationId?: boolean
+    titre?: boolean
+    contenu?: boolean
+    note?: boolean
+    dateDebut?: boolean
+    dateFin?: boolean
+    isPublic?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tags?: boolean | TravelJournal$tagsArgs<ExtArgs>
+    photos?: boolean | TravelJournal$photosArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    destination?: boolean | DestinationDefaultArgs<ExtArgs>
+    _count?: boolean | TravelJournalCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["travelJournal"]>
+
+
+
+  export type TravelJournalSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    destinationId?: boolean
+    titre?: boolean
+    contenu?: boolean
+    note?: boolean
+    dateDebut?: boolean
+    dateFin?: boolean
+    isPublic?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TravelJournalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "destinationId" | "titre" | "contenu" | "note" | "dateDebut" | "dateFin" | "isPublic" | "createdAt" | "updatedAt", ExtArgs["result"]["travelJournal"]>
+  export type TravelJournalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tags?: boolean | TravelJournal$tagsArgs<ExtArgs>
+    photos?: boolean | TravelJournal$photosArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    destination?: boolean | DestinationDefaultArgs<ExtArgs>
+    _count?: boolean | TravelJournalCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $TravelJournalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TravelJournal"
+    objects: {
+      tags: Prisma.$JournalTagPayload<ExtArgs>[]
+      photos: Prisma.$JournalPhotoPayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs>
+      destination: Prisma.$DestinationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: number
+      destinationId: string
+      titre: string
+      contenu: string | null
+      note: number | null
+      dateDebut: Date | null
+      dateFin: Date | null
+      isPublic: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["travelJournal"]>
+    composites: {}
+  }
+
+  type TravelJournalGetPayload<S extends boolean | null | undefined | TravelJournalDefaultArgs> = $Result.GetResult<Prisma.$TravelJournalPayload, S>
+
+  type TravelJournalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TravelJournalFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TravelJournalCountAggregateInputType | true
+    }
+
+  export interface TravelJournalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TravelJournal'], meta: { name: 'TravelJournal' } }
+    /**
+     * Find zero or one TravelJournal that matches the filter.
+     * @param {TravelJournalFindUniqueArgs} args - Arguments to find a TravelJournal
+     * @example
+     * // Get one TravelJournal
+     * const travelJournal = await prisma.travelJournal.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TravelJournalFindUniqueArgs>(args: SelectSubset<T, TravelJournalFindUniqueArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TravelJournal that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TravelJournalFindUniqueOrThrowArgs} args - Arguments to find a TravelJournal
+     * @example
+     * // Get one TravelJournal
+     * const travelJournal = await prisma.travelJournal.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TravelJournalFindUniqueOrThrowArgs>(args: SelectSubset<T, TravelJournalFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TravelJournal that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TravelJournalFindFirstArgs} args - Arguments to find a TravelJournal
+     * @example
+     * // Get one TravelJournal
+     * const travelJournal = await prisma.travelJournal.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TravelJournalFindFirstArgs>(args?: SelectSubset<T, TravelJournalFindFirstArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TravelJournal that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TravelJournalFindFirstOrThrowArgs} args - Arguments to find a TravelJournal
+     * @example
+     * // Get one TravelJournal
+     * const travelJournal = await prisma.travelJournal.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TravelJournalFindFirstOrThrowArgs>(args?: SelectSubset<T, TravelJournalFindFirstOrThrowArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TravelJournals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TravelJournalFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TravelJournals
+     * const travelJournals = await prisma.travelJournal.findMany()
+     * 
+     * // Get first 10 TravelJournals
+     * const travelJournals = await prisma.travelJournal.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const travelJournalWithIdOnly = await prisma.travelJournal.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TravelJournalFindManyArgs>(args?: SelectSubset<T, TravelJournalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TravelJournal.
+     * @param {TravelJournalCreateArgs} args - Arguments to create a TravelJournal.
+     * @example
+     * // Create one TravelJournal
+     * const TravelJournal = await prisma.travelJournal.create({
+     *   data: {
+     *     // ... data to create a TravelJournal
+     *   }
+     * })
+     * 
+     */
+    create<T extends TravelJournalCreateArgs>(args: SelectSubset<T, TravelJournalCreateArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TravelJournals.
+     * @param {TravelJournalCreateManyArgs} args - Arguments to create many TravelJournals.
+     * @example
+     * // Create many TravelJournals
+     * const travelJournal = await prisma.travelJournal.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TravelJournalCreateManyArgs>(args?: SelectSubset<T, TravelJournalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a TravelJournal.
+     * @param {TravelJournalDeleteArgs} args - Arguments to delete one TravelJournal.
+     * @example
+     * // Delete one TravelJournal
+     * const TravelJournal = await prisma.travelJournal.delete({
+     *   where: {
+     *     // ... filter to delete one TravelJournal
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TravelJournalDeleteArgs>(args: SelectSubset<T, TravelJournalDeleteArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TravelJournal.
+     * @param {TravelJournalUpdateArgs} args - Arguments to update one TravelJournal.
+     * @example
+     * // Update one TravelJournal
+     * const travelJournal = await prisma.travelJournal.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TravelJournalUpdateArgs>(args: SelectSubset<T, TravelJournalUpdateArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TravelJournals.
+     * @param {TravelJournalDeleteManyArgs} args - Arguments to filter TravelJournals to delete.
+     * @example
+     * // Delete a few TravelJournals
+     * const { count } = await prisma.travelJournal.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TravelJournalDeleteManyArgs>(args?: SelectSubset<T, TravelJournalDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TravelJournals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TravelJournalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TravelJournals
+     * const travelJournal = await prisma.travelJournal.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TravelJournalUpdateManyArgs>(args: SelectSubset<T, TravelJournalUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one TravelJournal.
+     * @param {TravelJournalUpsertArgs} args - Arguments to update or create a TravelJournal.
+     * @example
+     * // Update or create a TravelJournal
+     * const travelJournal = await prisma.travelJournal.upsert({
+     *   create: {
+     *     // ... data to create a TravelJournal
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TravelJournal we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TravelJournalUpsertArgs>(args: SelectSubset<T, TravelJournalUpsertArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TravelJournals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TravelJournalCountArgs} args - Arguments to filter TravelJournals to count.
+     * @example
+     * // Count the number of TravelJournals
+     * const count = await prisma.travelJournal.count({
+     *   where: {
+     *     // ... the filter for the TravelJournals we want to count
+     *   }
+     * })
+    **/
+    count<T extends TravelJournalCountArgs>(
+      args?: Subset<T, TravelJournalCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TravelJournalCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TravelJournal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TravelJournalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TravelJournalAggregateArgs>(args: Subset<T, TravelJournalAggregateArgs>): Prisma.PrismaPromise<GetTravelJournalAggregateType<T>>
+
+    /**
+     * Group by TravelJournal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TravelJournalGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TravelJournalGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TravelJournalGroupByArgs['orderBy'] }
+        : { orderBy?: TravelJournalGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TravelJournalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTravelJournalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TravelJournal model
+   */
+  readonly fields: TravelJournalFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TravelJournal.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TravelJournalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tags<T extends TravelJournal$tagsArgs<ExtArgs> = {}>(args?: Subset<T, TravelJournal$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    photos<T extends TravelJournal$photosArgs<ExtArgs> = {}>(args?: Subset<T, TravelJournal$photosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    destination<T extends DestinationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DestinationDefaultArgs<ExtArgs>>): Prisma__DestinationClient<$Result.GetResult<Prisma.$DestinationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TravelJournal model
+   */
+  interface TravelJournalFieldRefs {
+    readonly id: FieldRef<"TravelJournal", 'String'>
+    readonly userId: FieldRef<"TravelJournal", 'Int'>
+    readonly destinationId: FieldRef<"TravelJournal", 'String'>
+    readonly titre: FieldRef<"TravelJournal", 'String'>
+    readonly contenu: FieldRef<"TravelJournal", 'String'>
+    readonly note: FieldRef<"TravelJournal", 'Int'>
+    readonly dateDebut: FieldRef<"TravelJournal", 'DateTime'>
+    readonly dateFin: FieldRef<"TravelJournal", 'DateTime'>
+    readonly isPublic: FieldRef<"TravelJournal", 'Boolean'>
+    readonly createdAt: FieldRef<"TravelJournal", 'DateTime'>
+    readonly updatedAt: FieldRef<"TravelJournal", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TravelJournal findUnique
+   */
+  export type TravelJournalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    /**
+     * Filter, which TravelJournal to fetch.
+     */
+    where: TravelJournalWhereUniqueInput
+  }
+
+  /**
+   * TravelJournal findUniqueOrThrow
+   */
+  export type TravelJournalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    /**
+     * Filter, which TravelJournal to fetch.
+     */
+    where: TravelJournalWhereUniqueInput
+  }
+
+  /**
+   * TravelJournal findFirst
+   */
+  export type TravelJournalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    /**
+     * Filter, which TravelJournal to fetch.
+     */
+    where?: TravelJournalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TravelJournals to fetch.
+     */
+    orderBy?: TravelJournalOrderByWithRelationInput | TravelJournalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TravelJournals.
+     */
+    cursor?: TravelJournalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TravelJournals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TravelJournals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TravelJournals.
+     */
+    distinct?: TravelJournalScalarFieldEnum | TravelJournalScalarFieldEnum[]
+  }
+
+  /**
+   * TravelJournal findFirstOrThrow
+   */
+  export type TravelJournalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    /**
+     * Filter, which TravelJournal to fetch.
+     */
+    where?: TravelJournalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TravelJournals to fetch.
+     */
+    orderBy?: TravelJournalOrderByWithRelationInput | TravelJournalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TravelJournals.
+     */
+    cursor?: TravelJournalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TravelJournals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TravelJournals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TravelJournals.
+     */
+    distinct?: TravelJournalScalarFieldEnum | TravelJournalScalarFieldEnum[]
+  }
+
+  /**
+   * TravelJournal findMany
+   */
+  export type TravelJournalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    /**
+     * Filter, which TravelJournals to fetch.
+     */
+    where?: TravelJournalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TravelJournals to fetch.
+     */
+    orderBy?: TravelJournalOrderByWithRelationInput | TravelJournalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TravelJournals.
+     */
+    cursor?: TravelJournalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TravelJournals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TravelJournals.
+     */
+    skip?: number
+    distinct?: TravelJournalScalarFieldEnum | TravelJournalScalarFieldEnum[]
+  }
+
+  /**
+   * TravelJournal create
+   */
+  export type TravelJournalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TravelJournal.
+     */
+    data: XOR<TravelJournalCreateInput, TravelJournalUncheckedCreateInput>
+  }
+
+  /**
+   * TravelJournal createMany
+   */
+  export type TravelJournalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TravelJournals.
+     */
+    data: TravelJournalCreateManyInput | TravelJournalCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TravelJournal update
+   */
+  export type TravelJournalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TravelJournal.
+     */
+    data: XOR<TravelJournalUpdateInput, TravelJournalUncheckedUpdateInput>
+    /**
+     * Choose, which TravelJournal to update.
+     */
+    where: TravelJournalWhereUniqueInput
+  }
+
+  /**
+   * TravelJournal updateMany
+   */
+  export type TravelJournalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TravelJournals.
+     */
+    data: XOR<TravelJournalUpdateManyMutationInput, TravelJournalUncheckedUpdateManyInput>
+    /**
+     * Filter which TravelJournals to update
+     */
+    where?: TravelJournalWhereInput
+    /**
+     * Limit how many TravelJournals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TravelJournal upsert
+   */
+  export type TravelJournalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TravelJournal to update in case it exists.
+     */
+    where: TravelJournalWhereUniqueInput
+    /**
+     * In case the TravelJournal found by the `where` argument doesn't exist, create a new TravelJournal with this data.
+     */
+    create: XOR<TravelJournalCreateInput, TravelJournalUncheckedCreateInput>
+    /**
+     * In case the TravelJournal was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TravelJournalUpdateInput, TravelJournalUncheckedUpdateInput>
+  }
+
+  /**
+   * TravelJournal delete
+   */
+  export type TravelJournalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+    /**
+     * Filter which TravelJournal to delete.
+     */
+    where: TravelJournalWhereUniqueInput
+  }
+
+  /**
+   * TravelJournal deleteMany
+   */
+  export type TravelJournalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TravelJournals to delete
+     */
+    where?: TravelJournalWhereInput
+    /**
+     * Limit how many TravelJournals to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TravelJournal.tags
+   */
+  export type TravelJournal$tagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    where?: JournalTagWhereInput
+    orderBy?: JournalTagOrderByWithRelationInput | JournalTagOrderByWithRelationInput[]
+    cursor?: JournalTagWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JournalTagScalarFieldEnum | JournalTagScalarFieldEnum[]
+  }
+
+  /**
+   * TravelJournal.photos
+   */
+  export type TravelJournal$photosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    where?: JournalPhotoWhereInput
+    orderBy?: JournalPhotoOrderByWithRelationInput | JournalPhotoOrderByWithRelationInput[]
+    cursor?: JournalPhotoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JournalPhotoScalarFieldEnum | JournalPhotoScalarFieldEnum[]
+  }
+
+  /**
+   * TravelJournal without action
+   */
+  export type TravelJournalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TravelJournal
+     */
+    select?: TravelJournalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TravelJournal
+     */
+    omit?: TravelJournalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TravelJournalInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model JournalPhoto
+   */
+
+  export type AggregateJournalPhoto = {
+    _count: JournalPhotoCountAggregateOutputType | null
+    _min: JournalPhotoMinAggregateOutputType | null
+    _max: JournalPhotoMaxAggregateOutputType | null
+  }
+
+  export type JournalPhotoMinAggregateOutputType = {
+    id: string | null
+    url: string | null
+    alt: string | null
+    journalId: string | null
+  }
+
+  export type JournalPhotoMaxAggregateOutputType = {
+    id: string | null
+    url: string | null
+    alt: string | null
+    journalId: string | null
+  }
+
+  export type JournalPhotoCountAggregateOutputType = {
+    id: number
+    url: number
+    alt: number
+    journalId: number
+    _all: number
+  }
+
+
+  export type JournalPhotoMinAggregateInputType = {
+    id?: true
+    url?: true
+    alt?: true
+    journalId?: true
+  }
+
+  export type JournalPhotoMaxAggregateInputType = {
+    id?: true
+    url?: true
+    alt?: true
+    journalId?: true
+  }
+
+  export type JournalPhotoCountAggregateInputType = {
+    id?: true
+    url?: true
+    alt?: true
+    journalId?: true
+    _all?: true
+  }
+
+  export type JournalPhotoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JournalPhoto to aggregate.
+     */
+    where?: JournalPhotoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalPhotos to fetch.
+     */
+    orderBy?: JournalPhotoOrderByWithRelationInput | JournalPhotoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JournalPhotoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalPhotos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalPhotos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JournalPhotos
+    **/
+    _count?: true | JournalPhotoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JournalPhotoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JournalPhotoMaxAggregateInputType
+  }
+
+  export type GetJournalPhotoAggregateType<T extends JournalPhotoAggregateArgs> = {
+        [P in keyof T & keyof AggregateJournalPhoto]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJournalPhoto[P]>
+      : GetScalarType<T[P], AggregateJournalPhoto[P]>
+  }
+
+
+
+
+  export type JournalPhotoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JournalPhotoWhereInput
+    orderBy?: JournalPhotoOrderByWithAggregationInput | JournalPhotoOrderByWithAggregationInput[]
+    by: JournalPhotoScalarFieldEnum[] | JournalPhotoScalarFieldEnum
+    having?: JournalPhotoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JournalPhotoCountAggregateInputType | true
+    _min?: JournalPhotoMinAggregateInputType
+    _max?: JournalPhotoMaxAggregateInputType
+  }
+
+  export type JournalPhotoGroupByOutputType = {
+    id: string
+    url: string
+    alt: string | null
+    journalId: string
+    _count: JournalPhotoCountAggregateOutputType | null
+    _min: JournalPhotoMinAggregateOutputType | null
+    _max: JournalPhotoMaxAggregateOutputType | null
+  }
+
+  type GetJournalPhotoGroupByPayload<T extends JournalPhotoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JournalPhotoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JournalPhotoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JournalPhotoGroupByOutputType[P]>
+            : GetScalarType<T[P], JournalPhotoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JournalPhotoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    alt?: boolean
+    journalId?: boolean
+    journal?: boolean | TravelJournalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["journalPhoto"]>
+
+
+
+  export type JournalPhotoSelectScalar = {
+    id?: boolean
+    url?: boolean
+    alt?: boolean
+    journalId?: boolean
+  }
+
+  export type JournalPhotoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "alt" | "journalId", ExtArgs["result"]["journalPhoto"]>
+  export type JournalPhotoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journal?: boolean | TravelJournalDefaultArgs<ExtArgs>
+  }
+
+  export type $JournalPhotoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JournalPhoto"
+    objects: {
+      journal: Prisma.$TravelJournalPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      url: string
+      alt: string | null
+      journalId: string
+    }, ExtArgs["result"]["journalPhoto"]>
+    composites: {}
+  }
+
+  type JournalPhotoGetPayload<S extends boolean | null | undefined | JournalPhotoDefaultArgs> = $Result.GetResult<Prisma.$JournalPhotoPayload, S>
+
+  type JournalPhotoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JournalPhotoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JournalPhotoCountAggregateInputType | true
+    }
+
+  export interface JournalPhotoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JournalPhoto'], meta: { name: 'JournalPhoto' } }
+    /**
+     * Find zero or one JournalPhoto that matches the filter.
+     * @param {JournalPhotoFindUniqueArgs} args - Arguments to find a JournalPhoto
+     * @example
+     * // Get one JournalPhoto
+     * const journalPhoto = await prisma.journalPhoto.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JournalPhotoFindUniqueArgs>(args: SelectSubset<T, JournalPhotoFindUniqueArgs<ExtArgs>>): Prisma__JournalPhotoClient<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JournalPhoto that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JournalPhotoFindUniqueOrThrowArgs} args - Arguments to find a JournalPhoto
+     * @example
+     * // Get one JournalPhoto
+     * const journalPhoto = await prisma.journalPhoto.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JournalPhotoFindUniqueOrThrowArgs>(args: SelectSubset<T, JournalPhotoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JournalPhotoClient<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JournalPhoto that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalPhotoFindFirstArgs} args - Arguments to find a JournalPhoto
+     * @example
+     * // Get one JournalPhoto
+     * const journalPhoto = await prisma.journalPhoto.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JournalPhotoFindFirstArgs>(args?: SelectSubset<T, JournalPhotoFindFirstArgs<ExtArgs>>): Prisma__JournalPhotoClient<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JournalPhoto that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalPhotoFindFirstOrThrowArgs} args - Arguments to find a JournalPhoto
+     * @example
+     * // Get one JournalPhoto
+     * const journalPhoto = await prisma.journalPhoto.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JournalPhotoFindFirstOrThrowArgs>(args?: SelectSubset<T, JournalPhotoFindFirstOrThrowArgs<ExtArgs>>): Prisma__JournalPhotoClient<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JournalPhotos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalPhotoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JournalPhotos
+     * const journalPhotos = await prisma.journalPhoto.findMany()
+     * 
+     * // Get first 10 JournalPhotos
+     * const journalPhotos = await prisma.journalPhoto.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const journalPhotoWithIdOnly = await prisma.journalPhoto.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JournalPhotoFindManyArgs>(args?: SelectSubset<T, JournalPhotoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JournalPhoto.
+     * @param {JournalPhotoCreateArgs} args - Arguments to create a JournalPhoto.
+     * @example
+     * // Create one JournalPhoto
+     * const JournalPhoto = await prisma.journalPhoto.create({
+     *   data: {
+     *     // ... data to create a JournalPhoto
+     *   }
+     * })
+     * 
+     */
+    create<T extends JournalPhotoCreateArgs>(args: SelectSubset<T, JournalPhotoCreateArgs<ExtArgs>>): Prisma__JournalPhotoClient<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JournalPhotos.
+     * @param {JournalPhotoCreateManyArgs} args - Arguments to create many JournalPhotos.
+     * @example
+     * // Create many JournalPhotos
+     * const journalPhoto = await prisma.journalPhoto.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JournalPhotoCreateManyArgs>(args?: SelectSubset<T, JournalPhotoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a JournalPhoto.
+     * @param {JournalPhotoDeleteArgs} args - Arguments to delete one JournalPhoto.
+     * @example
+     * // Delete one JournalPhoto
+     * const JournalPhoto = await prisma.journalPhoto.delete({
+     *   where: {
+     *     // ... filter to delete one JournalPhoto
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JournalPhotoDeleteArgs>(args: SelectSubset<T, JournalPhotoDeleteArgs<ExtArgs>>): Prisma__JournalPhotoClient<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JournalPhoto.
+     * @param {JournalPhotoUpdateArgs} args - Arguments to update one JournalPhoto.
+     * @example
+     * // Update one JournalPhoto
+     * const journalPhoto = await prisma.journalPhoto.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JournalPhotoUpdateArgs>(args: SelectSubset<T, JournalPhotoUpdateArgs<ExtArgs>>): Prisma__JournalPhotoClient<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JournalPhotos.
+     * @param {JournalPhotoDeleteManyArgs} args - Arguments to filter JournalPhotos to delete.
+     * @example
+     * // Delete a few JournalPhotos
+     * const { count } = await prisma.journalPhoto.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JournalPhotoDeleteManyArgs>(args?: SelectSubset<T, JournalPhotoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JournalPhotos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalPhotoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JournalPhotos
+     * const journalPhoto = await prisma.journalPhoto.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JournalPhotoUpdateManyArgs>(args: SelectSubset<T, JournalPhotoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one JournalPhoto.
+     * @param {JournalPhotoUpsertArgs} args - Arguments to update or create a JournalPhoto.
+     * @example
+     * // Update or create a JournalPhoto
+     * const journalPhoto = await prisma.journalPhoto.upsert({
+     *   create: {
+     *     // ... data to create a JournalPhoto
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JournalPhoto we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JournalPhotoUpsertArgs>(args: SelectSubset<T, JournalPhotoUpsertArgs<ExtArgs>>): Prisma__JournalPhotoClient<$Result.GetResult<Prisma.$JournalPhotoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JournalPhotos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalPhotoCountArgs} args - Arguments to filter JournalPhotos to count.
+     * @example
+     * // Count the number of JournalPhotos
+     * const count = await prisma.journalPhoto.count({
+     *   where: {
+     *     // ... the filter for the JournalPhotos we want to count
+     *   }
+     * })
+    **/
+    count<T extends JournalPhotoCountArgs>(
+      args?: Subset<T, JournalPhotoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JournalPhotoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JournalPhoto.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalPhotoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JournalPhotoAggregateArgs>(args: Subset<T, JournalPhotoAggregateArgs>): Prisma.PrismaPromise<GetJournalPhotoAggregateType<T>>
+
+    /**
+     * Group by JournalPhoto.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalPhotoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JournalPhotoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JournalPhotoGroupByArgs['orderBy'] }
+        : { orderBy?: JournalPhotoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JournalPhotoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJournalPhotoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JournalPhoto model
+   */
+  readonly fields: JournalPhotoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JournalPhoto.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JournalPhotoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    journal<T extends TravelJournalDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TravelJournalDefaultArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JournalPhoto model
+   */
+  interface JournalPhotoFieldRefs {
+    readonly id: FieldRef<"JournalPhoto", 'String'>
+    readonly url: FieldRef<"JournalPhoto", 'String'>
+    readonly alt: FieldRef<"JournalPhoto", 'String'>
+    readonly journalId: FieldRef<"JournalPhoto", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JournalPhoto findUnique
+   */
+  export type JournalPhotoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalPhoto to fetch.
+     */
+    where: JournalPhotoWhereUniqueInput
+  }
+
+  /**
+   * JournalPhoto findUniqueOrThrow
+   */
+  export type JournalPhotoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalPhoto to fetch.
+     */
+    where: JournalPhotoWhereUniqueInput
+  }
+
+  /**
+   * JournalPhoto findFirst
+   */
+  export type JournalPhotoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalPhoto to fetch.
+     */
+    where?: JournalPhotoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalPhotos to fetch.
+     */
+    orderBy?: JournalPhotoOrderByWithRelationInput | JournalPhotoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JournalPhotos.
+     */
+    cursor?: JournalPhotoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalPhotos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalPhotos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JournalPhotos.
+     */
+    distinct?: JournalPhotoScalarFieldEnum | JournalPhotoScalarFieldEnum[]
+  }
+
+  /**
+   * JournalPhoto findFirstOrThrow
+   */
+  export type JournalPhotoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalPhoto to fetch.
+     */
+    where?: JournalPhotoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalPhotos to fetch.
+     */
+    orderBy?: JournalPhotoOrderByWithRelationInput | JournalPhotoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JournalPhotos.
+     */
+    cursor?: JournalPhotoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalPhotos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalPhotos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JournalPhotos.
+     */
+    distinct?: JournalPhotoScalarFieldEnum | JournalPhotoScalarFieldEnum[]
+  }
+
+  /**
+   * JournalPhoto findMany
+   */
+  export type JournalPhotoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalPhotos to fetch.
+     */
+    where?: JournalPhotoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalPhotos to fetch.
+     */
+    orderBy?: JournalPhotoOrderByWithRelationInput | JournalPhotoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JournalPhotos.
+     */
+    cursor?: JournalPhotoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalPhotos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalPhotos.
+     */
+    skip?: number
+    distinct?: JournalPhotoScalarFieldEnum | JournalPhotoScalarFieldEnum[]
+  }
+
+  /**
+   * JournalPhoto create
+   */
+  export type JournalPhotoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JournalPhoto.
+     */
+    data: XOR<JournalPhotoCreateInput, JournalPhotoUncheckedCreateInput>
+  }
+
+  /**
+   * JournalPhoto createMany
+   */
+  export type JournalPhotoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JournalPhotos.
+     */
+    data: JournalPhotoCreateManyInput | JournalPhotoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JournalPhoto update
+   */
+  export type JournalPhotoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JournalPhoto.
+     */
+    data: XOR<JournalPhotoUpdateInput, JournalPhotoUncheckedUpdateInput>
+    /**
+     * Choose, which JournalPhoto to update.
+     */
+    where: JournalPhotoWhereUniqueInput
+  }
+
+  /**
+   * JournalPhoto updateMany
+   */
+  export type JournalPhotoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JournalPhotos.
+     */
+    data: XOR<JournalPhotoUpdateManyMutationInput, JournalPhotoUncheckedUpdateManyInput>
+    /**
+     * Filter which JournalPhotos to update
+     */
+    where?: JournalPhotoWhereInput
+    /**
+     * Limit how many JournalPhotos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JournalPhoto upsert
+   */
+  export type JournalPhotoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JournalPhoto to update in case it exists.
+     */
+    where: JournalPhotoWhereUniqueInput
+    /**
+     * In case the JournalPhoto found by the `where` argument doesn't exist, create a new JournalPhoto with this data.
+     */
+    create: XOR<JournalPhotoCreateInput, JournalPhotoUncheckedCreateInput>
+    /**
+     * In case the JournalPhoto was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JournalPhotoUpdateInput, JournalPhotoUncheckedUpdateInput>
+  }
+
+  /**
+   * JournalPhoto delete
+   */
+  export type JournalPhotoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+    /**
+     * Filter which JournalPhoto to delete.
+     */
+    where: JournalPhotoWhereUniqueInput
+  }
+
+  /**
+   * JournalPhoto deleteMany
+   */
+  export type JournalPhotoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JournalPhotos to delete
+     */
+    where?: JournalPhotoWhereInput
+    /**
+     * Limit how many JournalPhotos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JournalPhoto without action
+   */
+  export type JournalPhotoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalPhoto
+     */
+    select?: JournalPhotoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalPhoto
+     */
+    omit?: JournalPhotoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalPhotoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model JournalTag
+   */
+
+  export type AggregateJournalTag = {
+    _count: JournalTagCountAggregateOutputType | null
+    _min: JournalTagMinAggregateOutputType | null
+    _max: JournalTagMaxAggregateOutputType | null
+  }
+
+  export type JournalTagMinAggregateOutputType = {
+    id: string | null
+    label: string | null
+    journalId: string | null
+  }
+
+  export type JournalTagMaxAggregateOutputType = {
+    id: string | null
+    label: string | null
+    journalId: string | null
+  }
+
+  export type JournalTagCountAggregateOutputType = {
+    id: number
+    label: number
+    journalId: number
+    _all: number
+  }
+
+
+  export type JournalTagMinAggregateInputType = {
+    id?: true
+    label?: true
+    journalId?: true
+  }
+
+  export type JournalTagMaxAggregateInputType = {
+    id?: true
+    label?: true
+    journalId?: true
+  }
+
+  export type JournalTagCountAggregateInputType = {
+    id?: true
+    label?: true
+    journalId?: true
+    _all?: true
+  }
+
+  export type JournalTagAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JournalTag to aggregate.
+     */
+    where?: JournalTagWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalTags to fetch.
+     */
+    orderBy?: JournalTagOrderByWithRelationInput | JournalTagOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JournalTagWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalTags from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalTags.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JournalTags
+    **/
+    _count?: true | JournalTagCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JournalTagMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JournalTagMaxAggregateInputType
+  }
+
+  export type GetJournalTagAggregateType<T extends JournalTagAggregateArgs> = {
+        [P in keyof T & keyof AggregateJournalTag]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJournalTag[P]>
+      : GetScalarType<T[P], AggregateJournalTag[P]>
+  }
+
+
+
+
+  export type JournalTagGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JournalTagWhereInput
+    orderBy?: JournalTagOrderByWithAggregationInput | JournalTagOrderByWithAggregationInput[]
+    by: JournalTagScalarFieldEnum[] | JournalTagScalarFieldEnum
+    having?: JournalTagScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JournalTagCountAggregateInputType | true
+    _min?: JournalTagMinAggregateInputType
+    _max?: JournalTagMaxAggregateInputType
+  }
+
+  export type JournalTagGroupByOutputType = {
+    id: string
+    label: string
+    journalId: string
+    _count: JournalTagCountAggregateOutputType | null
+    _min: JournalTagMinAggregateOutputType | null
+    _max: JournalTagMaxAggregateOutputType | null
+  }
+
+  type GetJournalTagGroupByPayload<T extends JournalTagGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JournalTagGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JournalTagGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JournalTagGroupByOutputType[P]>
+            : GetScalarType<T[P], JournalTagGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JournalTagSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    label?: boolean
+    journalId?: boolean
+    journal?: boolean | TravelJournalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["journalTag"]>
+
+
+
+  export type JournalTagSelectScalar = {
+    id?: boolean
+    label?: boolean
+    journalId?: boolean
+  }
+
+  export type JournalTagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "label" | "journalId", ExtArgs["result"]["journalTag"]>
+  export type JournalTagInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journal?: boolean | TravelJournalDefaultArgs<ExtArgs>
+  }
+
+  export type $JournalTagPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JournalTag"
+    objects: {
+      journal: Prisma.$TravelJournalPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      label: string
+      journalId: string
+    }, ExtArgs["result"]["journalTag"]>
+    composites: {}
+  }
+
+  type JournalTagGetPayload<S extends boolean | null | undefined | JournalTagDefaultArgs> = $Result.GetResult<Prisma.$JournalTagPayload, S>
+
+  type JournalTagCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JournalTagFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JournalTagCountAggregateInputType | true
+    }
+
+  export interface JournalTagDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JournalTag'], meta: { name: 'JournalTag' } }
+    /**
+     * Find zero or one JournalTag that matches the filter.
+     * @param {JournalTagFindUniqueArgs} args - Arguments to find a JournalTag
+     * @example
+     * // Get one JournalTag
+     * const journalTag = await prisma.journalTag.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JournalTagFindUniqueArgs>(args: SelectSubset<T, JournalTagFindUniqueArgs<ExtArgs>>): Prisma__JournalTagClient<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JournalTag that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JournalTagFindUniqueOrThrowArgs} args - Arguments to find a JournalTag
+     * @example
+     * // Get one JournalTag
+     * const journalTag = await prisma.journalTag.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JournalTagFindUniqueOrThrowArgs>(args: SelectSubset<T, JournalTagFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JournalTagClient<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JournalTag that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalTagFindFirstArgs} args - Arguments to find a JournalTag
+     * @example
+     * // Get one JournalTag
+     * const journalTag = await prisma.journalTag.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JournalTagFindFirstArgs>(args?: SelectSubset<T, JournalTagFindFirstArgs<ExtArgs>>): Prisma__JournalTagClient<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JournalTag that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalTagFindFirstOrThrowArgs} args - Arguments to find a JournalTag
+     * @example
+     * // Get one JournalTag
+     * const journalTag = await prisma.journalTag.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JournalTagFindFirstOrThrowArgs>(args?: SelectSubset<T, JournalTagFindFirstOrThrowArgs<ExtArgs>>): Prisma__JournalTagClient<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JournalTags that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalTagFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JournalTags
+     * const journalTags = await prisma.journalTag.findMany()
+     * 
+     * // Get first 10 JournalTags
+     * const journalTags = await prisma.journalTag.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const journalTagWithIdOnly = await prisma.journalTag.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JournalTagFindManyArgs>(args?: SelectSubset<T, JournalTagFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JournalTag.
+     * @param {JournalTagCreateArgs} args - Arguments to create a JournalTag.
+     * @example
+     * // Create one JournalTag
+     * const JournalTag = await prisma.journalTag.create({
+     *   data: {
+     *     // ... data to create a JournalTag
+     *   }
+     * })
+     * 
+     */
+    create<T extends JournalTagCreateArgs>(args: SelectSubset<T, JournalTagCreateArgs<ExtArgs>>): Prisma__JournalTagClient<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JournalTags.
+     * @param {JournalTagCreateManyArgs} args - Arguments to create many JournalTags.
+     * @example
+     * // Create many JournalTags
+     * const journalTag = await prisma.journalTag.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JournalTagCreateManyArgs>(args?: SelectSubset<T, JournalTagCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a JournalTag.
+     * @param {JournalTagDeleteArgs} args - Arguments to delete one JournalTag.
+     * @example
+     * // Delete one JournalTag
+     * const JournalTag = await prisma.journalTag.delete({
+     *   where: {
+     *     // ... filter to delete one JournalTag
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JournalTagDeleteArgs>(args: SelectSubset<T, JournalTagDeleteArgs<ExtArgs>>): Prisma__JournalTagClient<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JournalTag.
+     * @param {JournalTagUpdateArgs} args - Arguments to update one JournalTag.
+     * @example
+     * // Update one JournalTag
+     * const journalTag = await prisma.journalTag.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JournalTagUpdateArgs>(args: SelectSubset<T, JournalTagUpdateArgs<ExtArgs>>): Prisma__JournalTagClient<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JournalTags.
+     * @param {JournalTagDeleteManyArgs} args - Arguments to filter JournalTags to delete.
+     * @example
+     * // Delete a few JournalTags
+     * const { count } = await prisma.journalTag.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JournalTagDeleteManyArgs>(args?: SelectSubset<T, JournalTagDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JournalTags.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalTagUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JournalTags
+     * const journalTag = await prisma.journalTag.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JournalTagUpdateManyArgs>(args: SelectSubset<T, JournalTagUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one JournalTag.
+     * @param {JournalTagUpsertArgs} args - Arguments to update or create a JournalTag.
+     * @example
+     * // Update or create a JournalTag
+     * const journalTag = await prisma.journalTag.upsert({
+     *   create: {
+     *     // ... data to create a JournalTag
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JournalTag we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JournalTagUpsertArgs>(args: SelectSubset<T, JournalTagUpsertArgs<ExtArgs>>): Prisma__JournalTagClient<$Result.GetResult<Prisma.$JournalTagPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JournalTags.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalTagCountArgs} args - Arguments to filter JournalTags to count.
+     * @example
+     * // Count the number of JournalTags
+     * const count = await prisma.journalTag.count({
+     *   where: {
+     *     // ... the filter for the JournalTags we want to count
+     *   }
+     * })
+    **/
+    count<T extends JournalTagCountArgs>(
+      args?: Subset<T, JournalTagCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JournalTagCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JournalTag.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalTagAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JournalTagAggregateArgs>(args: Subset<T, JournalTagAggregateArgs>): Prisma.PrismaPromise<GetJournalTagAggregateType<T>>
+
+    /**
+     * Group by JournalTag.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalTagGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JournalTagGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JournalTagGroupByArgs['orderBy'] }
+        : { orderBy?: JournalTagGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JournalTagGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJournalTagGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JournalTag model
+   */
+  readonly fields: JournalTagFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JournalTag.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JournalTagClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    journal<T extends TravelJournalDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TravelJournalDefaultArgs<ExtArgs>>): Prisma__TravelJournalClient<$Result.GetResult<Prisma.$TravelJournalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JournalTag model
+   */
+  interface JournalTagFieldRefs {
+    readonly id: FieldRef<"JournalTag", 'String'>
+    readonly label: FieldRef<"JournalTag", 'String'>
+    readonly journalId: FieldRef<"JournalTag", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JournalTag findUnique
+   */
+  export type JournalTagFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalTag to fetch.
+     */
+    where: JournalTagWhereUniqueInput
+  }
+
+  /**
+   * JournalTag findUniqueOrThrow
+   */
+  export type JournalTagFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalTag to fetch.
+     */
+    where: JournalTagWhereUniqueInput
+  }
+
+  /**
+   * JournalTag findFirst
+   */
+  export type JournalTagFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalTag to fetch.
+     */
+    where?: JournalTagWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalTags to fetch.
+     */
+    orderBy?: JournalTagOrderByWithRelationInput | JournalTagOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JournalTags.
+     */
+    cursor?: JournalTagWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalTags from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalTags.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JournalTags.
+     */
+    distinct?: JournalTagScalarFieldEnum | JournalTagScalarFieldEnum[]
+  }
+
+  /**
+   * JournalTag findFirstOrThrow
+   */
+  export type JournalTagFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalTag to fetch.
+     */
+    where?: JournalTagWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalTags to fetch.
+     */
+    orderBy?: JournalTagOrderByWithRelationInput | JournalTagOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JournalTags.
+     */
+    cursor?: JournalTagWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalTags from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalTags.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JournalTags.
+     */
+    distinct?: JournalTagScalarFieldEnum | JournalTagScalarFieldEnum[]
+  }
+
+  /**
+   * JournalTag findMany
+   */
+  export type JournalTagFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    /**
+     * Filter, which JournalTags to fetch.
+     */
+    where?: JournalTagWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JournalTags to fetch.
+     */
+    orderBy?: JournalTagOrderByWithRelationInput | JournalTagOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JournalTags.
+     */
+    cursor?: JournalTagWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JournalTags from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JournalTags.
+     */
+    skip?: number
+    distinct?: JournalTagScalarFieldEnum | JournalTagScalarFieldEnum[]
+  }
+
+  /**
+   * JournalTag create
+   */
+  export type JournalTagCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JournalTag.
+     */
+    data: XOR<JournalTagCreateInput, JournalTagUncheckedCreateInput>
+  }
+
+  /**
+   * JournalTag createMany
+   */
+  export type JournalTagCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JournalTags.
+     */
+    data: JournalTagCreateManyInput | JournalTagCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JournalTag update
+   */
+  export type JournalTagUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JournalTag.
+     */
+    data: XOR<JournalTagUpdateInput, JournalTagUncheckedUpdateInput>
+    /**
+     * Choose, which JournalTag to update.
+     */
+    where: JournalTagWhereUniqueInput
+  }
+
+  /**
+   * JournalTag updateMany
+   */
+  export type JournalTagUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JournalTags.
+     */
+    data: XOR<JournalTagUpdateManyMutationInput, JournalTagUncheckedUpdateManyInput>
+    /**
+     * Filter which JournalTags to update
+     */
+    where?: JournalTagWhereInput
+    /**
+     * Limit how many JournalTags to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JournalTag upsert
+   */
+  export type JournalTagUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JournalTag to update in case it exists.
+     */
+    where: JournalTagWhereUniqueInput
+    /**
+     * In case the JournalTag found by the `where` argument doesn't exist, create a new JournalTag with this data.
+     */
+    create: XOR<JournalTagCreateInput, JournalTagUncheckedCreateInput>
+    /**
+     * In case the JournalTag was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JournalTagUpdateInput, JournalTagUncheckedUpdateInput>
+  }
+
+  /**
+   * JournalTag delete
+   */
+  export type JournalTagDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+    /**
+     * Filter which JournalTag to delete.
+     */
+    where: JournalTagWhereUniqueInput
+  }
+
+  /**
+   * JournalTag deleteMany
+   */
+  export type JournalTagDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JournalTags to delete
+     */
+    where?: JournalTagWhereInput
+    /**
+     * Limit how many JournalTags to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JournalTag without action
+   */
+  export type JournalTagDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalTag
+     */
+    select?: JournalTagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JournalTag
+     */
+    omit?: JournalTagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JournalTagInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -16890,6 +20173,42 @@ export namespace Prisma {
   export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
 
 
+  export const TravelJournalScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    destinationId: 'destinationId',
+    titre: 'titre',
+    contenu: 'contenu',
+    note: 'note',
+    dateDebut: 'dateDebut',
+    dateFin: 'dateFin',
+    isPublic: 'isPublic',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TravelJournalScalarFieldEnum = (typeof TravelJournalScalarFieldEnum)[keyof typeof TravelJournalScalarFieldEnum]
+
+
+  export const JournalPhotoScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    alt: 'alt',
+    journalId: 'journalId'
+  };
+
+  export type JournalPhotoScalarFieldEnum = (typeof JournalPhotoScalarFieldEnum)[keyof typeof JournalPhotoScalarFieldEnum]
+
+
+  export const JournalTagScalarFieldEnum: {
+    id: 'id',
+    label: 'label',
+    journalId: 'journalId'
+  };
+
+  export type JournalTagScalarFieldEnum = (typeof JournalTagScalarFieldEnum)[keyof typeof JournalTagScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -17046,6 +20365,35 @@ export namespace Prisma {
   export type NotificationOrderByRelevanceFieldEnum = (typeof NotificationOrderByRelevanceFieldEnum)[keyof typeof NotificationOrderByRelevanceFieldEnum]
 
 
+  export const TravelJournalOrderByRelevanceFieldEnum: {
+    id: 'id',
+    destinationId: 'destinationId',
+    titre: 'titre',
+    contenu: 'contenu'
+  };
+
+  export type TravelJournalOrderByRelevanceFieldEnum = (typeof TravelJournalOrderByRelevanceFieldEnum)[keyof typeof TravelJournalOrderByRelevanceFieldEnum]
+
+
+  export const JournalPhotoOrderByRelevanceFieldEnum: {
+    id: 'id',
+    url: 'url',
+    alt: 'alt',
+    journalId: 'journalId'
+  };
+
+  export type JournalPhotoOrderByRelevanceFieldEnum = (typeof JournalPhotoOrderByRelevanceFieldEnum)[keyof typeof JournalPhotoOrderByRelevanceFieldEnum]
+
+
+  export const JournalTagOrderByRelevanceFieldEnum: {
+    id: 'id',
+    label: 'label',
+    journalId: 'journalId'
+  };
+
+  export type JournalTagOrderByRelevanceFieldEnum = (typeof JournalTagOrderByRelevanceFieldEnum)[keyof typeof JournalTagOrderByRelevanceFieldEnum]
+
+
   /**
    * Field references
    */
@@ -17128,6 +20476,7 @@ export namespace Prisma {
     reviews?: ReviewListRelationFilter
     reviewLikes?: ReviewLikeListRelationFilter
     userVoyages?: UserVoyageListRelationFilter
+    travelJournals?: TravelJournalListRelationFilter
     notifications?: NotificationListRelationFilter
     sentNotifications?: NotificationListRelationFilter
   }
@@ -17154,6 +20503,7 @@ export namespace Prisma {
     reviews?: ReviewOrderByRelationAggregateInput
     reviewLikes?: ReviewLikeOrderByRelationAggregateInput
     userVoyages?: UserVoyageOrderByRelationAggregateInput
+    travelJournals?: TravelJournalOrderByRelationAggregateInput
     notifications?: NotificationOrderByRelationAggregateInput
     sentNotifications?: NotificationOrderByRelationAggregateInput
     _relevance?: UserOrderByRelevanceInput
@@ -17184,6 +20534,7 @@ export namespace Prisma {
     reviews?: ReviewListRelationFilter
     reviewLikes?: ReviewLikeListRelationFilter
     userVoyages?: UserVoyageListRelationFilter
+    travelJournals?: TravelJournalListRelationFilter
     notifications?: NotificationListRelationFilter
     sentNotifications?: NotificationListRelationFilter
   }, "id" | "email">
@@ -17253,6 +20604,7 @@ export namespace Prisma {
     reviews?: ReviewListRelationFilter
     userVoyages?: UserVoyageListRelationFilter
     notifications?: NotificationListRelationFilter
+    travelJournals?: TravelJournalListRelationFilter
   }
 
   export type DestinationOrderByWithRelationInput = {
@@ -17271,6 +20623,7 @@ export namespace Prisma {
     reviews?: ReviewOrderByRelationAggregateInput
     userVoyages?: UserVoyageOrderByRelationAggregateInput
     notifications?: NotificationOrderByRelationAggregateInput
+    travelJournals?: TravelJournalOrderByRelationAggregateInput
     _relevance?: DestinationOrderByRelevanceInput
   }
 
@@ -17293,6 +20646,7 @@ export namespace Prisma {
     reviews?: ReviewListRelationFilter
     userVoyages?: UserVoyageListRelationFilter
     notifications?: NotificationListRelationFilter
+    travelJournals?: TravelJournalListRelationFilter
   }, "id">
 
   export type DestinationOrderByWithAggregationInput = {
@@ -18092,6 +21446,200 @@ export namespace Prisma {
     isRead?: BoolWithAggregatesFilter<"Notification"> | boolean
   }
 
+  export type TravelJournalWhereInput = {
+    AND?: TravelJournalWhereInput | TravelJournalWhereInput[]
+    OR?: TravelJournalWhereInput[]
+    NOT?: TravelJournalWhereInput | TravelJournalWhereInput[]
+    id?: StringFilter<"TravelJournal"> | string
+    userId?: IntFilter<"TravelJournal"> | number
+    destinationId?: StringFilter<"TravelJournal"> | string
+    titre?: StringFilter<"TravelJournal"> | string
+    contenu?: StringNullableFilter<"TravelJournal"> | string | null
+    note?: IntNullableFilter<"TravelJournal"> | number | null
+    dateDebut?: DateTimeNullableFilter<"TravelJournal"> | Date | string | null
+    dateFin?: DateTimeNullableFilter<"TravelJournal"> | Date | string | null
+    isPublic?: BoolFilter<"TravelJournal"> | boolean
+    createdAt?: DateTimeFilter<"TravelJournal"> | Date | string
+    updatedAt?: DateTimeFilter<"TravelJournal"> | Date | string
+    tags?: JournalTagListRelationFilter
+    photos?: JournalPhotoListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    destination?: XOR<DestinationScalarRelationFilter, DestinationWhereInput>
+  }
+
+  export type TravelJournalOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    destinationId?: SortOrder
+    titre?: SortOrder
+    contenu?: SortOrderInput | SortOrder
+    note?: SortOrderInput | SortOrder
+    dateDebut?: SortOrderInput | SortOrder
+    dateFin?: SortOrderInput | SortOrder
+    isPublic?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tags?: JournalTagOrderByRelationAggregateInput
+    photos?: JournalPhotoOrderByRelationAggregateInput
+    user?: UserOrderByWithRelationInput
+    destination?: DestinationOrderByWithRelationInput
+    _relevance?: TravelJournalOrderByRelevanceInput
+  }
+
+  export type TravelJournalWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: TravelJournalWhereInput | TravelJournalWhereInput[]
+    OR?: TravelJournalWhereInput[]
+    NOT?: TravelJournalWhereInput | TravelJournalWhereInput[]
+    userId?: IntFilter<"TravelJournal"> | number
+    destinationId?: StringFilter<"TravelJournal"> | string
+    titre?: StringFilter<"TravelJournal"> | string
+    contenu?: StringNullableFilter<"TravelJournal"> | string | null
+    note?: IntNullableFilter<"TravelJournal"> | number | null
+    dateDebut?: DateTimeNullableFilter<"TravelJournal"> | Date | string | null
+    dateFin?: DateTimeNullableFilter<"TravelJournal"> | Date | string | null
+    isPublic?: BoolFilter<"TravelJournal"> | boolean
+    createdAt?: DateTimeFilter<"TravelJournal"> | Date | string
+    updatedAt?: DateTimeFilter<"TravelJournal"> | Date | string
+    tags?: JournalTagListRelationFilter
+    photos?: JournalPhotoListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    destination?: XOR<DestinationScalarRelationFilter, DestinationWhereInput>
+  }, "id">
+
+  export type TravelJournalOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    destinationId?: SortOrder
+    titre?: SortOrder
+    contenu?: SortOrderInput | SortOrder
+    note?: SortOrderInput | SortOrder
+    dateDebut?: SortOrderInput | SortOrder
+    dateFin?: SortOrderInput | SortOrder
+    isPublic?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TravelJournalCountOrderByAggregateInput
+    _avg?: TravelJournalAvgOrderByAggregateInput
+    _max?: TravelJournalMaxOrderByAggregateInput
+    _min?: TravelJournalMinOrderByAggregateInput
+    _sum?: TravelJournalSumOrderByAggregateInput
+  }
+
+  export type TravelJournalScalarWhereWithAggregatesInput = {
+    AND?: TravelJournalScalarWhereWithAggregatesInput | TravelJournalScalarWhereWithAggregatesInput[]
+    OR?: TravelJournalScalarWhereWithAggregatesInput[]
+    NOT?: TravelJournalScalarWhereWithAggregatesInput | TravelJournalScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"TravelJournal"> | string
+    userId?: IntWithAggregatesFilter<"TravelJournal"> | number
+    destinationId?: StringWithAggregatesFilter<"TravelJournal"> | string
+    titre?: StringWithAggregatesFilter<"TravelJournal"> | string
+    contenu?: StringNullableWithAggregatesFilter<"TravelJournal"> | string | null
+    note?: IntNullableWithAggregatesFilter<"TravelJournal"> | number | null
+    dateDebut?: DateTimeNullableWithAggregatesFilter<"TravelJournal"> | Date | string | null
+    dateFin?: DateTimeNullableWithAggregatesFilter<"TravelJournal"> | Date | string | null
+    isPublic?: BoolWithAggregatesFilter<"TravelJournal"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"TravelJournal"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"TravelJournal"> | Date | string
+  }
+
+  export type JournalPhotoWhereInput = {
+    AND?: JournalPhotoWhereInput | JournalPhotoWhereInput[]
+    OR?: JournalPhotoWhereInput[]
+    NOT?: JournalPhotoWhereInput | JournalPhotoWhereInput[]
+    id?: StringFilter<"JournalPhoto"> | string
+    url?: StringFilter<"JournalPhoto"> | string
+    alt?: StringNullableFilter<"JournalPhoto"> | string | null
+    journalId?: StringFilter<"JournalPhoto"> | string
+    journal?: XOR<TravelJournalScalarRelationFilter, TravelJournalWhereInput>
+  }
+
+  export type JournalPhotoOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    alt?: SortOrderInput | SortOrder
+    journalId?: SortOrder
+    journal?: TravelJournalOrderByWithRelationInput
+    _relevance?: JournalPhotoOrderByRelevanceInput
+  }
+
+  export type JournalPhotoWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: JournalPhotoWhereInput | JournalPhotoWhereInput[]
+    OR?: JournalPhotoWhereInput[]
+    NOT?: JournalPhotoWhereInput | JournalPhotoWhereInput[]
+    url?: StringFilter<"JournalPhoto"> | string
+    alt?: StringNullableFilter<"JournalPhoto"> | string | null
+    journalId?: StringFilter<"JournalPhoto"> | string
+    journal?: XOR<TravelJournalScalarRelationFilter, TravelJournalWhereInput>
+  }, "id">
+
+  export type JournalPhotoOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    alt?: SortOrderInput | SortOrder
+    journalId?: SortOrder
+    _count?: JournalPhotoCountOrderByAggregateInput
+    _max?: JournalPhotoMaxOrderByAggregateInput
+    _min?: JournalPhotoMinOrderByAggregateInput
+  }
+
+  export type JournalPhotoScalarWhereWithAggregatesInput = {
+    AND?: JournalPhotoScalarWhereWithAggregatesInput | JournalPhotoScalarWhereWithAggregatesInput[]
+    OR?: JournalPhotoScalarWhereWithAggregatesInput[]
+    NOT?: JournalPhotoScalarWhereWithAggregatesInput | JournalPhotoScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"JournalPhoto"> | string
+    url?: StringWithAggregatesFilter<"JournalPhoto"> | string
+    alt?: StringNullableWithAggregatesFilter<"JournalPhoto"> | string | null
+    journalId?: StringWithAggregatesFilter<"JournalPhoto"> | string
+  }
+
+  export type JournalTagWhereInput = {
+    AND?: JournalTagWhereInput | JournalTagWhereInput[]
+    OR?: JournalTagWhereInput[]
+    NOT?: JournalTagWhereInput | JournalTagWhereInput[]
+    id?: StringFilter<"JournalTag"> | string
+    label?: StringFilter<"JournalTag"> | string
+    journalId?: StringFilter<"JournalTag"> | string
+    journal?: XOR<TravelJournalScalarRelationFilter, TravelJournalWhereInput>
+  }
+
+  export type JournalTagOrderByWithRelationInput = {
+    id?: SortOrder
+    label?: SortOrder
+    journalId?: SortOrder
+    journal?: TravelJournalOrderByWithRelationInput
+    _relevance?: JournalTagOrderByRelevanceInput
+  }
+
+  export type JournalTagWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: JournalTagWhereInput | JournalTagWhereInput[]
+    OR?: JournalTagWhereInput[]
+    NOT?: JournalTagWhereInput | JournalTagWhereInput[]
+    label?: StringFilter<"JournalTag"> | string
+    journalId?: StringFilter<"JournalTag"> | string
+    journal?: XOR<TravelJournalScalarRelationFilter, TravelJournalWhereInput>
+  }, "id">
+
+  export type JournalTagOrderByWithAggregationInput = {
+    id?: SortOrder
+    label?: SortOrder
+    journalId?: SortOrder
+    _count?: JournalTagCountOrderByAggregateInput
+    _max?: JournalTagMaxOrderByAggregateInput
+    _min?: JournalTagMinOrderByAggregateInput
+  }
+
+  export type JournalTagScalarWhereWithAggregatesInput = {
+    AND?: JournalTagScalarWhereWithAggregatesInput | JournalTagScalarWhereWithAggregatesInput[]
+    OR?: JournalTagScalarWhereWithAggregatesInput[]
+    NOT?: JournalTagScalarWhereWithAggregatesInput | JournalTagScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"JournalTag"> | string
+    label?: StringWithAggregatesFilter<"JournalTag"> | string
+    journalId?: StringWithAggregatesFilter<"JournalTag"> | string
+  }
+
   export type UserCreateInput = {
     nom: string
     prenom: string
@@ -18113,6 +21661,7 @@ export namespace Prisma {
     reviews?: ReviewCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutUserInput
     notifications?: NotificationCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationCreateNestedManyWithoutFromUserInput
   }
@@ -18139,6 +21688,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeUncheckedCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutUserInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationUncheckedCreateNestedManyWithoutFromUserInput
   }
@@ -18164,6 +21714,7 @@ export namespace Prisma {
     reviews?: ReviewUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutUserNestedInput
     notifications?: NotificationUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUpdateManyWithoutFromUserNestedInput
   }
@@ -18190,6 +21741,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUncheckedUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutUserNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUncheckedUpdateManyWithoutFromUserNestedInput
   }
@@ -18265,6 +21817,7 @@ export namespace Prisma {
     reviews?: ReviewCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageCreateNestedManyWithoutDestinationInput
     notifications?: NotificationCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationUncheckedCreateInput = {
@@ -18282,6 +21835,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutDestinationInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationUpdateInput = {
@@ -18299,6 +21853,7 @@ export namespace Prisma {
     reviews?: ReviewUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutDestinationNestedInput
   }
 
   export type DestinationUncheckedUpdateInput = {
@@ -18316,6 +21871,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutDestinationNestedInput
   }
 
   export type DestinationCreateManyInput = {
@@ -19063,6 +22619,199 @@ export namespace Prisma {
     isRead?: BoolFieldUpdateOperationsInput | boolean
   }
 
+  export type TravelJournalCreateInput = {
+    id?: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tags?: JournalTagCreateNestedManyWithoutJournalInput
+    photos?: JournalPhotoCreateNestedManyWithoutJournalInput
+    user: UserCreateNestedOneWithoutTravelJournalsInput
+    destination: DestinationCreateNestedOneWithoutTravelJournalsInput
+  }
+
+  export type TravelJournalUncheckedCreateInput = {
+    id?: string
+    userId: number
+    destinationId: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tags?: JournalTagUncheckedCreateNestedManyWithoutJournalInput
+    photos?: JournalPhotoUncheckedCreateNestedManyWithoutJournalInput
+  }
+
+  export type TravelJournalUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tags?: JournalTagUpdateManyWithoutJournalNestedInput
+    photos?: JournalPhotoUpdateManyWithoutJournalNestedInput
+    user?: UserUpdateOneRequiredWithoutTravelJournalsNestedInput
+    destination?: DestinationUpdateOneRequiredWithoutTravelJournalsNestedInput
+  }
+
+  export type TravelJournalUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    destinationId?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tags?: JournalTagUncheckedUpdateManyWithoutJournalNestedInput
+    photos?: JournalPhotoUncheckedUpdateManyWithoutJournalNestedInput
+  }
+
+  export type TravelJournalCreateManyInput = {
+    id?: string
+    userId: number
+    destinationId: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TravelJournalUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TravelJournalUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    destinationId?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JournalPhotoCreateInput = {
+    id?: string
+    url: string
+    alt?: string | null
+    journal: TravelJournalCreateNestedOneWithoutPhotosInput
+  }
+
+  export type JournalPhotoUncheckedCreateInput = {
+    id?: string
+    url: string
+    alt?: string | null
+    journalId: string
+  }
+
+  export type JournalPhotoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    alt?: NullableStringFieldUpdateOperationsInput | string | null
+    journal?: TravelJournalUpdateOneRequiredWithoutPhotosNestedInput
+  }
+
+  export type JournalPhotoUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    alt?: NullableStringFieldUpdateOperationsInput | string | null
+    journalId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JournalPhotoCreateManyInput = {
+    id?: string
+    url: string
+    alt?: string | null
+    journalId: string
+  }
+
+  export type JournalPhotoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    alt?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type JournalPhotoUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    alt?: NullableStringFieldUpdateOperationsInput | string | null
+    journalId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JournalTagCreateInput = {
+    id?: string
+    label: string
+    journal: TravelJournalCreateNestedOneWithoutTagsInput
+  }
+
+  export type JournalTagUncheckedCreateInput = {
+    id?: string
+    label: string
+    journalId: string
+  }
+
+  export type JournalTagUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    journal?: TravelJournalUpdateOneRequiredWithoutTagsNestedInput
+  }
+
+  export type JournalTagUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    journalId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JournalTagCreateManyInput = {
+    id?: string
+    label: string
+    journalId: string
+  }
+
+  export type JournalTagUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JournalTagUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    journalId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -19157,6 +22906,12 @@ export namespace Prisma {
     none?: UserVoyageWhereInput
   }
 
+  export type TravelJournalListRelationFilter = {
+    every?: TravelJournalWhereInput
+    some?: TravelJournalWhereInput
+    none?: TravelJournalWhereInput
+  }
+
   export type NotificationListRelationFilter = {
     every?: NotificationWhereInput
     some?: NotificationWhereInput
@@ -19185,6 +22940,10 @@ export namespace Prisma {
   }
 
   export type UserVoyageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TravelJournalOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -20061,6 +23820,140 @@ export namespace Prisma {
     fromUserId?: SortOrder
   }
 
+  export type JournalTagListRelationFilter = {
+    every?: JournalTagWhereInput
+    some?: JournalTagWhereInput
+    none?: JournalTagWhereInput
+  }
+
+  export type JournalPhotoListRelationFilter = {
+    every?: JournalPhotoWhereInput
+    some?: JournalPhotoWhereInput
+    none?: JournalPhotoWhereInput
+  }
+
+  export type JournalTagOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type JournalPhotoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TravelJournalOrderByRelevanceInput = {
+    fields: TravelJournalOrderByRelevanceFieldEnum | TravelJournalOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type TravelJournalCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    destinationId?: SortOrder
+    titre?: SortOrder
+    contenu?: SortOrder
+    note?: SortOrder
+    dateDebut?: SortOrder
+    dateFin?: SortOrder
+    isPublic?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TravelJournalAvgOrderByAggregateInput = {
+    userId?: SortOrder
+    note?: SortOrder
+  }
+
+  export type TravelJournalMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    destinationId?: SortOrder
+    titre?: SortOrder
+    contenu?: SortOrder
+    note?: SortOrder
+    dateDebut?: SortOrder
+    dateFin?: SortOrder
+    isPublic?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TravelJournalMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    destinationId?: SortOrder
+    titre?: SortOrder
+    contenu?: SortOrder
+    note?: SortOrder
+    dateDebut?: SortOrder
+    dateFin?: SortOrder
+    isPublic?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TravelJournalSumOrderByAggregateInput = {
+    userId?: SortOrder
+    note?: SortOrder
+  }
+
+  export type TravelJournalScalarRelationFilter = {
+    is?: TravelJournalWhereInput
+    isNot?: TravelJournalWhereInput
+  }
+
+  export type JournalPhotoOrderByRelevanceInput = {
+    fields: JournalPhotoOrderByRelevanceFieldEnum | JournalPhotoOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type JournalPhotoCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    alt?: SortOrder
+    journalId?: SortOrder
+  }
+
+  export type JournalPhotoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    alt?: SortOrder
+    journalId?: SortOrder
+  }
+
+  export type JournalPhotoMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    alt?: SortOrder
+    journalId?: SortOrder
+  }
+
+  export type JournalTagOrderByRelevanceInput = {
+    fields: JournalTagOrderByRelevanceFieldEnum | JournalTagOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type JournalTagCountOrderByAggregateInput = {
+    id?: SortOrder
+    label?: SortOrder
+    journalId?: SortOrder
+  }
+
+  export type JournalTagMaxOrderByAggregateInput = {
+    id?: SortOrder
+    label?: SortOrder
+    journalId?: SortOrder
+  }
+
+  export type JournalTagMinOrderByAggregateInput = {
+    id?: SortOrder
+    label?: SortOrder
+    journalId?: SortOrder
+  }
+
   export type DestinationCreateNestedManyWithoutUtilisateurInput = {
     create?: XOR<DestinationCreateWithoutUtilisateurInput, DestinationUncheckedCreateWithoutUtilisateurInput> | DestinationCreateWithoutUtilisateurInput[] | DestinationUncheckedCreateWithoutUtilisateurInput[]
     connectOrCreate?: DestinationCreateOrConnectWithoutUtilisateurInput | DestinationCreateOrConnectWithoutUtilisateurInput[]
@@ -20094,6 +23987,13 @@ export namespace Prisma {
     connectOrCreate?: UserVoyageCreateOrConnectWithoutUserInput | UserVoyageCreateOrConnectWithoutUserInput[]
     createMany?: UserVoyageCreateManyUserInputEnvelope
     connect?: UserVoyageWhereUniqueInput | UserVoyageWhereUniqueInput[]
+  }
+
+  export type TravelJournalCreateNestedManyWithoutUserInput = {
+    create?: XOR<TravelJournalCreateWithoutUserInput, TravelJournalUncheckedCreateWithoutUserInput> | TravelJournalCreateWithoutUserInput[] | TravelJournalUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutUserInput | TravelJournalCreateOrConnectWithoutUserInput[]
+    createMany?: TravelJournalCreateManyUserInputEnvelope
+    connect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
   }
 
   export type NotificationCreateNestedManyWithoutUserInput = {
@@ -20143,6 +24043,13 @@ export namespace Prisma {
     connectOrCreate?: UserVoyageCreateOrConnectWithoutUserInput | UserVoyageCreateOrConnectWithoutUserInput[]
     createMany?: UserVoyageCreateManyUserInputEnvelope
     connect?: UserVoyageWhereUniqueInput | UserVoyageWhereUniqueInput[]
+  }
+
+  export type TravelJournalUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<TravelJournalCreateWithoutUserInput, TravelJournalUncheckedCreateWithoutUserInput> | TravelJournalCreateWithoutUserInput[] | TravelJournalUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutUserInput | TravelJournalCreateOrConnectWithoutUserInput[]
+    createMany?: TravelJournalCreateManyUserInputEnvelope
+    connect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
   }
 
   export type NotificationUncheckedCreateNestedManyWithoutUserInput = {
@@ -20247,6 +24154,20 @@ export namespace Prisma {
     update?: UserVoyageUpdateWithWhereUniqueWithoutUserInput | UserVoyageUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: UserVoyageUpdateManyWithWhereWithoutUserInput | UserVoyageUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: UserVoyageScalarWhereInput | UserVoyageScalarWhereInput[]
+  }
+
+  export type TravelJournalUpdateManyWithoutUserNestedInput = {
+    create?: XOR<TravelJournalCreateWithoutUserInput, TravelJournalUncheckedCreateWithoutUserInput> | TravelJournalCreateWithoutUserInput[] | TravelJournalUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutUserInput | TravelJournalCreateOrConnectWithoutUserInput[]
+    upsert?: TravelJournalUpsertWithWhereUniqueWithoutUserInput | TravelJournalUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: TravelJournalCreateManyUserInputEnvelope
+    set?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    disconnect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    delete?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    connect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    update?: TravelJournalUpdateWithWhereUniqueWithoutUserInput | TravelJournalUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: TravelJournalUpdateManyWithWhereWithoutUserInput | TravelJournalUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: TravelJournalScalarWhereInput | TravelJournalScalarWhereInput[]
   }
 
   export type NotificationUpdateManyWithoutUserNestedInput = {
@@ -20355,6 +24276,20 @@ export namespace Prisma {
     deleteMany?: UserVoyageScalarWhereInput | UserVoyageScalarWhereInput[]
   }
 
+  export type TravelJournalUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<TravelJournalCreateWithoutUserInput, TravelJournalUncheckedCreateWithoutUserInput> | TravelJournalCreateWithoutUserInput[] | TravelJournalUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutUserInput | TravelJournalCreateOrConnectWithoutUserInput[]
+    upsert?: TravelJournalUpsertWithWhereUniqueWithoutUserInput | TravelJournalUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: TravelJournalCreateManyUserInputEnvelope
+    set?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    disconnect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    delete?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    connect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    update?: TravelJournalUpdateWithWhereUniqueWithoutUserInput | TravelJournalUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: TravelJournalUpdateManyWithWhereWithoutUserInput | TravelJournalUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: TravelJournalScalarWhereInput | TravelJournalScalarWhereInput[]
+  }
+
   export type NotificationUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
     connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
@@ -20424,6 +24359,13 @@ export namespace Prisma {
     connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
   }
 
+  export type TravelJournalCreateNestedManyWithoutDestinationInput = {
+    create?: XOR<TravelJournalCreateWithoutDestinationInput, TravelJournalUncheckedCreateWithoutDestinationInput> | TravelJournalCreateWithoutDestinationInput[] | TravelJournalUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutDestinationInput | TravelJournalCreateOrConnectWithoutDestinationInput[]
+    createMany?: TravelJournalCreateManyDestinationInputEnvelope
+    connect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+  }
+
   export type SectionUncheckedCreateNestedManyWithoutDestinationInput = {
     create?: XOR<SectionCreateWithoutDestinationInput, SectionUncheckedCreateWithoutDestinationInput> | SectionCreateWithoutDestinationInput[] | SectionUncheckedCreateWithoutDestinationInput[]
     connectOrCreate?: SectionCreateOrConnectWithoutDestinationInput | SectionCreateOrConnectWithoutDestinationInput[]
@@ -20457,6 +24399,13 @@ export namespace Prisma {
     connectOrCreate?: NotificationCreateOrConnectWithoutDestinationInput | NotificationCreateOrConnectWithoutDestinationInput[]
     createMany?: NotificationCreateManyDestinationInputEnvelope
     connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
+  export type TravelJournalUncheckedCreateNestedManyWithoutDestinationInput = {
+    create?: XOR<TravelJournalCreateWithoutDestinationInput, TravelJournalUncheckedCreateWithoutDestinationInput> | TravelJournalCreateWithoutDestinationInput[] | TravelJournalUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutDestinationInput | TravelJournalCreateOrConnectWithoutDestinationInput[]
+    createMany?: TravelJournalCreateManyDestinationInputEnvelope
+    connect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
   }
 
   export type SectionUpdateManyWithoutDestinationNestedInput = {
@@ -20539,6 +24488,20 @@ export namespace Prisma {
     deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
   }
 
+  export type TravelJournalUpdateManyWithoutDestinationNestedInput = {
+    create?: XOR<TravelJournalCreateWithoutDestinationInput, TravelJournalUncheckedCreateWithoutDestinationInput> | TravelJournalCreateWithoutDestinationInput[] | TravelJournalUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutDestinationInput | TravelJournalCreateOrConnectWithoutDestinationInput[]
+    upsert?: TravelJournalUpsertWithWhereUniqueWithoutDestinationInput | TravelJournalUpsertWithWhereUniqueWithoutDestinationInput[]
+    createMany?: TravelJournalCreateManyDestinationInputEnvelope
+    set?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    disconnect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    delete?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    connect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    update?: TravelJournalUpdateWithWhereUniqueWithoutDestinationInput | TravelJournalUpdateWithWhereUniqueWithoutDestinationInput[]
+    updateMany?: TravelJournalUpdateManyWithWhereWithoutDestinationInput | TravelJournalUpdateManyWithWhereWithoutDestinationInput[]
+    deleteMany?: TravelJournalScalarWhereInput | TravelJournalScalarWhereInput[]
+  }
+
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -20615,6 +24578,20 @@ export namespace Prisma {
     update?: NotificationUpdateWithWhereUniqueWithoutDestinationInput | NotificationUpdateWithWhereUniqueWithoutDestinationInput[]
     updateMany?: NotificationUpdateManyWithWhereWithoutDestinationInput | NotificationUpdateManyWithWhereWithoutDestinationInput[]
     deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type TravelJournalUncheckedUpdateManyWithoutDestinationNestedInput = {
+    create?: XOR<TravelJournalCreateWithoutDestinationInput, TravelJournalUncheckedCreateWithoutDestinationInput> | TravelJournalCreateWithoutDestinationInput[] | TravelJournalUncheckedCreateWithoutDestinationInput[]
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutDestinationInput | TravelJournalCreateOrConnectWithoutDestinationInput[]
+    upsert?: TravelJournalUpsertWithWhereUniqueWithoutDestinationInput | TravelJournalUpsertWithWhereUniqueWithoutDestinationInput[]
+    createMany?: TravelJournalCreateManyDestinationInputEnvelope
+    set?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    disconnect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    delete?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    connect?: TravelJournalWhereUniqueInput | TravelJournalWhereUniqueInput[]
+    update?: TravelJournalUpdateWithWhereUniqueWithoutDestinationInput | TravelJournalUpdateWithWhereUniqueWithoutDestinationInput[]
+    updateMany?: TravelJournalUpdateManyWithWhereWithoutDestinationInput | TravelJournalUpdateManyWithWhereWithoutDestinationInput[]
+    deleteMany?: TravelJournalScalarWhereInput | TravelJournalScalarWhereInput[]
   }
 
   export type BulletPointCreateNestedManyWithoutSectionInput = {
@@ -21291,6 +25268,146 @@ export namespace Prisma {
     update?: XOR<XOR<ChecklistItemUpdateToOneWithWhereWithoutNotificationsInput, ChecklistItemUpdateWithoutNotificationsInput>, ChecklistItemUncheckedUpdateWithoutNotificationsInput>
   }
 
+  export type JournalTagCreateNestedManyWithoutJournalInput = {
+    create?: XOR<JournalTagCreateWithoutJournalInput, JournalTagUncheckedCreateWithoutJournalInput> | JournalTagCreateWithoutJournalInput[] | JournalTagUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: JournalTagCreateOrConnectWithoutJournalInput | JournalTagCreateOrConnectWithoutJournalInput[]
+    createMany?: JournalTagCreateManyJournalInputEnvelope
+    connect?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+  }
+
+  export type JournalPhotoCreateNestedManyWithoutJournalInput = {
+    create?: XOR<JournalPhotoCreateWithoutJournalInput, JournalPhotoUncheckedCreateWithoutJournalInput> | JournalPhotoCreateWithoutJournalInput[] | JournalPhotoUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: JournalPhotoCreateOrConnectWithoutJournalInput | JournalPhotoCreateOrConnectWithoutJournalInput[]
+    createMany?: JournalPhotoCreateManyJournalInputEnvelope
+    connect?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutTravelJournalsInput = {
+    create?: XOR<UserCreateWithoutTravelJournalsInput, UserUncheckedCreateWithoutTravelJournalsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutTravelJournalsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type DestinationCreateNestedOneWithoutTravelJournalsInput = {
+    create?: XOR<DestinationCreateWithoutTravelJournalsInput, DestinationUncheckedCreateWithoutTravelJournalsInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutTravelJournalsInput
+    connect?: DestinationWhereUniqueInput
+  }
+
+  export type JournalTagUncheckedCreateNestedManyWithoutJournalInput = {
+    create?: XOR<JournalTagCreateWithoutJournalInput, JournalTagUncheckedCreateWithoutJournalInput> | JournalTagCreateWithoutJournalInput[] | JournalTagUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: JournalTagCreateOrConnectWithoutJournalInput | JournalTagCreateOrConnectWithoutJournalInput[]
+    createMany?: JournalTagCreateManyJournalInputEnvelope
+    connect?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+  }
+
+  export type JournalPhotoUncheckedCreateNestedManyWithoutJournalInput = {
+    create?: XOR<JournalPhotoCreateWithoutJournalInput, JournalPhotoUncheckedCreateWithoutJournalInput> | JournalPhotoCreateWithoutJournalInput[] | JournalPhotoUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: JournalPhotoCreateOrConnectWithoutJournalInput | JournalPhotoCreateOrConnectWithoutJournalInput[]
+    createMany?: JournalPhotoCreateManyJournalInputEnvelope
+    connect?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+  }
+
+  export type JournalTagUpdateManyWithoutJournalNestedInput = {
+    create?: XOR<JournalTagCreateWithoutJournalInput, JournalTagUncheckedCreateWithoutJournalInput> | JournalTagCreateWithoutJournalInput[] | JournalTagUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: JournalTagCreateOrConnectWithoutJournalInput | JournalTagCreateOrConnectWithoutJournalInput[]
+    upsert?: JournalTagUpsertWithWhereUniqueWithoutJournalInput | JournalTagUpsertWithWhereUniqueWithoutJournalInput[]
+    createMany?: JournalTagCreateManyJournalInputEnvelope
+    set?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+    disconnect?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+    delete?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+    connect?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+    update?: JournalTagUpdateWithWhereUniqueWithoutJournalInput | JournalTagUpdateWithWhereUniqueWithoutJournalInput[]
+    updateMany?: JournalTagUpdateManyWithWhereWithoutJournalInput | JournalTagUpdateManyWithWhereWithoutJournalInput[]
+    deleteMany?: JournalTagScalarWhereInput | JournalTagScalarWhereInput[]
+  }
+
+  export type JournalPhotoUpdateManyWithoutJournalNestedInput = {
+    create?: XOR<JournalPhotoCreateWithoutJournalInput, JournalPhotoUncheckedCreateWithoutJournalInput> | JournalPhotoCreateWithoutJournalInput[] | JournalPhotoUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: JournalPhotoCreateOrConnectWithoutJournalInput | JournalPhotoCreateOrConnectWithoutJournalInput[]
+    upsert?: JournalPhotoUpsertWithWhereUniqueWithoutJournalInput | JournalPhotoUpsertWithWhereUniqueWithoutJournalInput[]
+    createMany?: JournalPhotoCreateManyJournalInputEnvelope
+    set?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+    disconnect?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+    delete?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+    connect?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+    update?: JournalPhotoUpdateWithWhereUniqueWithoutJournalInput | JournalPhotoUpdateWithWhereUniqueWithoutJournalInput[]
+    updateMany?: JournalPhotoUpdateManyWithWhereWithoutJournalInput | JournalPhotoUpdateManyWithWhereWithoutJournalInput[]
+    deleteMany?: JournalPhotoScalarWhereInput | JournalPhotoScalarWhereInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutTravelJournalsNestedInput = {
+    create?: XOR<UserCreateWithoutTravelJournalsInput, UserUncheckedCreateWithoutTravelJournalsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutTravelJournalsInput
+    upsert?: UserUpsertWithoutTravelJournalsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTravelJournalsInput, UserUpdateWithoutTravelJournalsInput>, UserUncheckedUpdateWithoutTravelJournalsInput>
+  }
+
+  export type DestinationUpdateOneRequiredWithoutTravelJournalsNestedInput = {
+    create?: XOR<DestinationCreateWithoutTravelJournalsInput, DestinationUncheckedCreateWithoutTravelJournalsInput>
+    connectOrCreate?: DestinationCreateOrConnectWithoutTravelJournalsInput
+    upsert?: DestinationUpsertWithoutTravelJournalsInput
+    connect?: DestinationWhereUniqueInput
+    update?: XOR<XOR<DestinationUpdateToOneWithWhereWithoutTravelJournalsInput, DestinationUpdateWithoutTravelJournalsInput>, DestinationUncheckedUpdateWithoutTravelJournalsInput>
+  }
+
+  export type JournalTagUncheckedUpdateManyWithoutJournalNestedInput = {
+    create?: XOR<JournalTagCreateWithoutJournalInput, JournalTagUncheckedCreateWithoutJournalInput> | JournalTagCreateWithoutJournalInput[] | JournalTagUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: JournalTagCreateOrConnectWithoutJournalInput | JournalTagCreateOrConnectWithoutJournalInput[]
+    upsert?: JournalTagUpsertWithWhereUniqueWithoutJournalInput | JournalTagUpsertWithWhereUniqueWithoutJournalInput[]
+    createMany?: JournalTagCreateManyJournalInputEnvelope
+    set?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+    disconnect?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+    delete?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+    connect?: JournalTagWhereUniqueInput | JournalTagWhereUniqueInput[]
+    update?: JournalTagUpdateWithWhereUniqueWithoutJournalInput | JournalTagUpdateWithWhereUniqueWithoutJournalInput[]
+    updateMany?: JournalTagUpdateManyWithWhereWithoutJournalInput | JournalTagUpdateManyWithWhereWithoutJournalInput[]
+    deleteMany?: JournalTagScalarWhereInput | JournalTagScalarWhereInput[]
+  }
+
+  export type JournalPhotoUncheckedUpdateManyWithoutJournalNestedInput = {
+    create?: XOR<JournalPhotoCreateWithoutJournalInput, JournalPhotoUncheckedCreateWithoutJournalInput> | JournalPhotoCreateWithoutJournalInput[] | JournalPhotoUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: JournalPhotoCreateOrConnectWithoutJournalInput | JournalPhotoCreateOrConnectWithoutJournalInput[]
+    upsert?: JournalPhotoUpsertWithWhereUniqueWithoutJournalInput | JournalPhotoUpsertWithWhereUniqueWithoutJournalInput[]
+    createMany?: JournalPhotoCreateManyJournalInputEnvelope
+    set?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+    disconnect?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+    delete?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+    connect?: JournalPhotoWhereUniqueInput | JournalPhotoWhereUniqueInput[]
+    update?: JournalPhotoUpdateWithWhereUniqueWithoutJournalInput | JournalPhotoUpdateWithWhereUniqueWithoutJournalInput[]
+    updateMany?: JournalPhotoUpdateManyWithWhereWithoutJournalInput | JournalPhotoUpdateManyWithWhereWithoutJournalInput[]
+    deleteMany?: JournalPhotoScalarWhereInput | JournalPhotoScalarWhereInput[]
+  }
+
+  export type TravelJournalCreateNestedOneWithoutPhotosInput = {
+    create?: XOR<TravelJournalCreateWithoutPhotosInput, TravelJournalUncheckedCreateWithoutPhotosInput>
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutPhotosInput
+    connect?: TravelJournalWhereUniqueInput
+  }
+
+  export type TravelJournalUpdateOneRequiredWithoutPhotosNestedInput = {
+    create?: XOR<TravelJournalCreateWithoutPhotosInput, TravelJournalUncheckedCreateWithoutPhotosInput>
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutPhotosInput
+    upsert?: TravelJournalUpsertWithoutPhotosInput
+    connect?: TravelJournalWhereUniqueInput
+    update?: XOR<XOR<TravelJournalUpdateToOneWithWhereWithoutPhotosInput, TravelJournalUpdateWithoutPhotosInput>, TravelJournalUncheckedUpdateWithoutPhotosInput>
+  }
+
+  export type TravelJournalCreateNestedOneWithoutTagsInput = {
+    create?: XOR<TravelJournalCreateWithoutTagsInput, TravelJournalUncheckedCreateWithoutTagsInput>
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutTagsInput
+    connect?: TravelJournalWhereUniqueInput
+  }
+
+  export type TravelJournalUpdateOneRequiredWithoutTagsNestedInput = {
+    create?: XOR<TravelJournalCreateWithoutTagsInput, TravelJournalUncheckedCreateWithoutTagsInput>
+    connectOrCreate?: TravelJournalCreateOrConnectWithoutTagsInput
+    upsert?: TravelJournalUpsertWithoutTagsInput
+    connect?: TravelJournalWhereUniqueInput
+    update?: XOR<XOR<TravelJournalUpdateToOneWithWhereWithoutTagsInput, TravelJournalUpdateWithoutTagsInput>, TravelJournalUncheckedUpdateWithoutTagsInput>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -21544,6 +25661,7 @@ export namespace Prisma {
     reviews?: ReviewCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageCreateNestedManyWithoutDestinationInput
     notifications?: NotificationCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationUncheckedCreateWithoutUtilisateurInput = {
@@ -21560,6 +25678,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutDestinationInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationCreateOrConnectWithoutUtilisateurInput = {
@@ -21670,6 +25789,46 @@ export namespace Prisma {
 
   export type UserVoyageCreateManyUserInputEnvelope = {
     data: UserVoyageCreateManyUserInput | UserVoyageCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TravelJournalCreateWithoutUserInput = {
+    id?: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tags?: JournalTagCreateNestedManyWithoutJournalInput
+    photos?: JournalPhotoCreateNestedManyWithoutJournalInput
+    destination: DestinationCreateNestedOneWithoutTravelJournalsInput
+  }
+
+  export type TravelJournalUncheckedCreateWithoutUserInput = {
+    id?: string
+    destinationId: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tags?: JournalTagUncheckedCreateNestedManyWithoutJournalInput
+    photos?: JournalPhotoUncheckedCreateNestedManyWithoutJournalInput
+  }
+
+  export type TravelJournalCreateOrConnectWithoutUserInput = {
+    where: TravelJournalWhereUniqueInput
+    create: XOR<TravelJournalCreateWithoutUserInput, TravelJournalUncheckedCreateWithoutUserInput>
+  }
+
+  export type TravelJournalCreateManyUserInputEnvelope = {
+    data: TravelJournalCreateManyUserInput | TravelJournalCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -21878,6 +26037,39 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"UserVoyage"> | Date | string
   }
 
+  export type TravelJournalUpsertWithWhereUniqueWithoutUserInput = {
+    where: TravelJournalWhereUniqueInput
+    update: XOR<TravelJournalUpdateWithoutUserInput, TravelJournalUncheckedUpdateWithoutUserInput>
+    create: XOR<TravelJournalCreateWithoutUserInput, TravelJournalUncheckedCreateWithoutUserInput>
+  }
+
+  export type TravelJournalUpdateWithWhereUniqueWithoutUserInput = {
+    where: TravelJournalWhereUniqueInput
+    data: XOR<TravelJournalUpdateWithoutUserInput, TravelJournalUncheckedUpdateWithoutUserInput>
+  }
+
+  export type TravelJournalUpdateManyWithWhereWithoutUserInput = {
+    where: TravelJournalScalarWhereInput
+    data: XOR<TravelJournalUpdateManyMutationInput, TravelJournalUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type TravelJournalScalarWhereInput = {
+    AND?: TravelJournalScalarWhereInput | TravelJournalScalarWhereInput[]
+    OR?: TravelJournalScalarWhereInput[]
+    NOT?: TravelJournalScalarWhereInput | TravelJournalScalarWhereInput[]
+    id?: StringFilter<"TravelJournal"> | string
+    userId?: IntFilter<"TravelJournal"> | number
+    destinationId?: StringFilter<"TravelJournal"> | string
+    titre?: StringFilter<"TravelJournal"> | string
+    contenu?: StringNullableFilter<"TravelJournal"> | string | null
+    note?: IntNullableFilter<"TravelJournal"> | number | null
+    dateDebut?: DateTimeNullableFilter<"TravelJournal"> | Date | string | null
+    dateFin?: DateTimeNullableFilter<"TravelJournal"> | Date | string | null
+    isPublic?: BoolFilter<"TravelJournal"> | boolean
+    createdAt?: DateTimeFilter<"TravelJournal"> | Date | string
+    updatedAt?: DateTimeFilter<"TravelJournal"> | Date | string
+  }
+
   export type NotificationUpsertWithWhereUniqueWithoutUserInput = {
     where: NotificationWhereUniqueInput
     update: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
@@ -21980,6 +26172,7 @@ export namespace Prisma {
     reviews?: ReviewCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutUserInput
     notifications?: NotificationCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationCreateNestedManyWithoutFromUserInput
   }
@@ -22005,6 +26198,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeUncheckedCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutUserInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationUncheckedCreateNestedManyWithoutFromUserInput
   }
@@ -22128,6 +26322,46 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type TravelJournalCreateWithoutDestinationInput = {
+    id?: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tags?: JournalTagCreateNestedManyWithoutJournalInput
+    photos?: JournalPhotoCreateNestedManyWithoutJournalInput
+    user: UserCreateNestedOneWithoutTravelJournalsInput
+  }
+
+  export type TravelJournalUncheckedCreateWithoutDestinationInput = {
+    id?: string
+    userId: number
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tags?: JournalTagUncheckedCreateNestedManyWithoutJournalInput
+    photos?: JournalPhotoUncheckedCreateNestedManyWithoutJournalInput
+  }
+
+  export type TravelJournalCreateOrConnectWithoutDestinationInput = {
+    where: TravelJournalWhereUniqueInput
+    create: XOR<TravelJournalCreateWithoutDestinationInput, TravelJournalUncheckedCreateWithoutDestinationInput>
+  }
+
+  export type TravelJournalCreateManyDestinationInputEnvelope = {
+    data: TravelJournalCreateManyDestinationInput | TravelJournalCreateManyDestinationInput[]
+    skipDuplicates?: boolean
+  }
+
   export type SectionUpsertWithWhereUniqueWithoutDestinationInput = {
     where: SectionWhereUniqueInput
     update: XOR<SectionUpdateWithoutDestinationInput, SectionUncheckedUpdateWithoutDestinationInput>
@@ -22188,6 +26422,7 @@ export namespace Prisma {
     reviews?: ReviewUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutUserNestedInput
     notifications?: NotificationUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUpdateManyWithoutFromUserNestedInput
   }
@@ -22213,6 +26448,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUncheckedUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutUserNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUncheckedUpdateManyWithoutFromUserNestedInput
   }
@@ -22279,6 +26515,22 @@ export namespace Prisma {
   export type NotificationUpdateManyWithWhereWithoutDestinationInput = {
     where: NotificationScalarWhereInput
     data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyWithoutDestinationInput>
+  }
+
+  export type TravelJournalUpsertWithWhereUniqueWithoutDestinationInput = {
+    where: TravelJournalWhereUniqueInput
+    update: XOR<TravelJournalUpdateWithoutDestinationInput, TravelJournalUncheckedUpdateWithoutDestinationInput>
+    create: XOR<TravelJournalCreateWithoutDestinationInput, TravelJournalUncheckedCreateWithoutDestinationInput>
+  }
+
+  export type TravelJournalUpdateWithWhereUniqueWithoutDestinationInput = {
+    where: TravelJournalWhereUniqueInput
+    data: XOR<TravelJournalUpdateWithoutDestinationInput, TravelJournalUncheckedUpdateWithoutDestinationInput>
+  }
+
+  export type TravelJournalUpdateManyWithWhereWithoutDestinationInput = {
+    where: TravelJournalScalarWhereInput
+    data: XOR<TravelJournalUpdateManyMutationInput, TravelJournalUncheckedUpdateManyWithoutDestinationInput>
   }
 
   export type BulletPointCreateWithoutSectionInput = {
@@ -22363,6 +26615,7 @@ export namespace Prisma {
     reviews?: ReviewCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageCreateNestedManyWithoutDestinationInput
     notifications?: NotificationCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationUncheckedCreateWithoutSectionsInput = {
@@ -22379,6 +26632,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutDestinationInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationCreateOrConnectWithoutSectionsInput = {
@@ -22489,6 +26743,7 @@ export namespace Prisma {
     reviews?: ReviewUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutDestinationNestedInput
   }
 
   export type DestinationUncheckedUpdateWithoutSectionsInput = {
@@ -22505,6 +26760,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutDestinationNestedInput
   }
 
   export type SectionCreateWithoutBulletPointsInput = {
@@ -22835,6 +27091,7 @@ export namespace Prisma {
     reviews?: ReviewCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutUserInput
     notifications?: NotificationCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationCreateNestedManyWithoutFromUserInput
   }
@@ -22860,6 +27117,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeUncheckedCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutUserInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationUncheckedCreateNestedManyWithoutFromUserInput
   }
@@ -22883,6 +27141,7 @@ export namespace Prisma {
     reviews?: ReviewCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageCreateNestedManyWithoutDestinationInput
     notifications?: NotificationCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationUncheckedCreateWithoutChecklistsInput = {
@@ -22899,6 +27158,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutDestinationInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationCreateOrConnectWithoutChecklistsInput = {
@@ -22963,6 +27223,7 @@ export namespace Prisma {
     reviews?: ReviewUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutUserNestedInput
     notifications?: NotificationUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUpdateManyWithoutFromUserNestedInput
   }
@@ -22988,6 +27249,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUncheckedUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutUserNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUncheckedUpdateManyWithoutFromUserNestedInput
   }
@@ -23017,6 +27279,7 @@ export namespace Prisma {
     reviews?: ReviewUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutDestinationNestedInput
   }
 
   export type DestinationUncheckedUpdateWithoutChecklistsInput = {
@@ -23033,6 +27296,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutDestinationNestedInput
   }
 
   export type ChecklistItemCreateWithoutCategoryInput = {
@@ -23259,6 +27523,7 @@ export namespace Prisma {
     checklists?: ChecklistCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutUserInput
     notifications?: NotificationCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationCreateNestedManyWithoutFromUserInput
   }
@@ -23284,6 +27549,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeUncheckedCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutUserInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationUncheckedCreateNestedManyWithoutFromUserInput
   }
@@ -23307,6 +27573,7 @@ export namespace Prisma {
     checklists?: ChecklistCreateNestedManyWithoutVoyageInput
     userVoyages?: UserVoyageCreateNestedManyWithoutDestinationInput
     notifications?: NotificationCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationUncheckedCreateWithoutReviewsInput = {
@@ -23323,6 +27590,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedCreateNestedManyWithoutVoyageInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutDestinationInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationCreateOrConnectWithoutReviewsInput = {
@@ -23414,6 +27682,7 @@ export namespace Prisma {
     checklists?: ChecklistUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutUserNestedInput
     notifications?: NotificationUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUpdateManyWithoutFromUserNestedInput
   }
@@ -23439,6 +27708,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUncheckedUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutUserNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUncheckedUpdateManyWithoutFromUserNestedInput
   }
@@ -23468,6 +27738,7 @@ export namespace Prisma {
     checklists?: ChecklistUpdateManyWithoutVoyageNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutDestinationNestedInput
   }
 
   export type DestinationUncheckedUpdateWithoutReviewsInput = {
@@ -23484,6 +27755,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedUpdateManyWithoutVoyageNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutDestinationNestedInput
   }
 
   export type ReviewLikeUpsertWithWhereUniqueWithoutReviewInput = {
@@ -23538,6 +27810,7 @@ export namespace Prisma {
     checklists?: ChecklistCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutUserInput
     notifications?: NotificationCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationCreateNestedManyWithoutFromUserInput
   }
@@ -23563,6 +27836,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutUserInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationUncheckedCreateNestedManyWithoutFromUserInput
   }
@@ -23630,6 +27904,7 @@ export namespace Prisma {
     checklists?: ChecklistUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutUserNestedInput
     notifications?: NotificationUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUpdateManyWithoutFromUserNestedInput
   }
@@ -23655,6 +27930,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutUserNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUncheckedUpdateManyWithoutFromUserNestedInput
   }
@@ -23712,6 +27988,7 @@ export namespace Prisma {
     checklists?: ChecklistCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutUserInput
     notifications?: NotificationCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationCreateNestedManyWithoutFromUserInput
   }
@@ -23737,6 +28014,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeUncheckedCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutUserInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationUncheckedCreateNestedManyWithoutFromUserInput
   }
@@ -23760,6 +28038,7 @@ export namespace Prisma {
     checklists?: ChecklistCreateNestedManyWithoutVoyageInput
     reviews?: ReviewCreateNestedManyWithoutDestinationInput
     notifications?: NotificationCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationUncheckedCreateWithoutUserVoyagesInput = {
@@ -23776,6 +28055,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedCreateNestedManyWithoutVoyageInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutDestinationInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationCreateOrConnectWithoutUserVoyagesInput = {
@@ -23814,6 +28094,7 @@ export namespace Prisma {
     checklists?: ChecklistUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutUserNestedInput
     notifications?: NotificationUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUpdateManyWithoutFromUserNestedInput
   }
@@ -23839,6 +28120,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUncheckedUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutUserNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUncheckedUpdateManyWithoutFromUserNestedInput
   }
@@ -23868,6 +28150,7 @@ export namespace Prisma {
     checklists?: ChecklistUpdateManyWithoutVoyageNestedInput
     reviews?: ReviewUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutDestinationNestedInput
   }
 
   export type DestinationUncheckedUpdateWithoutUserVoyagesInput = {
@@ -23884,6 +28167,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedUpdateManyWithoutVoyageNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutDestinationNestedInput
   }
 
   export type UserCreateWithoutNotificationsInput = {
@@ -23907,6 +28191,7 @@ export namespace Prisma {
     reviews?: ReviewCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationCreateNestedManyWithoutFromUserInput
   }
 
@@ -23932,6 +28217,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeUncheckedCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutUserInput
     sentNotifications?: NotificationUncheckedCreateNestedManyWithoutFromUserInput
   }
 
@@ -23961,6 +28247,7 @@ export namespace Prisma {
     reviews?: ReviewCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutUserInput
     notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
@@ -23986,6 +28273,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
     reviewLikes?: ReviewLikeUncheckedCreateNestedManyWithoutUserInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutUserInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutUserInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -24035,6 +28323,7 @@ export namespace Prisma {
     checklists?: ChecklistCreateNestedManyWithoutVoyageInput
     reviews?: ReviewCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationUncheckedCreateWithoutNotificationsInput = {
@@ -24051,6 +28340,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedCreateNestedManyWithoutVoyageInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutDestinationInput
     userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutDestinationInput
+    travelJournals?: TravelJournalUncheckedCreateNestedManyWithoutDestinationInput
   }
 
   export type DestinationCreateOrConnectWithoutNotificationsInput = {
@@ -24115,6 +28405,7 @@ export namespace Prisma {
     reviews?: ReviewUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUpdateManyWithoutFromUserNestedInput
   }
 
@@ -24140,6 +28431,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUncheckedUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutUserNestedInput
     sentNotifications?: NotificationUncheckedUpdateManyWithoutFromUserNestedInput
   }
 
@@ -24175,6 +28467,7 @@ export namespace Prisma {
     reviews?: ReviewUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutUserNestedInput
     notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
@@ -24200,6 +28493,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
     reviewLikes?: ReviewLikeUncheckedUpdateManyWithoutUserNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutUserNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutUserNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -24261,6 +28555,7 @@ export namespace Prisma {
     checklists?: ChecklistUpdateManyWithoutVoyageNestedInput
     reviews?: ReviewUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutDestinationNestedInput
   }
 
   export type DestinationUncheckedUpdateWithoutNotificationsInput = {
@@ -24277,6 +28572,7 @@ export namespace Prisma {
     checklists?: ChecklistUncheckedUpdateManyWithoutVoyageNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutDestinationNestedInput
   }
 
   export type ChecklistItemUpsertWithoutNotificationsInput = {
@@ -24308,6 +28604,453 @@ export namespace Prisma {
     reminderDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reminderOffset?: NullableIntFieldUpdateOperationsInput | number | null
     categoryId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JournalTagCreateWithoutJournalInput = {
+    id?: string
+    label: string
+  }
+
+  export type JournalTagUncheckedCreateWithoutJournalInput = {
+    id?: string
+    label: string
+  }
+
+  export type JournalTagCreateOrConnectWithoutJournalInput = {
+    where: JournalTagWhereUniqueInput
+    create: XOR<JournalTagCreateWithoutJournalInput, JournalTagUncheckedCreateWithoutJournalInput>
+  }
+
+  export type JournalTagCreateManyJournalInputEnvelope = {
+    data: JournalTagCreateManyJournalInput | JournalTagCreateManyJournalInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JournalPhotoCreateWithoutJournalInput = {
+    id?: string
+    url: string
+    alt?: string | null
+  }
+
+  export type JournalPhotoUncheckedCreateWithoutJournalInput = {
+    id?: string
+    url: string
+    alt?: string | null
+  }
+
+  export type JournalPhotoCreateOrConnectWithoutJournalInput = {
+    where: JournalPhotoWhereUniqueInput
+    create: XOR<JournalPhotoCreateWithoutJournalInput, JournalPhotoUncheckedCreateWithoutJournalInput>
+  }
+
+  export type JournalPhotoCreateManyJournalInputEnvelope = {
+    data: JournalPhotoCreateManyJournalInput | JournalPhotoCreateManyJournalInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutTravelJournalsInput = {
+    nom: string
+    prenom: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    createdAt?: Date | string
+    bio?: string | null
+    instagram?: string | null
+    facebook?: string | null
+    youtube?: string | null
+    isPublic?: boolean
+    adventurerType?: string | null
+    isBanned?: boolean
+    avatar?: string | null
+    coverImage?: string | null
+    voyages?: DestinationCreateNestedManyWithoutUtilisateurInput
+    checklists?: ChecklistCreateNestedManyWithoutUserInput
+    reviews?: ReviewCreateNestedManyWithoutUserInput
+    reviewLikes?: ReviewLikeCreateNestedManyWithoutUserInput
+    userVoyages?: UserVoyageCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    sentNotifications?: NotificationCreateNestedManyWithoutFromUserInput
+  }
+
+  export type UserUncheckedCreateWithoutTravelJournalsInput = {
+    id?: number
+    nom: string
+    prenom: string
+    email: string
+    password: string
+    role?: $Enums.Role
+    createdAt?: Date | string
+    bio?: string | null
+    instagram?: string | null
+    facebook?: string | null
+    youtube?: string | null
+    isPublic?: boolean
+    adventurerType?: string | null
+    isBanned?: boolean
+    avatar?: string | null
+    coverImage?: string | null
+    voyages?: DestinationUncheckedCreateNestedManyWithoutUtilisateurInput
+    checklists?: ChecklistUncheckedCreateNestedManyWithoutUserInput
+    reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    reviewLikes?: ReviewLikeUncheckedCreateNestedManyWithoutUserInput
+    userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    sentNotifications?: NotificationUncheckedCreateNestedManyWithoutFromUserInput
+  }
+
+  export type UserCreateOrConnectWithoutTravelJournalsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutTravelJournalsInput, UserUncheckedCreateWithoutTravelJournalsInput>
+  }
+
+  export type DestinationCreateWithoutTravelJournalsInput = {
+    id?: string
+    titre: string
+    pays: string
+    continent?: string | null
+    description?: string | null
+    imagePrincipale?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sections?: SectionCreateNestedManyWithoutDestinationInput
+    utilisateur?: UserCreateNestedOneWithoutVoyagesInput
+    checklists?: ChecklistCreateNestedManyWithoutVoyageInput
+    reviews?: ReviewCreateNestedManyWithoutDestinationInput
+    userVoyages?: UserVoyageCreateNestedManyWithoutDestinationInput
+    notifications?: NotificationCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationUncheckedCreateWithoutTravelJournalsInput = {
+    id?: string
+    titre: string
+    pays: string
+    continent?: string | null
+    description?: string | null
+    imagePrincipale?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    utilisateurId?: number | null
+    sections?: SectionUncheckedCreateNestedManyWithoutDestinationInput
+    checklists?: ChecklistUncheckedCreateNestedManyWithoutVoyageInput
+    reviews?: ReviewUncheckedCreateNestedManyWithoutDestinationInput
+    userVoyages?: UserVoyageUncheckedCreateNestedManyWithoutDestinationInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutDestinationInput
+  }
+
+  export type DestinationCreateOrConnectWithoutTravelJournalsInput = {
+    where: DestinationWhereUniqueInput
+    create: XOR<DestinationCreateWithoutTravelJournalsInput, DestinationUncheckedCreateWithoutTravelJournalsInput>
+  }
+
+  export type JournalTagUpsertWithWhereUniqueWithoutJournalInput = {
+    where: JournalTagWhereUniqueInput
+    update: XOR<JournalTagUpdateWithoutJournalInput, JournalTagUncheckedUpdateWithoutJournalInput>
+    create: XOR<JournalTagCreateWithoutJournalInput, JournalTagUncheckedCreateWithoutJournalInput>
+  }
+
+  export type JournalTagUpdateWithWhereUniqueWithoutJournalInput = {
+    where: JournalTagWhereUniqueInput
+    data: XOR<JournalTagUpdateWithoutJournalInput, JournalTagUncheckedUpdateWithoutJournalInput>
+  }
+
+  export type JournalTagUpdateManyWithWhereWithoutJournalInput = {
+    where: JournalTagScalarWhereInput
+    data: XOR<JournalTagUpdateManyMutationInput, JournalTagUncheckedUpdateManyWithoutJournalInput>
+  }
+
+  export type JournalTagScalarWhereInput = {
+    AND?: JournalTagScalarWhereInput | JournalTagScalarWhereInput[]
+    OR?: JournalTagScalarWhereInput[]
+    NOT?: JournalTagScalarWhereInput | JournalTagScalarWhereInput[]
+    id?: StringFilter<"JournalTag"> | string
+    label?: StringFilter<"JournalTag"> | string
+    journalId?: StringFilter<"JournalTag"> | string
+  }
+
+  export type JournalPhotoUpsertWithWhereUniqueWithoutJournalInput = {
+    where: JournalPhotoWhereUniqueInput
+    update: XOR<JournalPhotoUpdateWithoutJournalInput, JournalPhotoUncheckedUpdateWithoutJournalInput>
+    create: XOR<JournalPhotoCreateWithoutJournalInput, JournalPhotoUncheckedCreateWithoutJournalInput>
+  }
+
+  export type JournalPhotoUpdateWithWhereUniqueWithoutJournalInput = {
+    where: JournalPhotoWhereUniqueInput
+    data: XOR<JournalPhotoUpdateWithoutJournalInput, JournalPhotoUncheckedUpdateWithoutJournalInput>
+  }
+
+  export type JournalPhotoUpdateManyWithWhereWithoutJournalInput = {
+    where: JournalPhotoScalarWhereInput
+    data: XOR<JournalPhotoUpdateManyMutationInput, JournalPhotoUncheckedUpdateManyWithoutJournalInput>
+  }
+
+  export type JournalPhotoScalarWhereInput = {
+    AND?: JournalPhotoScalarWhereInput | JournalPhotoScalarWhereInput[]
+    OR?: JournalPhotoScalarWhereInput[]
+    NOT?: JournalPhotoScalarWhereInput | JournalPhotoScalarWhereInput[]
+    id?: StringFilter<"JournalPhoto"> | string
+    url?: StringFilter<"JournalPhoto"> | string
+    alt?: StringNullableFilter<"JournalPhoto"> | string | null
+    journalId?: StringFilter<"JournalPhoto"> | string
+  }
+
+  export type UserUpsertWithoutTravelJournalsInput = {
+    update: XOR<UserUpdateWithoutTravelJournalsInput, UserUncheckedUpdateWithoutTravelJournalsInput>
+    create: XOR<UserCreateWithoutTravelJournalsInput, UserUncheckedCreateWithoutTravelJournalsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutTravelJournalsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutTravelJournalsInput, UserUncheckedUpdateWithoutTravelJournalsInput>
+  }
+
+  export type UserUpdateWithoutTravelJournalsInput = {
+    nom?: StringFieldUpdateOperationsInput | string
+    prenom?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bio?: NullableStringFieldUpdateOperationsInput | string | null
+    instagram?: NullableStringFieldUpdateOperationsInput | string | null
+    facebook?: NullableStringFieldUpdateOperationsInput | string | null
+    youtube?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    adventurerType?: NullableStringFieldUpdateOperationsInput | string | null
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    voyages?: DestinationUpdateManyWithoutUtilisateurNestedInput
+    checklists?: ChecklistUpdateManyWithoutUserNestedInput
+    reviews?: ReviewUpdateManyWithoutUserNestedInput
+    reviewLikes?: ReviewLikeUpdateManyWithoutUserNestedInput
+    userVoyages?: UserVoyageUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    sentNotifications?: NotificationUpdateManyWithoutFromUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutTravelJournalsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nom?: StringFieldUpdateOperationsInput | string
+    prenom?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bio?: NullableStringFieldUpdateOperationsInput | string | null
+    instagram?: NullableStringFieldUpdateOperationsInput | string | null
+    facebook?: NullableStringFieldUpdateOperationsInput | string | null
+    youtube?: NullableStringFieldUpdateOperationsInput | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    adventurerType?: NullableStringFieldUpdateOperationsInput | string | null
+    isBanned?: BoolFieldUpdateOperationsInput | boolean
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    voyages?: DestinationUncheckedUpdateManyWithoutUtilisateurNestedInput
+    checklists?: ChecklistUncheckedUpdateManyWithoutUserNestedInput
+    reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    reviewLikes?: ReviewLikeUncheckedUpdateManyWithoutUserNestedInput
+    userVoyages?: UserVoyageUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    sentNotifications?: NotificationUncheckedUpdateManyWithoutFromUserNestedInput
+  }
+
+  export type DestinationUpsertWithoutTravelJournalsInput = {
+    update: XOR<DestinationUpdateWithoutTravelJournalsInput, DestinationUncheckedUpdateWithoutTravelJournalsInput>
+    create: XOR<DestinationCreateWithoutTravelJournalsInput, DestinationUncheckedCreateWithoutTravelJournalsInput>
+    where?: DestinationWhereInput
+  }
+
+  export type DestinationUpdateToOneWithWhereWithoutTravelJournalsInput = {
+    where?: DestinationWhereInput
+    data: XOR<DestinationUpdateWithoutTravelJournalsInput, DestinationUncheckedUpdateWithoutTravelJournalsInput>
+  }
+
+  export type DestinationUpdateWithoutTravelJournalsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    pays?: StringFieldUpdateOperationsInput | string
+    continent?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    imagePrincipale?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sections?: SectionUpdateManyWithoutDestinationNestedInput
+    utilisateur?: UserUpdateOneWithoutVoyagesNestedInput
+    checklists?: ChecklistUpdateManyWithoutVoyageNestedInput
+    reviews?: ReviewUpdateManyWithoutDestinationNestedInput
+    userVoyages?: UserVoyageUpdateManyWithoutDestinationNestedInput
+    notifications?: NotificationUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type DestinationUncheckedUpdateWithoutTravelJournalsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    pays?: StringFieldUpdateOperationsInput | string
+    continent?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    imagePrincipale?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    utilisateurId?: NullableIntFieldUpdateOperationsInput | number | null
+    sections?: SectionUncheckedUpdateManyWithoutDestinationNestedInput
+    checklists?: ChecklistUncheckedUpdateManyWithoutVoyageNestedInput
+    reviews?: ReviewUncheckedUpdateManyWithoutDestinationNestedInput
+    userVoyages?: UserVoyageUncheckedUpdateManyWithoutDestinationNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutDestinationNestedInput
+  }
+
+  export type TravelJournalCreateWithoutPhotosInput = {
+    id?: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tags?: JournalTagCreateNestedManyWithoutJournalInput
+    user: UserCreateNestedOneWithoutTravelJournalsInput
+    destination: DestinationCreateNestedOneWithoutTravelJournalsInput
+  }
+
+  export type TravelJournalUncheckedCreateWithoutPhotosInput = {
+    id?: string
+    userId: number
+    destinationId: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tags?: JournalTagUncheckedCreateNestedManyWithoutJournalInput
+  }
+
+  export type TravelJournalCreateOrConnectWithoutPhotosInput = {
+    where: TravelJournalWhereUniqueInput
+    create: XOR<TravelJournalCreateWithoutPhotosInput, TravelJournalUncheckedCreateWithoutPhotosInput>
+  }
+
+  export type TravelJournalUpsertWithoutPhotosInput = {
+    update: XOR<TravelJournalUpdateWithoutPhotosInput, TravelJournalUncheckedUpdateWithoutPhotosInput>
+    create: XOR<TravelJournalCreateWithoutPhotosInput, TravelJournalUncheckedCreateWithoutPhotosInput>
+    where?: TravelJournalWhereInput
+  }
+
+  export type TravelJournalUpdateToOneWithWhereWithoutPhotosInput = {
+    where?: TravelJournalWhereInput
+    data: XOR<TravelJournalUpdateWithoutPhotosInput, TravelJournalUncheckedUpdateWithoutPhotosInput>
+  }
+
+  export type TravelJournalUpdateWithoutPhotosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tags?: JournalTagUpdateManyWithoutJournalNestedInput
+    user?: UserUpdateOneRequiredWithoutTravelJournalsNestedInput
+    destination?: DestinationUpdateOneRequiredWithoutTravelJournalsNestedInput
+  }
+
+  export type TravelJournalUncheckedUpdateWithoutPhotosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    destinationId?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tags?: JournalTagUncheckedUpdateManyWithoutJournalNestedInput
+  }
+
+  export type TravelJournalCreateWithoutTagsInput = {
+    id?: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    photos?: JournalPhotoCreateNestedManyWithoutJournalInput
+    user: UserCreateNestedOneWithoutTravelJournalsInput
+    destination: DestinationCreateNestedOneWithoutTravelJournalsInput
+  }
+
+  export type TravelJournalUncheckedCreateWithoutTagsInput = {
+    id?: string
+    userId: number
+    destinationId: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    photos?: JournalPhotoUncheckedCreateNestedManyWithoutJournalInput
+  }
+
+  export type TravelJournalCreateOrConnectWithoutTagsInput = {
+    where: TravelJournalWhereUniqueInput
+    create: XOR<TravelJournalCreateWithoutTagsInput, TravelJournalUncheckedCreateWithoutTagsInput>
+  }
+
+  export type TravelJournalUpsertWithoutTagsInput = {
+    update: XOR<TravelJournalUpdateWithoutTagsInput, TravelJournalUncheckedUpdateWithoutTagsInput>
+    create: XOR<TravelJournalCreateWithoutTagsInput, TravelJournalUncheckedCreateWithoutTagsInput>
+    where?: TravelJournalWhereInput
+  }
+
+  export type TravelJournalUpdateToOneWithWhereWithoutTagsInput = {
+    where?: TravelJournalWhereInput
+    data: XOR<TravelJournalUpdateWithoutTagsInput, TravelJournalUncheckedUpdateWithoutTagsInput>
+  }
+
+  export type TravelJournalUpdateWithoutTagsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photos?: JournalPhotoUpdateManyWithoutJournalNestedInput
+    user?: UserUpdateOneRequiredWithoutTravelJournalsNestedInput
+    destination?: DestinationUpdateOneRequiredWithoutTravelJournalsNestedInput
+  }
+
+  export type TravelJournalUncheckedUpdateWithoutTagsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    destinationId?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    photos?: JournalPhotoUncheckedUpdateManyWithoutJournalNestedInput
   }
 
   export type DestinationCreateManyUtilisateurInput = {
@@ -24349,6 +29092,19 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
+  export type TravelJournalCreateManyUserInput = {
+    id?: string
+    destinationId: string
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type NotificationCreateManyUserInput = {
     id?: number
     type: string
@@ -24387,6 +29143,7 @@ export namespace Prisma {
     reviews?: ReviewUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUpdateManyWithoutDestinationNestedInput
   }
 
   export type DestinationUncheckedUpdateWithoutUtilisateurInput = {
@@ -24403,6 +29160,7 @@ export namespace Prisma {
     reviews?: ReviewUncheckedUpdateManyWithoutDestinationNestedInput
     userVoyages?: UserVoyageUncheckedUpdateManyWithoutDestinationNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutDestinationNestedInput
+    travelJournals?: TravelJournalUncheckedUpdateManyWithoutDestinationNestedInput
   }
 
   export type DestinationUncheckedUpdateManyWithoutUtilisateurInput = {
@@ -24503,6 +29261,49 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     destinationId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TravelJournalUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tags?: JournalTagUpdateManyWithoutJournalNestedInput
+    photos?: JournalPhotoUpdateManyWithoutJournalNestedInput
+    destination?: DestinationUpdateOneRequiredWithoutTravelJournalsNestedInput
+  }
+
+  export type TravelJournalUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    destinationId?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tags?: JournalTagUncheckedUpdateManyWithoutJournalNestedInput
+    photos?: JournalPhotoUncheckedUpdateManyWithoutJournalNestedInput
+  }
+
+  export type TravelJournalUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    destinationId?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type NotificationUpdateWithoutUserInput = {
@@ -24617,6 +29418,19 @@ export namespace Prisma {
     checklistId?: string | null
     createdAt?: Date | string
     isRead?: boolean
+  }
+
+  export type TravelJournalCreateManyDestinationInput = {
+    id?: string
+    userId: number
+    titre: string
+    contenu?: string | null
+    note?: number | null
+    dateDebut?: Date | string | null
+    dateFin?: Date | string | null
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type SectionUpdateWithoutDestinationInput = {
@@ -24759,6 +29573,49 @@ export namespace Prisma {
     checklistId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isRead?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type TravelJournalUpdateWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tags?: JournalTagUpdateManyWithoutJournalNestedInput
+    photos?: JournalPhotoUpdateManyWithoutJournalNestedInput
+    user?: UserUpdateOneRequiredWithoutTravelJournalsNestedInput
+  }
+
+  export type TravelJournalUncheckedUpdateWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tags?: JournalTagUncheckedUpdateManyWithoutJournalNestedInput
+    photos?: JournalPhotoUncheckedUpdateManyWithoutJournalNestedInput
+  }
+
+  export type TravelJournalUncheckedUpdateManyWithoutDestinationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    titre?: StringFieldUpdateOperationsInput | string
+    contenu?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: NullableIntFieldUpdateOperationsInput | number | null
+    dateDebut?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type BulletPointCreateManySectionInput = {
@@ -25035,6 +29892,50 @@ export namespace Prisma {
     checklistId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isRead?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type JournalTagCreateManyJournalInput = {
+    id?: string
+    label: string
+  }
+
+  export type JournalPhotoCreateManyJournalInput = {
+    id?: string
+    url: string
+    alt?: string | null
+  }
+
+  export type JournalTagUpdateWithoutJournalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JournalTagUncheckedUpdateWithoutJournalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JournalTagUncheckedUpdateManyWithoutJournalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JournalPhotoUpdateWithoutJournalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    alt?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type JournalPhotoUncheckedUpdateWithoutJournalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    alt?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type JournalPhotoUncheckedUpdateManyWithoutJournalInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    alt?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

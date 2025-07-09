@@ -1,0 +1,50 @@
+{% extends "base.twig" %}
+
+{% block style %}
+  <link rel="stylesheet" href="/assets/css/showCarnet.css">
+{% endblock %}
+
+
+{% block title %}Carnet de {{ journal.user.prenom }}{% endblock %}
+
+{% block main %}
+  <div class="container">
+    <h1>{{ journal.titre }}</h1>
+    <p>✍️ Écrit par <strong>{{ journal.user.prenom }} {{ journal.user.nom }}</strong></p>
+
+    <!-- 👉 Lien vers le profil public -->
+    <a href="/membre/{{ journal.user.id }}" class="auteur-lien">
+      🔍 Voir son profil public
+    </a>
+
+    <hr>
+
+    <p><strong>Date :</strong> du {{ journal.dateDebut|date('d/m/Y') }} au {{ journal.dateFin|date('d/m/Y') }}</p>
+    <p><strong>Destination :</strong> {{ journal.destination.titre }}</p>
+    <p><strong>Note :</strong> {{ journal.note }} ⭐</p>
+
+    <div class="contenu-carnet">
+      {{ journal.contenu | nl2br }}
+    </div>
+
+    {% if journal.photos.length > 0 %}
+      <div class="photos-section">
+        <h3>📸 Photos du voyage</h3>
+        <div class="photo-grid">
+          {% for photo in journal.photos %}
+            <img src="{{ photo.url }}" alt="{{ photo.alt }}">
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if journal.tags.length > 0 %}
+      <p>
+        <strong>Tags :</strong>
+        {% for tag in journal.tags %}
+          <span class="tag">{{ tag.label }}</span>
+        {% endfor %}
+      </p>
+    {% endif %}
+  </div>
+{% endblock %}

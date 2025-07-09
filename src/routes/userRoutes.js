@@ -72,5 +72,5 @@ router.post('/add-trip/:destinationId', attachUser, requireAuth, checkNotBanned,
 
 router.post('/add-voyage/:destinationId', attachUser, requireAuth, checkNotBanned, addVoyageAndChecklist);
 
-router.get('/profil/:id', renderPublicProfile);
+router.get('/membre/:id', renderPublicProfile);
 export default router

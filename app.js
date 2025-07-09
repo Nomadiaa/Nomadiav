@@ -15,7 +15,7 @@ import reviewsRoutes from './src/routes/reviewsRoutes.js';
 import notificationRoutes from './src/routes/notificationRoutes.js';
 import { checkChecklistReminders } from './src/jobs/checkReminders.js';
 import adminUserRoutes from './src/routes/adminUserRoutes.js';
-
+import travelJournalRoutes from './src/routes/travelJournalRoutes.js';
 
 import { attachUser } from './src/middlewares/authMiddleware.js';
 import { showAllReviews } from './src/controllers/reviewsController.js';
@@ -79,6 +79,7 @@ app.use('/', userRoutes);
 app.use('/', checklistRoutes);
 app.use('/', notificationRoutes);
 app.use('/', adminUserRoutes)
+app.use('/', travelJournalRoutes);
 
 // Routes API prefixées par /api
 app.use('/api', reviewsRoutes);

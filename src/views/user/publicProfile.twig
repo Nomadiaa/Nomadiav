@@ -1,71 +1,217 @@
 {% extends "base.twig" %}
 {% block title %}Profil de {{ user.prenom }} {{ user.nom }}{% endblock %}
-{% block style %}<link rel="stylesheet" href="/assets/css/profil.css">{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="/assets/css/profil.css">
+  <style>
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .journal-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: #111;
+      transition: transform 0.2s;
+    }
+
+    .journal-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .journal-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .journal-card .placeholder-photo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 160px;
+      font-size: 2rem;
+      background: #f1f1f1;
+      color: #999;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-content h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .card-content .small {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+  .profile-wrapper {
+    padding: 0 1rem;
+  }
+
+  .cover-img {
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .avatar-wrapper {
+    transform: scale(0.85);
+    top: 130px;
+  }
+
+  .profile-name {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .bio {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+
+  .social-grid {
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .profile-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-stats .stat-block {
+    margin-bottom: 1rem;
+  }
+
+  .voyage-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .journal-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .journal-card img,
+  .journal-card .placeholder-photo {
+    height: 140px;
+  }
+}
+
+  </style>
+{% endblock %}
+
 {% block main %}
-  <div class="profile-wrapper">
-    <div class="profile-banner">
-      <img src="{{ user.coverImage ?? '/uploads/default-cover.jpg' }}" alt="Couverture" class="cover-img">
-      <div class="avatar-wrapper">
-        <img src="{{ user.avatar ?? '/uploads/default-avatar.png' }}" alt="Avatar" class="avatar-img">
+<div class="profile-wrapper">
+  <!-- === EN-TÊTE === -->
+  <div class="profile-banner">
+    <img src="{{ user.coverImage ?? '/uploads/default-cover.jpg' }}" alt="Couverture" class="cover-img">
+    <div class="avatar-wrapper">
+      <img src="{{ user.avatar ?? '/uploads/default-avatar.png' }}" alt="Avatar" class="avatar-img">
+    </div>
+  </div>
+
+  <div class="info-bio">
+    <h1 class="profile-name">{{ user.prenom }} {{ user.nom }}</h1>
+    <p class="bio">{{ user.bio }}</p>
+  </div>
+
+  {% if not isPrivate %}
+    <!-- Réseaux sociaux -->
+    {% if user.instagram or user.youtube or user.facebook %}
+      <div class="social-grid">
+        {% if user.instagram %}
+          <a href="{{ user.instagram }}" target="_blank" aria-label="Instagram">
+            <img src="/image/instagram.webp" alt="Instagram">
+          </a>
+        {% endif %}
+        {% if user.youtube %}
+          <a href="{{ user.youtube }}" target="_blank" aria-label="YouTube">
+            <img src="/image/youtube-play(1).png" alt="YouTube">
+          </a>
+        {% endif %}
+        {% if user.facebook %}
+          <a href="{{ user.facebook }}" target="_blank" aria-label="Facebook">
+            <img src="/image/facebook-new(1).png" alt="Facebook">
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <!-- Statistiques -->
+    <div class="profile-stats">
+      <div class="stat-block">
+        <div class="stat-label">{{ user.adventurerType ?? 'Aventurier' }}</div>
+      </div>
+      <div class="divider"></div>
+      <div class="stat-block">
+        <div class="stat-value">{{ user.userVoyages | length }}</div>
+        <div class="stat-label">Voyages</div>
       </div>
     </div>
-    <div class="info-bio">
-      <h1 class="profile-name">{{ user.prenom }} {{ user.nom }}</h1>
-      <p class="bio">{{ user.bio }}</p>
-    </div>
-    {% if not isPrivate %}
-      <!-- Statistiques et voyages visibles si public -->
-        {% if user.instagram or user.youtube or user.facebook %}
-        <div class="social-grid">
-          {% if user.instagram %}
-            <a href="{{ user.instagram }}" target="_blank" aria-label="Instagram">
-              <img src="/image/instagram.webp" alt="Instagram">
-            </a>
-          {% endif %}
-          {% if user.youtube %}
-            <a href="{{ user.youtube }}" target="_blank" aria-label="YouTube">
-              <img src="/image/youtube-play(1).png" alt="YouTube">
-            </a>
-          {% endif %}
-          {% if user.facebook %}
-            <a href="{{ user.facebook }}" target="_blank" aria-label="Facebook">
-              <img src="/image/facebook-new(1).png" alt="Facebook">
-            </a>
-          {% endif %}
-        </div>
-      {% endif %}
-      <div class="profile-stats">
-        <div class="stat-block">
-          <div class="stat-label">{{ user.adventurerType ?? 'Aventurier' }}</div>
-        </div>
-        <div class="divider"></div>
-        <div class="stat-block">
-          <div class="stat-value">{{ user.userVoyages | length }}</div>
-          <div class="stat-label">Voyages</div>
-        </div>
+
+    <!-- Voyages -->
+    <section class="profile-section">
+      <h2>Mes prochains voyages</h2>
+      <div class="voyage-list">
+        {% for trip in user.userVoyages %}
+          {% set voyage = trip.destination %}
+          {% set imagePath = voyage.imagePrincipale starts with '/uploads/' ? voyage.imagePrincipale : '/uploads/' ~ voyage.imagePrincipale %}
+          <a href="/destination/{{ voyage.id }}" class="voyage-card" style="background-image: url('{{ imagePath }}')">
+            <div class="overlay">
+              <h3>{{ voyage.titre }}</h3>
+              <p>{{ voyage.pays }}</p>
+            </div>
+          </a>
+        {% else %}
+          <p>Aucun voyage prévu pour le moment.</p>
+        {% endfor %}
       </div>
-      <section class="profile-section">
-        <h2>Mes prochains voyages</h2>
-        <div class="voyage-list">
-          {% for trip in user.userVoyages %}
-            {% set voyage = trip.destination %}
-            {% set imagePath = voyage.imagePrincipale starts with '/uploads/' ? voyage.imagePrincipale : '/uploads/' ~ voyage.imagePrincipale %}
-            <a href="/destination/{{ voyage.id }}" class="voyage-card" style="background-image: url('{{ imagePath }}')">
-              <div class="overlay">
-                <h3>{{ voyage.titre }}</h3>
-                <p>{{ voyage.pays }}</p>
+    </section>
+
+    <!-- Carnets publics -->
+    <section class="profile-section">
+      <h2>📘 Carnets de voyage publics</h2>
+      {% if publicJournals.length == 0 %}
+        <p>Aucun carnet public publié pour l’instant.</p>
+      {% else %}
+        <div class="journal-grid">
+          {% for carnet in publicJournals %}
+            <a href="/carnet/{{ carnet.id }}" class="journal-card">
+              {% if carnet.photos[0] %}
+                <img src="{{ carnet.photos[0].url }}" alt="{{ carnet.photos[0].alt ?? 'Photo du carnet' }}">
+              {% else %}
+                <div class="placeholder-photo">📘</div>
+              {% endif %}
+              <div class="card-content">
+                <h3>{{ carnet.titre }}</h3>
+                <p class="small">{{ carnet.destination.titre }}</p>
+                {% if carnet.note %}
+                  <p class="small">Note : {{ carnet.note }} ⭐</p>
+                {% endif %}
               </div>
             </a>
-          {% else %}
-            <p>Aucun voyage prévu pour le moment.</p>
           {% endfor %}
         </div>
-      </section>
-    
-    {% else %}
-      <p class="profile-private-msg" style="margin:2em 0; text-align:center;">
-        <i>Ce profil est privé.</i>
-      </p>
-    {% endif %}
-  </div>
+      {% endif %}
+    </section>
+
+  {% else %}
+    <p class="profile-private-msg" style="margin:2em 0; text-align:center;">
+      <i>Ce profil est privé.</i>
+    </p>
+  {% endif %}
+</div>
 {% endblock %}
