@@ -7,16 +7,14 @@ export function renderAddDestination(req, res) {
 }
 
 
-// Ajout complet d'une destination + notifications à tous les users (sauf admin)
 export async function handleAddDestination(req, res) {
   try {
     const { titre, pays, continent, description } = req.body;
 
-    // Récupère l'image principale
+   
     const imagePrincipaleFile = req.files.find(f => f.fieldname === 'imagePrincipale');
     const imagePrincipale = imagePrincipaleFile ? '/uploads/' + imagePrincipaleFile.filename : null;
 
-    // 1️⃣ Création de la destination
     const destination = await prisma.destination.create({
       data: {
         titre,
@@ -27,8 +25,8 @@ export async function handleAddDestination(req, res) {
       },
     });
 
-    // 2️⃣ NOTIFICATION "nouvelle_destination" envoyée à tous les utilisateurs sauf l'admin qui ajoute
-    const adminId = req.user?.id || req.session.user?.id; // adapte selon ton système d'auth
+   
+    const adminId = req.user?.id || req.session.user?.id; 
     const allUsers = await prisma.user.findMany({
       where: { id: { not: adminId } },
     });
@@ -44,7 +42,6 @@ export async function handleAddDestination(req, res) {
       await prisma.notification.createMany({ data: notificationsData });
     }
 
-    // 3️⃣ Traitement des sections, bullet points, groupes, images
     const parseField = (field) => {
       try {
         return typeof field === 'string' ? JSON.parse(field) : field;
@@ -58,7 +55,7 @@ export async function handleAddDestination(req, res) {
       ? sectionsRaw.map(parseField)
       : [parseField(sectionsRaw)];
 
-    // Types valides d'énum (Enum Prisma)
+  
     const allowedTypes = ['GUIDE', 'PRESENTATION', 'ACCES', 'FORMALITES', 'CONSEILS', 'POURQUOI'];
 
     for (let i = 0; i < sections.length; i++) {
@@ -66,7 +63,6 @@ export async function handleAddDestination(req, res) {
       const formattedType = (sectionData.type || 'GUIDE').toUpperCase();
       const finalType = allowedTypes.includes(formattedType) ? formattedType : 'GUIDE';
 
-      // Création de la section
       const newSection = await prisma.section.create({
         data: {
           titre: sectionData.titre,
@@ -77,7 +73,6 @@ export async function handleAddDestination(req, res) {
         },
       });
 
-      // Bullet points simples
       const bulletPoints = sectionData.bulletPoints || [];
       for (let b = 0; b < bulletPoints.length; b++) {
         await prisma.bulletPoint.create({
@@ -89,7 +84,6 @@ export async function handleAddDestination(req, res) {
         });
       }
 
-      // Groupes de bullet points
       const groups = sectionData.groups || [];
       for (let j = 0; j < groups.length; j++) {
         const group = await prisma.groupedBulletPoint.create({
@@ -112,7 +106,6 @@ export async function handleAddDestination(req, res) {
         }
       }
 
-      // Images pour la section
       const imageFiles = req.files.filter(file => file.fieldname === `sections[${i}][images][]`);
       for (const img of imageFiles) {
         await prisma.image.create({
@@ -124,7 +117,6 @@ export async function handleAddDestination(req, res) {
       }
     }
 
-    // Redirection finale
     res.redirect('/dashAdm');
   } catch (err) {
     console.error('❌ Erreur lors de l’ajout complet de la destination :', err);

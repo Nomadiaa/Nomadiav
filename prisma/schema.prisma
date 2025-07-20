@@ -25,9 +25,8 @@ model User {
   adventurerType String?
   isBanned   Boolean  @default(false)
 
-  // ➕ CHAMPS IMAGES
-  avatar         String?   // ex: "user123.jpg"
-  coverImage     String?   // ex: "cover_abc.jpg"
+  avatar         String?  
+  coverImage     String?  
 
   voyages        Destination[] @relation("VoyagesUtilisateur")
   checklists     Checklist[] 
@@ -37,8 +36,8 @@ model User {
   travelJournals   TravelJournal[]
 
 
-  notifications      Notification[] @relation("NotifRecipient")  // Notifs reçues
-  sentNotifications  Notification[] @relation("NotifSender")     // Notifs envoyées
+  notifications      Notification[] @relation("NotifRecipient")  
+  sentNotifications  Notification[] @relation("NotifSender")    
 }
 
 enum Role {

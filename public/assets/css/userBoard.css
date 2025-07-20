@@ -53,7 +53,6 @@ body {
 .continent-group {
   background-color: #ffe3d6;
   border-radius: 2rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   margin: 2.5rem 0;
   padding: 2rem 0 2.5rem 0;
   width: 100%;
@@ -82,8 +81,8 @@ body {
   padding: 0 24px;
   width: 100%;
   box-sizing: border-box;
-  max-width: 850px; /* largeur pour 4 cartes + gaps */
-  margin: 0 auto;
+  max-width: 1000px; /* largeur pour 4 cartes + gaps */
+  margin: auto;
 }
 
 /* ----------- Flèches ----------- */
@@ -134,13 +133,12 @@ body {
 .destination-card {
   flex: 0 0 180px;
   width: 180px;
-  height: 260px;
+  height: 250px;
   display: block;
   position: relative;
   border-radius: 1rem;
   overflow: hidden;
   text-decoration: none;
-  background-color: #000;
   transition: transform 0.3s ease;
   color: white;
   margin: 0;
@@ -220,16 +218,17 @@ body {
 /* ----------- Responsive : 2 cartes sur mobile ----------- */
 @media (max-width: 900px) {
   .carousel-container {
-    max-width: 370px;
+    max-width: 460px;
     padding: 0 8px;
+    margin:auto;
   }
   .carousel-track {
     width: calc(2 * 160px + 1 * 1rem); /* 2 cartes + 1 gap */
     gap: 1rem;
   }
   .destination-card {
-    flex: 0 0 160px;
-    width: 160px;
+    flex: 0 0 130px;
+    width: 80px;
     height: 210px;
   }
   .carousel-arrow {
@@ -239,5 +238,82 @@ body {
   }
   .destination-card img {
     height: 100%;
+  }
+}
+
+/* ----------- Base container ----------- */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2% 4%;
+  box-sizing: border-box;
+}
+
+/* ----------- Grille de cartes ----------- */
+.destinations-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+/* ----------- Carte destination ----------- */
+.destination-card {
+  display: block;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  
+}
+
+.destination-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ----------- Informations sur la carte ----------- */
+.destination-card .info {
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.destination-card .info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.destination-card .info p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #eee;
+}
+
+/* ----------- Responsive mobile ----------- */
+@media (max-width: 768px) {
+  .destination-card img {
+    height: 210px;
+  }
+
+  .destination-card .info h3 {
+    font-size: 1rem;
+  }
+
+  .destination-card .info p {
+    font-size: 0.85rem;
   }
 }

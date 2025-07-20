@@ -18,7 +18,7 @@
 .reviews-separator {
   width: 60px;
   height: 4px;
-  background-color: #db7dc0;
+  background-color: #e95b0c;
   margin: 0 auto;
   border: none;
   border-radius: 2px;
@@ -87,7 +87,7 @@
 /* 🔗 Lien "Lire" */
 .like-btn {
   display: inline-block;
-  background-color: #db7dc0;
+  background-color: #e95b0c;
   color: #fff;
   padding: 0.5rem 1.1rem;
   font-size: 0.9rem;
@@ -97,6 +97,3 @@
   transition: background-color 0.2s ease;
 }
 
-.like-btn:hover {
-  background-color: #c262ac;
-}

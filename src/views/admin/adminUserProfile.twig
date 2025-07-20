@@ -105,24 +105,5 @@
     </div>
   </section>
 
-  <!-- === SECTION CHECKLISTS (exemple, si tu veux voir ce qu'il a créé) === -->
-  {% if user.checklists and user.checklists|length > 0 %}
-  <section class="profile-section">
-    <h2 class="admin-section-title">Checklists</h2>
-    <ul>
-      {% for checklist in user.checklists %}
-        <li>
-          <span class="admin-profile-label">{{ checklist.titre }}</span>
-          {% if checklist.items %}
-            ({{ checklist.items|length }} items)
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-
-  <!-- Tu peux rajouter d’autres blocs admin ici selon ce que tu veux voir (reviews, date d’inscription, etc) -->
-
 </div>
 {% endblock %}

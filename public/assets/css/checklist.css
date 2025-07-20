@@ -61,7 +61,7 @@ main {
 .checklist-actions .btn:hover,
 .btn-add:hover {
   transform: scale(1.05) translateY(-2px);
-  background: linear-gradient(90deg, #ffb36a 40%, #ff6d2e 100%);
+  
 }
 
 /* Catégories en grille de 2 */

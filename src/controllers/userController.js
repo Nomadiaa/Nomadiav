@@ -63,6 +63,7 @@ export async function renderUserBoard(req, res) {
 // 🧑‍💼 Affiche la page profil
 export async function renderUserProfile(req, res) {
   try {
+
     const userId = req.user.id;
     const user = await prisma.user.findUnique({
       where: { id: userId },
@@ -72,6 +73,7 @@ export async function renderUserProfile(req, res) {
         }
       }
     });
+    
     res.render('user/profil', { user });
   } catch (err) {
     console.error("❌ Erreur renderUserProfile :", err);

@@ -1,3 +1,4 @@
+/* 🌿 Base globale */
 body {
   background: #fcfcfc;
   color: #242424;
@@ -6,68 +7,79 @@ body {
   padding: 0;
 }
 
-/* Titre principal */
+/* 🧭 Titre principal */
 h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin: 2rem 0 2.5rem 0;
-  text-align: left;
+  text-align: center;
+  margin: 2.5rem 0 1.2rem;
   color: #151515;
-  letter-spacing: 0.02em;
-}
-
-/* Conteneur des cartes */
-.checklist-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-/* Carte principale */
-.checklist-card {
-  background: #fff6f2; /* Beige/orangé pastel */
-  border-radius: 22px;
-  box-shadow: 0 4px 14px 0 rgba(252, 141, 69, 0.09), 0 1.5px 8px 0 rgba(0,0,0,0.04);
-  padding: 1.8rem 2.2rem 1.4rem 2.2rem;
-  margin-bottom: 1.3rem;
-  position: relative;
-  border: 1.5px solid #ffe8db;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.checklist-card h2 {
-  margin: 0 0 0.7rem 0;
-  color: #fc7b19; /* Orange principal */
-  font-size: 1.35rem;
-  font-weight: 700;
   letter-spacing: 0.01em;
 }
 
-.checklist-card p {
-  margin: 0 0 1.1rem 0;
-  font-size: 1rem;
-  color: #2a2a2a;
-  line-height: 1.55;
-  font-weight: 400;
+/* 🟧 Séparateur décoratif */
+.title-separator {
+  width: 60px;
+  height: 4px;
+  background-color: #fc7b19;
+  margin: 0 auto 2rem;
+  border-radius: 2px;
 }
 
-/* Boutons */
+/* 🧱 Grille des cartes */
+.checklist-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+/* 📦 Carte individuelle */
+.checklist-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.checklist-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* 📝 Titre de la check-list */
+.checklist-card h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fc7b19;
+}
+
+/* 📄 Description */
+.checklist-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* 🔘 Boutons */
 .btn {
   background: #fc7b19;
   color: #fff;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 13px;
-  box-shadow: 0 2px 6px 0 rgba(252, 141, 69, 0.12);
-  cursor: pointer;
-  transition: background 0.17s;
-  margin-right: 0.6rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
   text-decoration: none;
+  transition: background-color 0.2s ease;
+  margin-right: 0.5rem;
   display: inline-block;
 }
 
@@ -78,27 +90,24 @@ h1 {
 .btn-danger {
   background: #f8593b;
 }
-
 .btn-danger:hover {
   background: #ff7860;
 }
 
-/* Gestion message vide */
-p {
-  font-size: 1.13rem;
+/* 🟠 Message vide */
+.empty-message {
+  font-size: 1.1rem;
   color: #a96a31;
-  margin-left: 0.4rem;
-  margin-top: 1rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 
-/* Responsive mobile */
+/* 📱 Responsive */
 @media (max-width: 600px) {
-  .checklist-card {
-    padding: 1.1rem 1rem;
-  }
   h1 {
-    font-size: 1.45rem;
-    margin: 1.2rem 0 1.5rem 0;
+    font-size: 1.5rem;
+  }
+  .checklist-list {
+    padding: 0 1rem;
   }
 }
-

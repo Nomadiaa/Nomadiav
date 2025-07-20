@@ -39,15 +39,22 @@ export async function deleteUserById(req, res) {
 
 // GET : Afficher le profil complet d’un utilisateur pour l’admin
 export async function viewUserProfile(req, res) {
-  const { id } = req.params;
+  const { userId } = req.params;
+
+  if (!userId || isNaN(Number(userId))) {
+    return res.status(400).send("ID utilisateur invalide.");
+  }
+
   try {
-    // On récupère tout ce que tu veux afficher (à adapter selon tes modèles)
     const user = await prisma.user.findUnique({
-      where: { id: Number(id) },
+      where: { id: Number(userId) },
       include: {
-        voyages: true,     // Affiche ses voyages (si tu veux)
-        checklists: true,  // Idem pour ses checklists
-        // reviews: true,  // Tu peux ajouter reviews, ou autres relations si besoin
+        userVoyages: {
+          include: {
+            destination: true  // ✅ Inclusion des infos de la destination
+          }
+        },
+        checklists: true
       }
     });
 
@@ -56,6 +63,7 @@ export async function viewUserProfile(req, res) {
     }
 
     res.render('admin/adminUserProfile.twig', { user });
+
   } catch (err) {
     console.error('Erreur viewUserProfile:', err);
     res.status(500).send("Erreur lors de l'affichage du profil utilisateur");
@@ -87,14 +95,25 @@ export async function viewDestinationReviews(req, res) {
 // Pour supprimer un avis
 export async function deleteReview(req, res) {
   const { reviewId } = req.params;
-  const { destinationId } = req.body; // si tu veux rediriger après
+  const { destinationId } = req.body;
+
+
+
+  if (!reviewId || !destinationId) {
+    return res.status(400).send("ID de l'avis ou de la destination manquant.");
+  }
+
   try {
-    await prisma.review.delete({ where: { id: Number(reviewId) } });
+    await prisma.review.delete({
+      where: { id: reviewId } // ⚠️ Pas Number si ID est un String (ex: cuid)
+    });
     res.redirect(`/admin/destinations/${destinationId}/reviews`);
   } catch (err) {
-    res.status(500).send("Erreur suppression avis");
+    console.error('❌ Erreur deleteReview:', err);
+    res.status(500).send("Erreur lors de la suppression de l'avis");
   }
 }
+
 
 // Bannir un utilisateur par son ID
 export async function banUser(req, res) {

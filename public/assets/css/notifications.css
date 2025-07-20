@@ -1,0 +1,96 @@
+/* ===== NOTIFICATIONS PAGE ===== */
+
+body {
+  background-color: #fffefb;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: #d04f1d;
+}
+
+/* === LISTE DE NOTIFICATIONS === */
+.notifications-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* === ÉLÉMENT DE NOTIF === */
+.notifications-list li {
+  background: #fff5ec;
+  padding: 1.2rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: background 0.3s;
+  position: relative;
+}
+
+/* === NON LU === */
+.notif-unread {
+  border-left: 6px solid #ff5c1c;
+  background: #fff0e8;
+}
+
+/* === AVATAR === */
+.notif-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #ffe1d6;
+}
+
+/* === ICÔNE NOTIF (emoji) === */
+.notif-icon {
+  font-size: 1.8rem;
+  margin-right: 0.6rem;
+}
+
+/* === TEXTE DE NOTIF === */
+.notifications-list li div {
+  flex: 1;
+  font-size: 1rem;
+  color: #333;
+}
+
+.notifications-list strong {
+  color: #d04f1d;
+}
+
+/* === DATE === */
+.notif-date {
+  display: block;
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 0.4rem;
+}
+
+/* === LIEN === */
+.notifications-list a {
+  display: inline-block;
+  margin-top: 0.6rem;
+  background-color: #ff5c1c;
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.notifications-list a:hover {
+  background-color: #e9470b;
+}
