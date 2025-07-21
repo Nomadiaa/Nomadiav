@@ -79,7 +79,7 @@
                     <span class="reminder-alert">[Rappel imminent]</span>
                   {% endif %}
                 </span>
-                {# BONUS UX : Indique qu’un rappel sera envoyé la veille si c’est prévu +24h #}
+                {# Indique qu’un rappel sera envoyé la veille si c’est prévu +24h #}
                 {% if item.reminderDate|date('U') - "now"|date('U') >= 86400 and not item.isChecked %}
                   <span class="reminder-planned">
                     ⏰ Un rappel sera envoyé la veille (le {{ (item.reminderDate|date_modify('-1 day'))|date('d/m/Y H:i') }})
@@ -87,8 +87,8 @@
                 {% endif %}
               {% endif %}
             </form>
-            <form action="/checklist/{{ checklist.id }}/item/{{ item.id }}/delete" method="POST" style="display:inline;">
-              <button type="submit" class="btn-delete" title="Supprimer">&#10060;</button>
+            <form action="/checklist/{{ checklist.id }}/item/{{ item.id }}/delete" method="POST" >
+              <button type="submit" class="btn-delete" title="Supprimer">×</button>
             </form>
           </li>
         {% else %}

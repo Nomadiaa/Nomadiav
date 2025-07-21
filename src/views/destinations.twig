@@ -78,51 +78,53 @@
 <hr style="margin-top: 3rem; margin-bottom: 2rem;">
 
 <!-- ✅ Bloc AVIS -->
-<section class="last-reviews">
-  <div class="testimonial-header">
-    <div class="testimonial-banner-container">
-      <img src="/assets/image/11190.jpg" alt="Fond lac gelé" class="testimonial-banner">
-      <h2 class="testimonial-title">Avis voyageurs</h2>
+<section class="review-section">
+  <div class="review-header">
+    <div class="review-banner-container">
+      <img src="/assets/image/11190.jpg" alt="Fond lac gelé" class="review-banner">
+      <h2 class="review-title">Avis voyageurs</h2>
     </div>
   </div>
 
-  <div class="testimonial-actions">
-    <a href="/destination/{{ destination.id }}/reviews" class="add-review-btn">Ajouter un commentaire</a>
+  <div class="review-actions">
+    <a href="/destination/{{ destination.id }}/reviews" class="review-add-btn">Ajouter un commentaire</a>
   </div>
 
   {% if lastTwoReviews is empty %}
     <p style="text-align:center; margin-top:2em;">Aucun avis pour cette destination.</p>
   {% else %}
-    <div class="testimonial-list">
+    <div class="review-list">
       {% for review in lastTwoReviews %}
         {% set avatarPath = review.user.avatar starts with '/uploads/' 
             ? review.user.avatar 
             : '/uploads/' ~ (review.user.avatar ?: 'default-avatar.png') %}
-        <div class="testimonial-card">
-          <img class="avatar" src="{{ avatarPath }}" alt="{{ review.user.prenom }} {{ review.user.nom }}" />
-          <div class="testimonial-content">
-            <span class="testimonial-name">
-              {{ review.user.prenom }}
-              <span class="stars">
+        <div class="review-card">
+          <img class="review-avatar" src="{{ avatarPath }}" alt="{{ review.user.prenom }} {{ review.user.nom }}" />
+          <div class="review-content">
+            <span class="review-author">
+              <a href="/membre/{{ review.user.id }}">{{ review.user.prenom }}</a>
+              <span class="review-stars">
                 {% for i in 1..review.rating %}★{% endfor %}
                 {% for i in review.rating+1..5 %}<span style="opacity:.2;">★</span>{% endfor %}
               </span>
             </span>
-            <div class="testimonial-text">
+            <div class="review-text">
               {{ review.content }}
             </div>
-            <div style="margin-top:8px;">
-              <span style="font-size:15px; color:#bbb;">👍 {{ review.likes|length }} like{{ review.likes|length > 1 ? 's' : '' }}</span>
+            <div class="review-likes">
+              👍 {{ review.likes|length }} like{{ review.likes|length > 1 ? 's' : '' }}
             </div>
           </div>
         </div>
       {% endfor %}
     </div>
-    <div class="testimonial-actions">
-      <a href="/destination/{{ destination.id }}/reviews" style="font-weight: bold;">Voir tous les avis &rarr;</a>
+
+    <div class="review-actions">
+      <a href="/destination/{{ destination.id }}/reviews" class="review-view-all">Voir tous les avis &rarr;</a>
     </div>
   {% endif %}
 </section>
+
 
 <!-- ✅ Bloc CARNETS DE VOYAGE -->
 <section class="travel-journals">

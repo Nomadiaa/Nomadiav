@@ -1,12 +1,26 @@
+// --- routes/notificationRouter.js ---
 import express from 'express';
 const router = express.Router();
 
-import { markAllNotificationsAsRead, showNotifications } from '../controllers/notificationsController.js';
-import { attachUser ,requireAuth } from '../middlewares/authMiddleware.js';
-import { getAllUserNotifications } from '../controllers/notificationsController.js';
+import {
+  deleteNotification,
+  markAllNotificationsAsRead,
+  showNotifications,
+  getAllUserNotifications,
+} from '../controllers/notificationsController.js';
 
-router.get('/notification', attachUser ,requireAuth, showNotifications);
+import { attachUser, requireAuth } from '../middlewares/authMiddleware.js';
+
+// Afficher les notifs
+router.get('/notification', attachUser, requireAuth, showNotifications);
+
+// Marquer toutes comme lues
 router.get('/notification/read', attachUser, requireAuth, markAllNotificationsAsRead);
-router.get('/notifications', getAllUserNotifications);
+
+// Toutes les notifs
+router.get('/notifications', attachUser, requireAuth, getAllUserNotifications);
+
+// ✅ Route suppression d'une notif
+router.post('/notifications/:id/delete', attachUser, requireAuth, deleteNotification);
 
 export default router;

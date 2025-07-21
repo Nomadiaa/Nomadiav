@@ -6,6 +6,7 @@ form, input, select, textarea, button {
   box-sizing: border-box;
 }
 
+/* Titres */
 h1, h2 {
   text-align: center;
   margin-bottom: 1rem;
@@ -23,6 +24,7 @@ h1, h2 {
   animation: fadeIn 0.6s ease-in-out;
 }
 
+/* Champs du formulaire */
 label {
   display: block;
   margin-top: 1.2rem;
@@ -50,7 +52,7 @@ select:focus {
   box-shadow: 0 0 0 4px rgba(255, 109, 46, 0.15);
 }
 
-/* Boutons généraux */
+/* Boutons */
 button {
   margin-top: 1rem;
   padding: 0.7rem 1.5rem;
@@ -67,7 +69,7 @@ button:hover {
   background: #e95512;
 }
 
-/* Bouton secondaire (ajout section) */
+/* Bouton secondaire */
 .btn-secondary {
   background-color: #ffa163;
 }
@@ -85,14 +87,14 @@ button[onclick*="markDeleted"]:hover {
   background: #851f1f !important;
 }
 
-/* Bloc section */
+/* Section principale */
 .section-block {
   padding: 1.5rem;
   margin-top: 2rem;
   background: #fff;
   border-radius: 15px;
   border: 1px solid #ffd7b3;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   animation: slideIn 0.5s ease-in-out;
 }
 
@@ -113,11 +115,37 @@ button[onclick*="markDeleted"]:hover {
   border-radius: 10px;
 }
 
+/* Prévisualisation image */
+.image-preview {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.image-preview .close-section-btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+/* Bouton croix pour supprimer une section/image */
+.close-section-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #aaa;
+  cursor: pointer;
+  float: right;
+  margin-top: -1rem;
+  margin-right: 0.3rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   #destination-form {
     padding: 1.5rem 1rem;
   }
+
   input, textarea, select, button {
     font-size: 1rem;
   }

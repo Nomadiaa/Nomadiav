@@ -63,6 +63,23 @@
   color: #eee;
 }
 
+.admin-btn { 
+  background: #ffe8db; 
+  color: #e95512; 
+  font-weight: bold; 
+  border-radius: 8px; 
+  padding: 0.35em 1em; 
+  border: none;
+  margin-left: 0.5em; 
+  cursor: pointer; 
+  transition: background .2s, color .2s;
+  font-size: 15px;
+}
+.admin-btn:hover { 
+  background: #ffdabd; 
+  color: #792f1d; 
+}
+
 /* ----------- Responsive mobile ----------- */
 @media (max-width: 768px) {
   .destination-card img {

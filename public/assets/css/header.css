@@ -1,3 +1,8 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+
 /* === RESET === */
 a {
   text-decoration: none;
@@ -13,9 +18,8 @@ ul {
 .navbar-glass {
   position: absolute;
   top: 0;
-  width: 100%;
+  width: 95%;
   padding: 1.2rem 2rem;
-  background: rgba(117, 10, 10, 0.05);
   z-index: 100;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
@@ -44,7 +48,7 @@ ul {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1.2rem;
-  color: #fff;
+  color: #792f1d; 
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -52,7 +56,7 @@ ul {
 }
 
 .nav-links a:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.388);
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
    border-radius: 999px;
   transform: translateY(-1px);

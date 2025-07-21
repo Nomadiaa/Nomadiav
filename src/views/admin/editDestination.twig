@@ -1,10 +1,6 @@
-{% extends "base.twig" %}
-
 {% block style %}
   <link rel="stylesheet" href="/assets/css/editForm.css">
 {% endblock %}
-
-{% block title %}Modifier la destination{% endblock %}
 
 {% block main %}
 <h1>Modifier la destination</h1>
@@ -43,6 +39,8 @@
       <div class="section-block">
         <input type="hidden" name="sections[{{ loop.index0 }}][id]" value="{{ section.id }}">
 
+        <button type="button" class="close-section-btn" onclick="markDeleted(this.closest('.section-block'), 'deletedSections', '{{ section.id }}')">×</button>
+
         <label>Titre :</label>
         <input type="text" name="sections[{{ loop.index0 }}][titre]" value="{{ section.titre }}" required>
 
@@ -57,35 +55,35 @@
           <option value="POURQUOI" {{ section.type == 'POURQUOI' ? 'selected' : '' }}>❓ POURQUOI Y ALLER</option>
         </select>
 
-        <label>Contenu :</label>
-        <textarea name="sections[{{ loop.index0 }}][contenu]" required>{{ section.contenu }}</textarea>
+        <label>Contenu (facultatif) :</label>
+        <textarea name="sections[{{ loop.index0 }}][contenu]" placeholder="Texte libre... (optionnel)">{{ section.contenu }}</textarea>
 
         <div>
           <h4>Images associées :</h4>
           {% for img in section.images %}
-            <div>
+            <div class="image-preview">
               <img src="{{ img.url }}" width="100">
-              <button type="button" onclick="markDeleted(this, 'deletedImages', '{{ img.id }}')">❌ Supprimer</button>
+              <button type="button" class="close-section-btn" onclick="markDeleted(this.parentElement, 'deletedImages', '{{ img.id }}')">×</button>
             </div>
           {% endfor %}
         </div>
 
         <div class="grouped-bullets-wrapper" id="grouped-{{ loop.index0 }}">
-          <h4>Groupes de bullet points</h4>
+          <h4>Groupes de bullet points (facultatif)</h4>
           {% for group in section.groupedPoints %}
             <div class="grouped-bullet-block">
               <input type="hidden" name="sections[{{ loop.parent.loop.index0 }}][groups][{{ loop.index0 }}][id]" value="{{ group.id }}">
-              <label>Titre du groupe :</label>
-              <input type="text" name="sections[{{ loop.parent.loop.index0 }}][groups][{{ loop.index0 }}][titre]" value="{{ group.titre }}" required>
+              <label>Titre du groupe (facultatif) :</label>
+              <input type="text" name="sections[{{ loop.parent.loop.index0 }}][groups][{{ loop.index0 }}][titre]" value="{{ group.titre }}" placeholder="Ex: Activités à faire">
 
               {% for bp in group.contents %}
                 <div>
-                  <input type="text" name="sections[{{ loop.parent.parent.loop.index0 }}][groups][{{ loop.parent.loop.index0 }}][contenus][]" value="{{ bp.contenu }}" required>
-                  <button type="button" onclick="markDeleted(this, 'deletedBulletPoints', '{{ bp.id }}')">❌</button>
+                  <input type="text" name="sections[{{ loop.parent.parent.loop.index0 }}][groups][{{ loop.parent.loop.index0 }}][contenus][]" value="{{ bp.contenu }}" placeholder="• Texte du bullet point (optionnel)">
+                  <button type="button" onclick="markDeleted(this.parentElement, 'deletedBulletPoints', '{{ bp.id }}')">×</button>
                 </div>
               {% endfor %}
 
-              <button type="button" onclick="markDeleted(this.closest('.grouped-bullet-block'), 'deletedGroups', '{{ group.id }}')">❌ Supprimer ce groupe</button>
+              <button type="button" onclick="markDeleted(this.closest('.grouped-bullet-block'), 'deletedGroups', '{{ group.id }}')">× Supprimer ce groupe</button>
             </div>
           {% endfor %}
         </div>
@@ -95,7 +93,6 @@
         </div>
         <button type="button" onclick="addImage({{ loop.index0 }})">➕ Ajouter image</button>
 
-        <button type="button" onclick="markDeleted(this.closest('.section-block'), 'deletedSections', '{{ section.id }}')">❌ Supprimer cette section</button>
         <hr>
       </div>
     {% endfor %}
@@ -124,6 +121,8 @@
     const section = document.createElement('div');
     section.className = 'section-block';
     section.innerHTML = `
+      <button type="button" class="close-section-btn" onclick="this.closest('.section-block').remove()">×</button>
+
       <label>Titre :</label>
       <input type="text" name="sections[${sectionIndex}][titre]" required>
 
@@ -138,20 +137,19 @@
         <option value="POURQUOI">❓ POURQUOI Y ALLER</option>
       </select>
 
-      <label>Contenu :</label>
-      <textarea name="sections[${sectionIndex}][contenu]" required></textarea>
+      <label>Contenu (facultatif) :</label>
+      <textarea name="sections[${sectionIndex}][contenu]" placeholder="Texte libre... (optionnel)"></textarea>
 
       <div class="grouped-bullets-wrapper" id="grouped-${sectionIndex}">
-        <h4>Groupes de bullet points</h4>
+        <h4>Groupes de bullet points (facultatif)</h4>
       </div>
       <button type="button" onclick="addGroupedBulletPoint(${sectionIndex})">➕ Ajouter un groupe de bullet points</button>
 
       <div class="images-wrapper" id="images-${sectionIndex}">
-        <h4>Images associées</h4>
+        <h4>Images associées (facultatif)</h4>
       </div>
       <button type="button" onclick="addImage(${sectionIndex})">➕ Ajouter image</button>
 
-      <button type="button" onclick="this.closest('.section-block').remove()">❌ Supprimer cette section</button>
       <hr>
     `;
     container.appendChild(section);
@@ -174,8 +172,8 @@
     const group = document.createElement('div');
     group.className = 'grouped-bullet-block';
     group.innerHTML = `
-      <label>Titre du groupe :</label>
-      <input type="text" name="sections[${sectionId}][groups][${groupIndex}][titre]" required>
+      <label>Titre du groupe (facultatif) :</label>
+      <input type="text" name="sections[${sectionId}][groups][${groupIndex}][titre]" placeholder="Ex: Activités à faire">
 
       <div id="group-bullets-${sectionId}-${groupIndex}">
         <h5>Liste des bullet points :</h5>
@@ -190,10 +188,12 @@
     const container = document.getElementById(`group-bullets-${sectionId}-${groupIndex}`);
     const div = document.createElement('div');
     div.innerHTML = `
-      <input type="text" name="sections[${sectionId}][groups][${groupIndex}][contenus][]" placeholder="• Texte du bullet point" required>
+      <input type="text" name="sections[${sectionId}][groups][${groupIndex}][contenus][]" placeholder="• Texte du bullet point (optionnel)">
       <button type="button" onclick="this.parentElement.remove()">❌</button>
     `;
     container.appendChild(div);
   }
 </script>
+
+
 {% endblock %}

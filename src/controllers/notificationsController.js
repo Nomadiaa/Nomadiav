@@ -50,3 +50,20 @@ export async function getAllUserNotifications(req, res) {
 
   res.render('notifications', { notifications });
 }
+
+// Supprimer une notification par son ID
+export async function deleteNotification(req, res) {
+  const { id } = req.params;
+
+  try {
+    await prisma.notification.delete({
+      where: { id: Number(id) },
+    });
+
+    // ✅ Redirige proprement vers la page de notification
+    return res.redirect("/notification");
+  } catch (error) {
+    console.error("Erreur suppression notification :", error);
+    res.status(500).send("Erreur lors de la suppression de la notification.");
+  }
+}

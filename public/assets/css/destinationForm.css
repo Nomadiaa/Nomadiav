@@ -96,6 +96,35 @@ button:hover {
   border-left: 4px solid #ff6d2e;
 }
 
+/* Bouton croix de suppression section */
+.close-section-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+
+.close-section-btn:hover {
+  color: #e74c3c; /* rouge doux au hover */
+}
+
+/* Pour positionner correctement la croix */
+.section-block {
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
   #destination-form {

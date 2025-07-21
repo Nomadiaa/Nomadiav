@@ -76,7 +76,7 @@ main {
 .checklist-category-card {
 
   border-radius: 1.2rem;
-  box-shadow: 0 2px 16px #ffe2d0cc;
+ 
   padding: 1.4rem 1.2rem 1rem 1.2rem;
   min-width: 0;
   border: 1.1px solid #ffd6bb;
@@ -139,18 +139,15 @@ main {
 }
 
 .btn-delete {
-  background: none;
   border: none;
-  color: #ff6d2e;
-  font-size: 1.12rem;
+  font-size: 22px;
+  color: #888;
   cursor: pointer;
-  border-radius: 8px;
-  padding: 0.2rem 0.4rem;
-  transition: background 0.14s, color 0.13s;
+  transition: color 0.2s;
 }
 
 .btn-delete:hover {
-  background: #ffe8db;
+  
   color: #d94e12;
 }
 
@@ -183,24 +180,86 @@ main {
   .btn-add {
     width: 100%;
     margin-bottom: 0.5rem;
+    
   }
 }
+
+@media (max-width: 768px) {
+  .main {
+    margin-top: 16px;
+    padding: 1rem;
+  }
+
+  .checklist-header h1 {
+    font-size: 1.5rem;
+    
+  }
+
+  .progress-bar {
+    height: 12px;
+    
+  }
+
+  .checklist-actions .btn,
+  .btn-add {
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+    
+  }
+
+  .checklist-category-card {
+    padding: 1rem;
+  }
+
+  .category-title {
+    font-size: 1rem;
+  }
+
+  .category-item {
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+  }
+
+  .item-title {
+    font-size: 0.95rem;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .add-item-form {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .add-item-form input[type="text"] {
+    width: 90%;
+  }
+
+  .reminder-planned,
+  .reminder-alert {
+    font-size: 0.85em;
+  }
+}
+
 
 /* --- Styles bonus pour les rappels --- */
 .reminder-planned {
   display: block;
   font-size: 0.92em;
-  color: #b673fa;
+  color: #972C00;
   margin-top: 2px;
 }
 .reminder-alert {
-  color: #ff4d8a;
+  color: #FE4A00;
   font-weight: bold;
   margin-left: 6px;
   font-size: 0.93em;
 }
 .reminder-soon {
-  background: #ffeafd !important;
+  background: #FFECE4 !important;
 }
 
 /* ===== IMPRESSION PDF / PRINT MODE ===== */

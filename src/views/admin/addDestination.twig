@@ -1,5 +1,3 @@
-{% extends "base.twig" %}
-
 {% block style %}
   <link rel="stylesheet" href="/assets/css/destinationForm.css">
 {% endblock %}
@@ -67,24 +65,25 @@
         <option value="POURQUOI">❓ POURQUOI Y ALLER</option>
       </select>
 
-      <label>Contenu de la section (texte libre) :</label>
-      <textarea name="sections[${sectionIndex}][contenu]" rows="4" required></textarea>
+      <label>Contenu de la section (facultatif) :</label>
+      <textarea name="sections[${sectionIndex}][contenu]" rows="4" placeholder="Texte libre... (optionnel)"></textarea>
 
-      <label>Bullet points simples :</label>
+      <label>Bullet points simples (facultatif) :</label>
       <div class="simple-bullets-wrapper" id="simple-bullets-${sectionIndex}"></div>
       <button type="button" onclick="addSimpleBulletPoint(${sectionIndex})">➕ Ajouter bullet point</button>
 
       <div class="grouped-bullets-wrapper" id="grouped-${sectionIndex}">
-        <h4>Groupes de bullet points</h4>
+        <h4>Groupes de bullet points (facultatif)</h4>
       </div>
       <button type="button" onclick="addGroupedBulletPoint(${sectionIndex})">➕ Ajouter un groupe de bullet points</button>
 
       <div class="images-wrapper" id="images-${sectionIndex}">
-        <h4>Images associées à la section</h4>
+        <h4>Images associées à la section (facultatif)</h4>
       </div>
       <button type="button" onclick="addImage(${sectionIndex})">➕ Ajouter image</button>
 
-      <button type="button" class="delete-section-btn" onclick="this.closest('.section-block').remove()">❌ Supprimer cette section</button>
+      <button type="button" class="close-section-btn" onclick="this.closest('.section-block').remove()">×</button>
+
       <hr>
     `;
 
@@ -97,8 +96,7 @@
     const input = document.createElement('input');
     input.type = 'text';
     input.name = `sections[${sectionId}][bulletPoints][]`;
-    input.placeholder = "• Texte du bullet point";
-    input.required = true;
+    input.placeholder = "• Texte du bullet point (facultatif)";
     wrapper.appendChild(input);
   }
 
@@ -109,8 +107,8 @@
     const group = document.createElement('div');
     group.className = 'grouped-bullet-block';
     group.innerHTML = `
-      <label>Titre du groupe de bullet points :</label>
-      <input type="text" name="sections[${sectionId}][groups][${groupIndex}][titre]" required>
+      <label>Titre du groupe (facultatif) :</label>
+      <input type="text" name="sections[${sectionId}][groups][${groupIndex}][titre]" placeholder="Ex: Activités à faire">
 
       <div id="group-bullets-${sectionId}-${groupIndex}">
         <h5>Liste des bullet points :</h5>
@@ -127,8 +125,7 @@
     const input = document.createElement('input');
     input.type = 'text';
     input.name = `sections[${sectionId}][groups][${groupIndex}][contenus][]`;
-    input.placeholder = "• Texte du bullet point";
-    input.required = true;
+    input.placeholder = "• Texte du bullet point (facultatif)";
     container.appendChild(input);
   }
 
