@@ -374,3 +374,36 @@ export async function getUserJournals(req, res) {
     res.status(500).send("Erreur serveur");
   }
 }
+
+export async function renderPublicJournals(req, res) {
+  const userId = parseInt(req.params.id, 10);
+
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { prenom: true, nom: true }
+    });
+
+    if (!user) {
+      return res.status(404).render('404.twig', { message: 'Utilisateur introuvable' });
+    }
+
+    const journals = await prisma.travelJournal.findMany({
+      where: {
+        userId,
+        isPublic: true
+      },
+      include: {
+        destination: true,
+        photos: true
+      },
+      orderBy: { createdAt: 'desc' }
+    });
+
+    res.render('user/publicJournals.twig', { user, journals });
+
+  } catch (err) {
+    console.error("Erreur renderPublicJournals :", err);
+    res.status(500).send("Erreur lors du chargement des carnets");
+  }
+}

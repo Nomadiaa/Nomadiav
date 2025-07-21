@@ -39,9 +39,6 @@
       <input type="hidden" name="check" value="false">
       <button type="submit" class="btn">Tout décocher</button>
     </form>
-    <form action="/checklist/{{ checklist.id }}/reset" method="POST" style="display:inline;">
-      <button type="submit" class="btn btn-secondary">Réinitialiser</button>
-    </form>
     <button onclick="window.print()" class="btn btn-print">Imprimer / Exporter PDF</button>
     <a href="/destination/{{ checklist.voyage.id }}" class="btn btn-link">Voir la destination</a>
   </div>

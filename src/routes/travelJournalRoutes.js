@@ -3,6 +3,7 @@ import multer from 'multer';
 import prisma from '../config/prisma.js';
 import {
   createTravelJournal,
+  deleteTravelJournal,
   renderAllJournalsForDestination,
   showTravelJournal
 } from '../controllers/travelJournalController.js';
@@ -40,5 +41,8 @@ router.get('/profil/carnets', getUserJournals);
 
 // ✅ Route GET pour voir tous les carnets d'une destination
 router.get('/destination/:id/carnets', renderAllJournalsForDestination);
+
+router.post('/carnet/:id/delete', deleteTravelJournal);
+
 
 export default router;

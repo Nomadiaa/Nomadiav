@@ -28,7 +28,8 @@
           />
           <div class="testimonial-content">
             <span class="testimonial-name">
-              <a href="/profil/{{ review.user.id }}">
+              <a href="/membre/{{ review.user.id }}">
+
     {{ review.user.prenom }}
   </a>
               <span class="stars">
@@ -75,7 +76,9 @@
     </form>
   </div>
 </section>
-
+<div>
+<a href="#" onclick="history.back(); return false;" class="admin-btn" style="margin:2em auto 0 auto; display:table;">← Revenir à la destination</a>
+</div>
 
   <script>
     document.querySelectorAll('.like-btn').forEach(btn => {

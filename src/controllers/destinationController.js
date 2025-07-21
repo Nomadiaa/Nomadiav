@@ -1,13 +1,16 @@
-import prisma from '../config/prisma.js'
+import prisma from '../config/prisma.js';
 
-// ✅ Affiche une destination complète avec groupedBulletPoints et 2 derniers avis
 export async function getDestinationDetails(req, res) {
-  const { id } = req.params;
-  const userId = req.session.user?.id; // 🔐 Récupère l'utilisateur connecté
+  const destinationId = req.params.id; // ✅ ne pas convertir
+  const userId = req.session.user?.id;
+
+  if (!destinationId || typeof destinationId !== 'string') {
+    return res.status(400).render('error.twig', { message: 'ID de destination invalide.' });
+  }
 
   try {
     const destination = await prisma.destination.findUnique({
-      where: { id },
+      where: { id: destinationId },
       include: {
         sections: {
           orderBy: { ordre: 'asc' },
@@ -33,48 +36,51 @@ export async function getDestinationDetails(req, res) {
       return res.status(404).render('404.twig', { message: 'Destination non trouvée' });
     }
 
-    // ✅ Vérifie si l'utilisateur a déjà ce voyage
     let alreadyPlanned = false;
-
     if (userId) {
-      // Il n'y a pas de modèle Voyage, on vérifie via Checklist
-      const existingChecklist = await prisma.checklist.findFirst({
-        where: {
-          userId: userId,
-          voyageId: id,
-        }
+      const checklist = await prisma.checklist.findFirst({
+        where: { userId, voyageId: destinationId }
       });
-
-      alreadyPlanned = !!existingChecklist;
+      alreadyPlanned = !!checklist;
     }
 
-    // --- NOUVEAU : récupère les 2 derniers avis ---
     const lastTwoReviews = await prisma.review.findMany({
-      where: { destinationId: id },
+      where: { destinationId },
       orderBy: { createdAt: 'desc' },
       take: 2,
       include: {
-        user: {
-          select: { id: true, nom: true, prenom: true, avatar: true }
-        },
-        likes: true,
+        user: { select: { id: true, nom: true, prenom: true, avatar: true } },
+        likes: true
       }
     });
+
+const travelJournals = await prisma.travelJournal.findMany({
+  where: {
+    destinationId,
+    isPublic: true
+  },
+  include: {
+    user: { select: { id: true, nom: true, prenom: true } },
+    photos: true
+  },
+  orderBy: { createdAt: 'desc' },
+  take: 2 
+});
+
 
     const mainImagePath = destination.imagePrincipale?.startsWith('/uploads/')
       ? destination.imagePrincipale
       : '/uploads/' + destination.imagePrincipale;
 
-      
-    // ✅ On passe les infos à la vue, y compris les 2 derniers avis
-    console.log('DEBUG user dans controller:', req.session.user);
     res.render('destinations.twig', {
       destination,
       mainImagePath,
       alreadyPlanned,
-      lastTwoReviews,  // <-- Ajouté ici
-      user: req.session.user,
+      lastTwoReviews,
+      travelJournals,
+      user: req.session.user
     });
+
   } catch (err) {
     console.error('❌ Erreur getDestinationDetails :', err);
     res.status(500).render('error.twig', { message: 'Erreur serveur' });

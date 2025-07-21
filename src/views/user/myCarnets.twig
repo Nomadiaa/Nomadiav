@@ -17,29 +17,37 @@
       <p style="text-align:center;">Aucun carnet rédigé pour le moment.</p>
     {% else %}
       <div class="testimonial-list">
-        {% for journal in journals %}
-          {% set imagePath = (journal.photos|length > 0)
-            ? (journal.photos[0].url starts with '/uploads/' 
-                ? journal.photos[0].url 
-                : '/uploads/' ~ journal.photos[0].url)
-            : '/uploads/default.jpg' %}
+  {% for journal in journals %}
+  {% set imagePath = (journal.photos|length > 0)
+    ? (journal.photos[0].url starts with '/uploads/' 
+        ? journal.photos[0].url 
+        : '/uploads/' ~ journal.photos[0].url)
+    : '/uploads/default.jpg' %}
 
-          <div class="testimonial-card">
-            <img class="avatar" src="{{ imagePath }}" alt="Image carnet">
-            <div class="testimonial-content">
-              <span class="testimonial-name">{{ journal.titre }}</span>
-              <span class="stars">
-                {% for i in 1..(journal.note ?: 0) %}★{% endfor %}
-                {% for i in (journal.note ?: 0)+1..5 %}<span style="opacity:.2;">★</span>{% endfor %}
-              </span>
+  <div class="testimonial-card" style="position: relative;">
+    
+    <!-- ❌ Bouton suppression -->
+    <form method="POST" action="/carnet/{{ journal.id }}/delete" class="delete-form" onsubmit="return confirm('Supprimer ce carnet ?');">
+      <button type="submit" class="delete-btn" title="Supprimer ce carnet">✕</button>
+    </form>
 
-              <div class="testimonial-text">{{ journal.contenu|slice(0, 160) ~ '…' }}</div>
-              <div class="testimonial-likes">
-                <a href="/carnet/{{ journal.id }}" class="like-btn">📖 Lire ce carnet</a>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
+    <img class="avatar" src="{{ imagePath }}" alt="Image carnet">
+
+    <div class="testimonial-content">
+      <span class="testimonial-name">{{ journal.titre }}</span>
+      <span class="stars">
+        {% for i in 1..(journal.note ?: 0) %}★{% endfor %}
+        {% for i in (journal.note ?: 0)+1..5 %}<span style="opacity:.2;">★</span>{% endfor %}
+      </span>
+
+      <div class="testimonial-text">{{ journal.contenu|slice(0, 160) ~ '…' }}</div>
+      <div class="testimonial-likes">
+        <a href="/carnet/{{ journal.id }}" class="like-btn">📖 Lire ce carnet</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
       </div>
     {% endif %}
   </div>

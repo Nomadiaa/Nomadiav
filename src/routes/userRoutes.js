@@ -8,7 +8,8 @@ import {
   updatePrivacy,
   updateAdventurerType,
   addVoyageAndChecklist,
-  renderPublicProfile
+  renderPublicProfile,
+  renderPublicJournals
 } from '../controllers/userController.js'
 
 import { requireAuth, attachUser, checkNotBanned } from '../middlewares/authMiddleware.js'
@@ -73,4 +74,7 @@ router.post('/add-trip/:destinationId', attachUser, requireAuth, checkNotBanned,
 router.post('/add-voyage/:destinationId', attachUser, requireAuth, checkNotBanned, addVoyageAndChecklist);
 
 router.get('/membre/:id', renderPublicProfile);
+
+router.get('/membre/:id/carnets', renderPublicJournals);
+
 export default router

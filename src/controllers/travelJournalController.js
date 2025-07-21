@@ -96,3 +96,23 @@ export async function renderAllJournalsForDestination(req, res) {
     journals: destination.travelJournals
   });
 }
+
+// ❌ Supprimer un carnet
+export async function deleteTravelJournal(req, res) {
+  const { id } = req.params;
+  const userId = req.session.user?.id;
+
+  try {
+    // Vérifie que le carnet appartient bien à l'utilisateur
+    const journal = await prisma.travelJournal.findUnique({ where: { id } });
+    if (!journal || journal.userId !== userId) {
+      return res.status(403).send("Non autorisé");
+    }
+
+    await prisma.travelJournal.delete({ where: { id } });
+    res.redirect('/profil/carnets');
+  } catch (err) {
+    console.error("❌ Erreur suppression carnet :", err);
+    res.status(500).send("Erreur lors de la suppression");
+  }
+}

@@ -11,6 +11,10 @@
   <ul class="notifications-list">
     {% for notif in notifications %}
       <li class="{% if not notif.isRead %}notif-unread{% endif %}">
+  <form method="POST" action="/notifications/{{ notif.id }}/delete" class="delete-form">
+    <button type="submit" class="delete-btn" title="Supprimer cette notification">✖</button>
+  </form>
+
         {% if notif.type == 'like' %}
           <div>
             <img src="{{ notif.fromUser.avatar ? '/uploads/' ~ notif.fromUser.avatar : '/default-avatar.png' }}" class="notif-avatar" alt="Avatar" />

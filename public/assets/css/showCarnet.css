@@ -1,3 +1,7 @@
+main{
+  margin-top: 90px;
+}
+
 .container {
   max-width: 900px;
   margin: 2rem auto;
@@ -79,4 +83,21 @@ hr {
   margin-right: 0.5rem;
   margin-top: 0.3rem;
   font-size: 0.9rem;
+}
+
+.admin-btn { 
+  background: #ffe8db; 
+  color: #e95512; 
+  font-weight: bold; 
+  border-radius: 8px; 
+  padding: 0.35em 1em; 
+  border: none;
+  margin-left: 0.5em; 
+  cursor: pointer; 
+  transition: background .2s, color .2s;
+  font-size: 15px;
+}
+.admin-btn:hover { 
+  background: #ffdabd; 
+  color: #792f1d; 
 }

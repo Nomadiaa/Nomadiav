@@ -1,0 +1,49 @@
+{% extends "base.twig" %}
+
+{% block title %}Carnets de {{ user.prenom }}{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="/assets/css/myCarnets.css">
+{% endblock %}
+
+{% block main %}
+  <div class="full-reviews">
+    <div class="reviews-header">
+      <h1 class="reviews-title">📘 Carnets de {{ user.prenom }} {{ user.nom }}</h1>
+      <hr class="reviews-separator">
+    </div>
+
+    {% if journals.length == 0 %}
+      <p style="text-align:center;">Aucun carnet public pour cet utilisateur.</p>
+    {% else %}
+      <div class="testimonial-list">
+        {% for journal in journals %}
+          {% set imagePath = (journal.photos|length > 0)
+            ? (journal.photos[0].url starts with '/uploads/' 
+                ? journal.photos[0].url 
+                : '/uploads/' ~ journal.photos[0].url)
+            : '/uploads/default.jpg' %}
+
+          <div class="testimonial-card">
+            <img class="avatar" src="{{ imagePath }}" alt="Image carnet">
+            <div class="testimonial-content">
+              <span class="testimonial-name">{{ journal.titre }}</span>
+              <span class="stars">
+                {% for i in 1..(journal.note ?: 0) %}★{% endfor %}
+                {% for i in (journal.note ?: 0)+1..5 %}<span style="opacity:.2;">★</span>{% endfor %}
+              </span>
+
+              <div class="testimonial-text">{{ journal.contenu|slice(0, 160) ~ '…' }}</div>
+              <div class="testimonial-likes">
+                <a href="/carnet/{{ journal.id }}" class="like-btn">📖 Lire ce carnet</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+   <div>
+  <a href="#" onclick="history.back(); return false;" class="admin-btn" style="margin:2em auto 0 auto; display:table;">← Revenir au profil</a>
+  </div>
+{% endblock %}

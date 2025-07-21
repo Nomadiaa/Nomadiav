@@ -4,8 +4,10 @@
 
 {% block style %}
   <link rel="stylesheet" href="/assets/css/destinations.css">
+  <link rel="stylesheet" href="/assets/css/myCarnets.css"> {# ✅ Ajouté #}
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 {% endblock %}
+
 
 {% block main %}
 
@@ -124,11 +126,9 @@
 
 <!-- ✅ Bloc CARNETS DE VOYAGE -->
 <section class="travel-journals">
-  <div class="testimonial-header">
-    <div class="testimonial-banner-container">
-      <img src="/assets/image/11191.jpg" alt="Carnets de voyage" class="testimonial-banner">
-      <h2 class="testimonial-title">Carnets de voyage</h2>
-    </div>
+  <div class="reviews-header" style="margin-top: 3rem;">
+    <h2 class="reviews-title">📘 Carnets de voyage</h2>
+    <hr class="reviews-separator">
   </div>
 
   {% if travelJournals is empty %}
@@ -136,46 +136,37 @@
   {% else %}
     <div class="testimonial-list">
       {% for journal in travelJournals %}
-        {% if journal.photos is defined and journal.photos|length > 0 %}
-          {% set firstPhoto = journal.photos[0] %}
-          {% set photoPath = firstPhoto.url starts with '/uploads/' 
-            ? firstPhoto.url 
-            : '/uploads/' ~ firstPhoto.url %}
-        {% else %}
-          {% set photoPath = '/uploads/default.jpg' %}
-        {% endif %}
+        {% set imagePath = (journal.photos|length > 0)
+          ? (journal.photos[0].url starts with '/uploads/' 
+              ? journal.photos[0].url 
+              : '/uploads/' ~ journal.photos[0].url)
+          : '/uploads/default.jpg' %}
 
         <div class="testimonial-card">
-          <img class="avatar" src="{{ photoPath }}" alt="Photo carnet" />
+          <img class="avatar" src="{{ imagePath }}" alt="Image carnet">
           <div class="testimonial-content">
-            <span class="testimonial-name">
-              {{ journal.user.prenom }} {{ journal.user.nom }}
-              <span class="stars">
-                {% for i in 1..(journal.note ?: 0) %}★{% endfor %}
-                {% for i in (journal.note ?: 0)+1..5 %}<span style="opacity:.2;">★</span>{% endfor %}
-              </span>
+            <span class="testimonial-name">{{ journal.titre }}</span>
+            <span class="stars">
+              {% for i in 1..(journal.note ?: 0) %}★{% endfor %}
+              {% for i in (journal.note ?: 0)+1..5 %}<span style="opacity:.2;">★</span>{% endfor %}
             </span>
-            <div class="testimonial-text">
-              {{ journal.contenu|slice(0, 160) ~ '…' }}
-            </div>
-            <div style="margin-top:8px;">
-              <span style="font-size:14px; color:#888;">
-                📅 du {{ journal.dateDebut|date("d/m/Y") }} au {{ journal.dateFin|date("d/m/Y") }}
-              </span>
-              <br>
-              <a href="/carnet/{{ journal.id }}" style="font-weight: bold;">Lire le carnet →</a>
+
+            <div class="testimonial-text">{{ journal.contenu|slice(0, 160) ~ '…' }}</div>
+            <div class="testimonial-likes">
+              <a href="/carnet/{{ journal.id }}" class="like-btn">📖 Lire ce carnet</a>
             </div>
           </div>
         </div>
       {% endfor %}
     </div>
 
-    <!-- ✅ Affiche le bouton ici, en dehors de la boucle -->
-    <div class="testimonial-actions">
+    <!-- ✅ Lien vers tous les carnets -->
+       <div class="testimonial-actions">
       <a href="/destination/{{ destination.id }}/carnets" class="add-review-btn">Voir tous les carnets</a>
     </div>
   {% endif %}
 </section>
+
 
 
 {% endblock %}

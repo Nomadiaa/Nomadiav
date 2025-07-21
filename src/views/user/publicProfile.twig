@@ -162,6 +162,14 @@
       </div>
     </div>
 
+<!-- === BOUTON VERS LES CARNETS PUBLICS === -->
+<section class="profile-section" style="text-align:center; margin-top:2rem;">
+  <a href="/membre/{{ user.id }}/carnets" class="btn-carnet">
+    📘 Voir ses carnets de voyage publics
+  </a>
+</section>
+
+
     <!-- Voyages -->
     <section class="profile-section">
       <h2>Mes prochains voyages</h2>
@@ -181,32 +189,6 @@
       </div>
     </section>
 
-    <!-- Carnets publics -->
-    <section class="profile-section">
-      <h2>📘 Carnets de voyage publics</h2>
-      {% if publicJournals.length == 0 %}
-        <p>Aucun carnet public publié pour l’instant.</p>
-      {% else %}
-        <div class="journal-grid">
-          {% for carnet in publicJournals %}
-            <a href="/carnet/{{ carnet.id }}" class="journal-card">
-              {% if carnet.photos[0] %}
-                <img src="{{ carnet.photos[0].url }}" alt="{{ carnet.photos[0].alt ?? 'Photo du carnet' }}">
-              {% else %}
-                <div class="placeholder-photo">📘</div>
-              {% endif %}
-              <div class="card-content">
-                <h3>{{ carnet.titre }}</h3>
-                <p class="small">{{ carnet.destination.titre }}</p>
-                {% if carnet.note %}
-                  <p class="small">Note : {{ carnet.note }} ⭐</p>
-                {% endif %}
-              </div>
-            </a>
-          {% endfor %}
-        </div>
-      {% endif %}
-    </section>
 
   {% else %}
     <p class="profile-private-msg" style="margin:2em 0; text-align:center;">

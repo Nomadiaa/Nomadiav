@@ -489,3 +489,18 @@ h1{
   background: #e95b0c;
   transform: scale(1.03);
 }
+
+.btn-carnet {
+  display: inline-block;
+  background-color: #ff5c1c;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 0.8rem 2rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-carnet:hover {
+  background-color: #e14a12;
+}
