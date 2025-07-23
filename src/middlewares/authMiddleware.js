@@ -1,5 +1,4 @@
-import prisma from '../config/prisma.js'
-
+// Middleware pour attacher l'utilisateur de la session à req.user et aux vues Twig (res.locals.user)
 export async function attachUser(req, res, next) {
   if (req.session && req.session.user) {
     req.user = req.session.user;
@@ -8,6 +7,7 @@ export async function attachUser(req, res, next) {
   next();
 }
 
+// Middleware pour exiger qu'un utilisateur soit connecté (et non banni)
 export function requireAuth(req, res, next) {
   if (!req.session.user) {
     return res.redirect('/login');
@@ -20,6 +20,7 @@ export function requireAuth(req, res, next) {
   next();
 }
 
+// Middleware API pour vérifier qu'un utilisateur est authentifié via req.user
 export function isAuthenticated(req, res, next) {
   if (req.user) {
     return next();
@@ -27,15 +28,17 @@ export function isAuthenticated(req, res, next) {
   return res.status(401).json({ message: 'Non autorisé' });
 }
 
-// Middleware d'authentification pour injecter l'utilisateur connecté dans les vues
+// Middleware générique pour vérifier si un utilisateur est connecté
 const authguard = (req, res, next) => {
   if (req.session.user) {
+    
     next();
   } else {
     res.redirect('/login');
   }
 };
 
+// Middleware pour bloquer l'accès si l'utilisateur est banni
 export function checkNotBanned(req, res, next) {
   // Vérifie si l'utilisateur est connecté et banni
   if (req.user && req.user.isBanned) {

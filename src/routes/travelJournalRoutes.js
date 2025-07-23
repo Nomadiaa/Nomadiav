@@ -11,7 +11,7 @@ import { getUserJournals } from '../controllers/userController.js';
 
 const router = express.Router();
 
-// 📂 Configuration Multer
+// Configuration de Multer pour l'upload des photos
 const storage = multer.diskStorage({
   destination: './public/uploads/',
   filename: (req, file, cb) => {
@@ -21,10 +21,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// ✅ Route POST pour créer un carnet (champ : photo[])
+// Enregistre un nouveau carnet de voyage (avec plusieurs photos)
 router.post('/carnets', upload.array('photo', 10), createTravelJournal);
 
-// ✅ Route GET pour afficher le formulaire de création
+// Affiche le formulaire de création de carnet pour une destination
 router.get('/destination/:id/carnet/new', async (req, res) => {
   const destination = await prisma.destination.findUnique({
     where: { id: req.params.id }
@@ -33,16 +33,16 @@ router.get('/destination/:id/carnet/new', async (req, res) => {
   res.render('user/newCarnet.twig', { destination });
 });
 
-// ✅ Route GET pour lire un carnet
+// Affiche un carnet de voyage en détail
 router.get('/carnet/:id', showTravelJournal);
 
-// ✅ Route GET pour voir ses propres carnets
+// Affiche tous les carnets de l'utilisateur connecté
 router.get('/profil/carnets', getUserJournals);
 
-// ✅ Route GET pour voir tous les carnets d'une destination
+// Affiche tous les carnets liés à une destination
 router.get('/destination/:id/carnets', renderAllJournalsForDestination);
 
+// Supprime un carnet de voyage
 router.post('/carnet/:id/delete', deleteTravelJournal);
-
 
 export default router;

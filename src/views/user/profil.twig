@@ -10,20 +10,20 @@
 {% block main %}
 	<div class="profile-wrapper">
 
-		<!-- === EN-TÊTE === -->
+		{# En-tête #}
 		<div class="profile-banner">
 			<img src="{{ user.coverImage ?? '/uploads/default-cover.jpg' }}" alt="Couverture" class="cover-img">
 
-			<!-- Icône de modification de couverture -->
+			{# Icône de modification de couverture #}
 			<button id="editCoverBtn" class="edit-icon cover-icon">✏️</button>
 
-			<!-- Avatar -->
+			{# Avatar #}
 			<div class="avatar-wrapper">
 				<img src="{{ user.avatar ?? '/uploads/default-avatar.png' }}" alt="Avatar" class="avatar-img">
 				<button id="editAvatarBtn" class="edit-icon avatar-icon">✏️</button>
 			</div>
 
-			<!-- Bouton Modifier -->
+			{# Bouton Modifier #}
 			<button id="openDrawerBtn" class="edit-icon drawer-icon">Modifier ⚙️</button>
 		</div>
 
@@ -52,7 +52,7 @@
 		  {% endif %}
 		</div>
 
-		<!-- === STATS PROFIL === -->
+		{# Stats profil #}
 		<div class="profile-stats">
 		  <div class="stat-block">
 			<div class="stat-label">{{ user.adventurerType ?? 'Aventurier' }}</div>
@@ -63,12 +63,12 @@
 			<div class="stat-label">Voyages</div>
 		  </div>
 		</div>
-<!-- === BOUTON VERS MES CARNETS === -->
+{# Bouton vers mes carnets #}
 <div class="carnet-button-container">
   <a href="/profil/carnets" class="btn-carnet">📘 Voir mes carnets de voyage</a>
 </div>
 
-		<!-- === SECTION VOYAGES === -->
+		{# Section voyages #}
 		<section class="profile-section">
 			<h2>Mes prochains voyages</h2>
 			<div class="voyage-list">
@@ -88,7 +88,7 @@
 		</section>
 	</div>
 
-<!-- === MODALE CHANGEMENT AVATAR === -->
+{# Modale changement avatar #}
 <div id="avatarModal" class="modal hidden">
   <div class="modal-content">
     <h3>Changer l'avatar</h3>
@@ -101,7 +101,7 @@
   </div>
 </div>
 
-<!-- === MODALE CHANGEMENT COUVERTURE === -->
+{# Modale Changement couverture #}
 <div id="coverModal" class="modal hidden">
   <div class="modal-content">
     <h3>Changer l'image de couverture</h3>
@@ -114,7 +114,7 @@
   </div>
 </div>
 
-	<!-- === MENU LATERAL === -->
+	{# Menu lateral #}
 	<div id="drawer" class="profile-drawer">
 		<button id="closeDrawerBtn" class="close-btn">×</button>
 		<h3>Modifier mon profil</h3>
@@ -125,9 +125,7 @@
 			<div class="input-group"><input name="instagram" placeholder="Instagram" value="{{ user.instagram }}"><button type="submit" name="clearField" value="instagram" class="clear-btn">❌</button></div>
 			<div class="input-group"><input name="facebook" placeholder="Facebook" value="{{ user.facebook }}"><button type="submit" name="clearField" value="facebook" class="clear-btn">❌</button></div>
 			<div class="input-group"><input name="youtube" placeholder="YouTube" value="{{ user.youtube }}"><button type="submit" name="clearField" value="youtube" class="clear-btn">❌</button></div>
-{# 
-			<input type="file" name="avatar" accept="image/*">
-			<input type="file" name="coverImage" accept="image/*"> #}
+
 			<button type="submit">Enregistrer</button>
 		</form>
 

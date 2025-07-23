@@ -66,8 +66,7 @@ app.get('/', (req, res) => {
 // Middleware pour attacher l'utilisateur connecté
 app.use(attachUser);
 
-// --- ROUTE SPÉCIALE POUR LA PAGE D’AVIS COMPLÈTE ---
-// Accessible via : /destination/:destinationId/reviews
+// ROUTE SPÉCIALE POUR LA PAGE D’AVIS COMPLÈTE
 app.get('/destination/:destinationId/reviews', showAllReviews);
 
 // Montée des autres routes sans conflit
@@ -86,7 +85,5 @@ app.use('/api', reviewsRoutes);
 
 // Lancement serveur
 app.listen(3016, () => {
-  console.log('✅ Serveur démarré sur le port 3016');
+  console.log('Serveur démarré sur le port 3016');
 });
-
-

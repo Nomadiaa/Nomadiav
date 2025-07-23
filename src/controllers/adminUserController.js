@@ -1,4 +1,4 @@
-// src/controllers/adminUserController.js
+
 import prisma from '../config/prisma.js';
 
 // GET : Liste des utilisateurs
@@ -51,7 +51,7 @@ export async function viewUserProfile(req, res) {
       include: {
         userVoyages: {
           include: {
-            destination: true  // ✅ Inclusion des infos de la destination
+            destination: true  // Inclusion des infos de la destination
           }
         },
         checklists: true
@@ -97,19 +97,17 @@ export async function deleteReview(req, res) {
   const { reviewId } = req.params;
   const { destinationId } = req.body;
 
-
-
   if (!reviewId || !destinationId) {
     return res.status(400).send("ID de l'avis ou de la destination manquant.");
   }
 
   try {
     await prisma.review.delete({
-      where: { id: reviewId } // ⚠️ Pas Number si ID est un String (ex: cuid)
+      where: { id: reviewId } // Pas Number si ID est un String (ex: cuid)
     });
     res.redirect(`/admin/destinations/${destinationId}/reviews`);
   } catch (err) {
-    console.error('❌ Erreur deleteReview:', err);
+    console.error('Erreur deleteReview:', err);
     res.status(500).send("Erreur lors de la suppression de l'avis");
   }
 }
@@ -147,7 +145,7 @@ export async function unbanUser(req, res) {
   res.redirect('/admin/adminUserView');
 }
 
-// POST /admin/users/:userId/ban  (depuis la liste utilisateurs)
+// bannir un utilisateur (depuis la liste utilisateurs)
 export async function banUserFromList(req, res) {
   const { userId } = req.params;
 
@@ -161,7 +159,7 @@ export async function banUserFromList(req, res) {
       where: { id: Number(userId) },
       data: { isBanned: true }
     });
-    res.redirect('/admin/adminUserView'); // 👈 Redirection vers la liste utilisateurs
+    res.redirect('/admin/adminUserView'); 
   } catch (err) {
     console.error('Erreur banUserFromList:', err);
     res.status(500).send("Erreur lors du bannissement");

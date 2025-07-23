@@ -4,14 +4,14 @@
 
 {% block style %}
   <link rel="stylesheet" href="/assets/css/destinations.css">
-  <link rel="stylesheet" href="/assets/css/myCarnets.css"> {# ✅ Ajouté #}
+  <link rel="stylesheet" href="/assets/css/myCarnets.css"> 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 {% endblock %}
 
 
 {% block main %}
 
-{# ✅ Corrige le chemin de l'image principale #}
+{# Corrige le chemin de l'image principale #}
 {% set mainImagePath = destination.imagePrincipale starts with '/uploads/' ? destination.imagePrincipale : '/uploads/' ~ destination.imagePrincipale %}
 
 <div class="banner">
@@ -21,7 +21,7 @@
       <h1 class="destination-title">{{ destination.titre }}</h1>
       <p class="destination-country">{{ destination.pays }}</p>
 
-      <!-- ✅ Boutons d’action -->
+      {# Boutons d'action #}
       <div style="display: flex; gap: 1rem; margin-top: 1.2rem;">
         <form method="POST" action="/add-checklist-and-voyage/{{ destination.id }}">
           <button class="add-trip-btn" type="submit">Ajouter ce voyage</button>
@@ -77,7 +77,7 @@
 
 <hr style="margin-top: 3rem; margin-bottom: 2rem;">
 
-<!-- ✅ Bloc AVIS -->
+{# Bloc avis #}
 <section class="review-section">
   <div class="review-header">
     <div class="review-banner-container">
@@ -126,7 +126,7 @@
 </section>
 
 
-<!-- ✅ Bloc CARNETS DE VOYAGE -->
+{# Bloc carnets de voyage #}
 <section class="travel-journals">
   <div class="reviews-header" style="margin-top: 3rem;">
     <h2 class="reviews-title">📘 Carnets de voyage</h2>
@@ -162,7 +162,7 @@
       {% endfor %}
     </div>
 
-    <!-- ✅ Lien vers tous les carnets -->
+    {# Lien vers tous les carnets #}
        <div class="testimonial-actions">
       <a href="/destination/{{ destination.id }}/carnets" class="add-review-btn">Voir tous les carnets</a>
     </div>

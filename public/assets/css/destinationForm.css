@@ -1,4 +1,6 @@
-/* Reset basique */
+/* ==========================
+   RESET & BASE
+========================== */
 form, input, select, textarea, button {
   font-family: 'Segoe UI', sans-serif;
   outline: none;
@@ -12,7 +14,9 @@ h1, h2 {
   color: #792f1d;
 }
 
-/* Formulaire global */
+/* ==========================
+   FORMULAIRE PRINCIPAL
+========================== */
 #destination-form {
   max-width: 850px;
   margin: 0 auto;
@@ -23,6 +27,9 @@ h1, h2 {
   animation: fadeIn 0.6s ease-in-out;
 }
 
+/* ==========================
+   CHAMPS DU FORMULAIRE
+========================== */
 label {
   display: block;
   margin-top: 1.2rem;
@@ -50,7 +57,9 @@ select:focus {
   box-shadow: 0 0 0 4px rgba(255, 109, 46, 0.15);
 }
 
-/* Boutons */
+/* ==========================
+   BOUTONS
+========================== */
 button {
   margin-top: 1rem;
   padding: 0.7rem 1.5rem;
@@ -71,22 +80,27 @@ button:hover {
   background: #aa2c2c;
   margin-top: 1.5rem;
 }
+
 .delete-section-btn:hover {
   background: #851f1f;
 }
 
-/* Bloc section */
+/* ==========================
+   BLOC SECTIONS
+========================== */
 .section-block {
-  padding: 1.5rem;
-  margin-top: 2rem;
-  background: #fff;
-  border-radius: 15px;
-  border: 1px solid #ffd7b3;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  position: relative;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #ddd;
   animation: slideIn 0.5s ease-in-out;
 }
 
-/* Sous-blocs */
+/* ==========================
+   BLOCS SECONDAIRES (images, bullets)
+========================== */
 .images-wrapper,
 .grouped-bullets-wrapper {
   margin-top: 1.5rem;
@@ -96,7 +110,9 @@ button:hover {
   border-left: 4px solid #ff6d2e;
 }
 
-/* Bouton croix de suppression section */
+/* ==========================
+   BOUTON DE SUPPRESSION (croix)
+========================== */
 .close-section-btn {
   position: absolute;
   top: 10px;
@@ -111,37 +127,43 @@ button:hover {
 }
 
 .close-section-btn:hover {
-  color: #e74c3c; /* rouge doux au hover */
+  color: #e74c3c;
 }
 
-/* Pour positionner correctement la croix */
-.section-block {
-  position: relative;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 8px;
-  background-color: #fafafa;
-}
-
-
-/* Responsive */
+/* ==========================
+   RESPONSIVE
+========================== */
 @media (max-width: 768px) {
   #destination-form {
     padding: 1.5rem 1rem;
   }
+
   input, textarea, select, button {
     font-size: 1rem;
   }
 }
 
-/* Animations */
+/* ==========================
+   ANIMATIONS
+========================== */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

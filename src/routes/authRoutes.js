@@ -9,10 +9,19 @@ import {
 
 const router = express.Router();
 
+// Affiche la page d'inscription
 router.get('/signup', renderSignup);
+
+// Affiche la page de connexion
 router.get('/login', renderLogin);
+
+// Traite le formulaire d'inscription
 router.post('/signup', handleSignup);
+
+// Traite le formulaire de connexion
 router.post('/login', handleLogin);
-router.get('/logout', logoutUser)
+
+// Déconnecte l'utilisateur et détruit la session
+router.get('/logout', logoutUser);
 
 export default router;

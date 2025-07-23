@@ -3,38 +3,14 @@
 
 {% block style %}
   <link rel="stylesheet" href="/assets/css/profil.css">
-  <style>
-    .admin-banner-info {
-      display: flex; align-items: center; gap: 2rem; margin-bottom: 1.5rem;
-    }
-    .admin-back-btn {
-      padding: 0.5rem 1.2rem;
-      border-radius: 12px;
-      background: #fff5ec;
-      color: #ff6d2e;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.2s, color 0.2s;
-      margin-bottom: 1.3rem;
-      display: inline-block;
-    }
-    .admin-back-btn:hover {
-      background: #ffe2d0;
-      color: #792f1d;
-      text-decoration: underline;
-    }
-    .admin-profile-label { color: #b86428; font-weight: 600; margin-right: 0.6em;}
-    .admin-section-title { margin: 2rem 0 1rem; color: #cc7722; font-size: 1.2rem; }
-    .profile-banner .edit-icon, .profile-drawer, .modal { display: none !important; } /* cache les boutons edit/drawer pour l’admin */
-  </style>
 {% endblock %}
 
 {% block main %}
 <div class="profile-wrapper">
 
   <a href="/admin/adminUserView" class="admin-back-btn">← Retour à la liste</a>
-  
-  <!-- === EN-TÊTE PROFIL === -->
+
+  {# En-tête profil #}
   <div class="profile-banner">
     <img src="{{ user.coverImage ?? '/uploads/default-cover.jpg' }}" alt="Couverture" class="cover-img">
     <div class="avatar-wrapper">
@@ -69,7 +45,7 @@
     {% endif %}
   </div>
 
-  <!-- === STATS PROFIL === -->
+  {# Stats profil #}
   <div class="profile-stats">
     <div class="stat-block">
       <div class="stat-label">{{ user.adventurerType ?? 'Aventurier' }}</div>
@@ -86,7 +62,7 @@
     </div>
   </div>
 
-  <!-- === SECTION VOYAGES === -->
+  {# Section voyages #}
   <section class="profile-section">
     <h2 class="admin-section-title">Prochains voyages</h2>
     <div class="voyage-list">

@@ -11,7 +11,7 @@
     <h1>✍️ Nouveau carnet pour <strong>{{ destination.titre }}</strong></h1>
 
     <form action="/carnets" method="POST" enctype="multipart/form-data">
-      <!-- Identifiant de destination (invisible mais requis) -->
+
       <input type="hidden" name="destinationId" value="{{ destination.id }}">
 
       <label for="titre">Titre *</label>

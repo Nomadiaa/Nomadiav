@@ -12,7 +12,7 @@
     <h1>{{ journal.titre }}</h1>
     <p>✍️ Écrit par <strong>{{ journal.user.prenom }} {{ journal.user.nom }}</strong></p>
 
-    <!-- 👉 Lien vers le profil public -->
+    {# Lien vers le profil public #}
     <a href="/membre/{{ journal.user.id }}" class="auteur-lien">
       🔍 Voir son profil public
     </a>

@@ -14,70 +14,63 @@
       </ul>
     </nav>
   </aside>
-  <main class="admin-contain">
-   <h1>Liste des utilisateurs</h1>
-  <table class="users-table">
-    <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Email</th>
-        <th>Type d'aventurier</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-   <tbody>
-  {% set hasUser = false %}
-  {% for user in users %}
-    {% if user.role != 'admin' %}
-      {% set hasUser = true %}
-      <tr{% if user.isBanned %} style="opacity:0.67; background:#fff7f3;"{% endif %}>
-        <td>
-          {{ user.nom }}
-          {% if user.isBanned %}
-            <span class="banned-label">(Banni)</span>
-          {% endif %}
-        </td>
-        <td>{{ user.prenom }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.adventurerType ?? 'N/A' }}</td>
-        <td>
-          <a href="/admin/users/{{ user.id }}" class="btn-view" title="Voir le profil">👁 Voir</a>
-          <form action="/admin/users/delete/{{ user.id }}" method="POST" style="display:inline;">
-            <button type="submit" onclick="return confirm('Supprimer cet utilisateur ?')">🗑 Supprimer</button>
-          </form>
-         {% if user.isBanned %}
-  <a href="#" class="unban-btn"
-     onclick="event.preventDefault(); submitBanForm('{{ user.id }}', false)">✔ Débannir</a>
-{% else %}
-  <a href="#" class="ban-btn"
-     onclick="event.preventDefault(); submitBanForm('{{ user.id }}', true)">🚫 Bannir</a>
-{% endif %}
-<form id="banForm-{{ user.id }}" action="/admin/users/{{ user.id }}/ban" method="POST" style="display:none;">
-  <input type="hidden" name="unban" value="false">
-</form>
-<form id="unbanForm-{{ user.id }}" action="/admin/users/{{ user.id }}/unban" method="POST" style="display:none;">
-  <input type="hidden" name="unban" value="true">
-</form>
-<script>
-function submitBanForm(userId, ban) {
-  if (ban && !confirm('Bannir cet utilisateur ?')) return;
-  if (!ban && !confirm('Débannir cet utilisateur ?')) return;
-  document.getElementById(ban ? 'banForm-' + userId : 'unbanForm-' + userId).submit();
-}
-</script>
 
-        </td>
-      </tr>
-    {% endif %}
-  {% endfor %}
-  {% if not hasUser %}
-    <tr>
-      <td colspan="5">Aucun utilisateur trouvé.</td>
-    </tr>
-  {% endif %}
-</tbody>
-  </table>
+  <main class="admin-contain">
+    <h1>Liste des utilisateurs</h1>
+
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Type d'aventurier</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set hasUser = false %}
+        {% for user in users %}
+          {% if user.role != 'admin' %}
+            {% set hasUser = true %}
+            <tr{% if user.isBanned %} style="opacity:0.67; background:#fff7f3;"{% endif %}>
+              <td>
+                {{ user.nom }}
+                {% if user.isBanned %}
+                  <span class="banned-label">(Banni)</span>
+                {% endif %}
+              </td>
+              <td>{{ user.prenom }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.adventurerType ?? 'N/A' }}</td>
+              <td>
+                <a href="/admin/users/{{ user.id }}" class="btn-view" title="Voir le profil">👁 Voir</a>
+
+                <form action="/admin/users/delete/{{ user.id }}" method="POST" style="display:inline;">
+                  <button type="submit" onclick="return confirm('Supprimer cet utilisateur ?')">🗑 Supprimer</button>
+                </form>
+
+                {% if user.isBanned %}
+                  <a href="/admin/users/{{ user.id }}/unban-from-list"
+                     class="unban-btn"
+                     onclick="return confirm('Débannir cet utilisateur ?')">✔ Débannir</a>
+                {% else %}
+                  <a href="/admin/users/{{ user.id }}/ban-from-list"
+                     class="ban-btn"
+                     onclick="return confirm('Bannir cet utilisateur ?')">🚫 Bannir</a>
+                {% endif %}
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+
+        {% if not hasUser %}
+          <tr>
+            <td colspan="5">Aucun utilisateur trouvé.</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
   </main>
 </div>
 {% endblock %}

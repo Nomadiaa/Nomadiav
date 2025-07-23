@@ -35,7 +35,6 @@ model User {
   userVoyages    UserVoyage[]
   travelJournals   TravelJournal[]
 
-
   notifications      Notification[] @relation("NotifRecipient")  
   sentNotifications  Notification[] @relation("NotifSender")    
 }
@@ -56,7 +55,7 @@ model Destination {
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
-  // ➕ Ajout de la relation inverse si tu veux associer une destination à un utilisateur
+  // Ajout de la relation inverse si tu veux associer une destination à un utilisateur
   utilisateurId   Int?                // optionnel si certains voyages ne sont pas liés
   utilisateur     User?               @relation("VoyagesUtilisateur", fields: [utilisateurId], references: [id])
   checklists      Checklist[]
@@ -212,7 +211,7 @@ model Notification {
   id           Int       @id @default(autoincrement())
   type         String
   userId       Int
-  fromUserId   Int?   // <-- ce champ doit être défini AVANT la relation fromUser
+  fromUserId   Int?  
   reviewId     String?
   destinationId String?
   checklistItemId String?
@@ -226,6 +225,8 @@ model Notification {
   destination  Destination? @relation(fields: [destinationId], references: [id])
   checklistItem ChecklistItem? @relation(fields: [checklistItemId], references: [id])
 }
+
+// Carnet de voyage
 
 model TravelJournal {
   id              String   @id @default(cuid())

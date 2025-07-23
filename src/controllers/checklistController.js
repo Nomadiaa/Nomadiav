@@ -1,8 +1,8 @@
 import prisma from '../config/prisma.js';
 
-/**
- * 1. Création automatique de la checklist lors de l'ajout d'un voyage
- */
+
+// Création automatique de la checklist lors de l'ajout d'un voyage
+
 export async function createChecklistOnAddTrip(req, res) {
   const userId = req.session.user?.id;
   const voyageId = req.params.id;
@@ -39,9 +39,9 @@ export async function createChecklistOnAddTrip(req, res) {
   }
 }
 
-/**
- * 2. Supprimer une checklist complète (catégories, items, UserVoyage associé)
- */
+
+//  Supprimer une checklist complète (catégories, items, UserVoyage associé)
+
 export async function deleteChecklist(req, res) {
   const checklistId = req.params.id;
   try {
@@ -81,9 +81,9 @@ export async function deleteChecklist(req, res) {
   }
 }
 
-/**
- * 3. Afficher une checklist complète (vue détaillée)
- */
+
+//  Afficher une checklist complète (vue détaillée)
+
 export async function getChecklistDetails(req, res) {
   const checklistId = req.params.id;
   try {
@@ -104,9 +104,9 @@ export async function getChecklistDetails(req, res) {
   }
 }
 
-/**
- * 4. Cocher/décocher un item
- */
+
+//  Cocher/décocher un item
+
 export async function updateChecklistItem(req, res) {
   const { checklistId, itemId } = req.params;
   try {
@@ -124,9 +124,9 @@ export async function updateChecklistItem(req, res) {
   }
 }
 
-/**
- * 5. Ajouter un item personnalisé à une catégorie (avec date de rappel et notification !)
- */
+
+//  Ajouter un item personnalisé à une catégorie (avec date de rappel et notification !)
+
 export async function addChecklistItem(req, res) {
   const { checklistId, categoryId } = req.params;
   let { titre, description, reminderDate } = req.body;
@@ -149,7 +149,7 @@ export async function addChecklistItem(req, res) {
       }
     });
 
-    // ---------- NOTIFICATION DE RAPPEL ----------
+    // NOTIFICATION DE RAPPEL 
     if (parsedDate) {
       const now = new Date();
       // Si la date de rappel est dans moins de 24h (86400s), on crée une notification directe
@@ -180,9 +180,9 @@ export async function addChecklistItem(req, res) {
   }
 }
 
-/**
- * 6. Supprimer un item
- */
+
+//  Supprimer un item
+
 export async function deleteChecklistItem(req, res) {
   const { checklistId, itemId } = req.params;
   try {
@@ -196,9 +196,9 @@ export async function deleteChecklistItem(req, res) {
   }
 }
 
-/**
- * 7. Tout cocher/décocher dans la checklist
- */
+
+//  Tout cocher/décocher dans la checklist
+
 export async function toggleAllChecklistItems(req, res) {
   const { checklistId } = req.params;
   const check = req.body.check === 'true';
@@ -222,9 +222,9 @@ export async function toggleAllChecklistItems(req, res) {
   }
 }
 
-/**
- * 8. Réinitialiser la checklist (tout décocher)
- */
+
+//  Réinitialiser la checklist (tout décocher)
+
 export async function resetChecklist(req, res) {
   const { checklistId } = req.params;
   try {
@@ -247,9 +247,9 @@ export async function resetChecklist(req, res) {
   }
 }
 
-/**
- * Pour la page /allChecklist (récupère toutes les checklists de l'utilisateur)
- */
+
+//  Pour la page /allChecklist (récupère toutes les checklists de l'utilisateur)
+
 export async function getAllUserChecklists(req, res) {
   const userId = req.session.user?.id;
   try {
@@ -268,14 +268,14 @@ export async function getAllUserChecklists(req, res) {
   }
 }
 
-/**
- * Ajoute la checklist + UserVoyage au profil
- */
+
+//  Ajoute la checklist + UserVoyage au profil
+
 export async function addChecklistAndUserVoyage(req, res) {
   const userId = req.user.id;
   const voyageId = req.params.id;
   try {
-    // Ajoute la relation UserVoyage (pivot)
+    // Ajoute la relation UserVoyage 
     try {
       await prisma.userVoyage.create({
         data: { userId, destinationId: voyageId }

@@ -9,19 +9,16 @@
 
 {% block main %}
 
-<!-- HERO -->
+{# Bannière #}
 <section class="hero-section">
-  <!-- Logo en haut à droite -->
-  <img src="/assets/image/logo.png" alt="Logo Nomadia" class="logo">
-
-  <!-- Bloc contenu -->
+  {# Bloc contenu #}
   <div class="hero-content">
     <h1>Pour les aventuriers en quête de découvertes</h1>
     <a href="/signup" class="cta-button">Rejoins la communauté</a>
   </div>
 </section>
 
-<!-- FONCTIONNALITÉS -->
+{# Fonctionnalités #}
 <section class="features-section">
   <div class="features-grid">
     <div class="feature-card">
@@ -102,38 +99,17 @@
   </div>
 </section>
 
-<!-- DESTINATIONS -->
-
-{# <section class="destinations-section">
-  <h2 class="destinations-title">Destinations à découvrir</h2>
-  <p class="destinations-subtitle">
-    Explorez des destinations uniques et vivez des aventures inoubliables. Laissez-vous inspirer pour votre prochain voyage.
-  </p>
-
-  <div class="destinations-list">
-    {% set destinations = ['Tassili n’Ajjer', 'Tbilissi', 'Montagnes d’Asie'] %}
-    {% for dest in destinations %}
-    <div class="destination-card">
-      <img src="/img/{{ loop.index }}.jpg" alt="{{ dest }}">
-      <div class="destination-overlay">
-        <h3>{{ dest }}</h3>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</section> #}
-
 <section class="testimonial-section">
-  <!-- En-tête avec image de fond -->
+  {# En-tête avec image de fond #}
   <div class="testimonial-header">
     <img src="/assets/image/11190.jpg" alt="Fond lac gelé">
     <h2>Avis voyageurs</h2>
   </div>
 
-  <!-- Liste des témoignages -->
+  {# Liste de témoignages #}
   <div class="testimonial-list">
 
-    <!-- Témoignage 1 (empiète sur l'image) -->
+    {# Témoignage 1 #}
     <div class="testimonial-card first">
       <img src="/assets/image/portrait-beautiful-latin-american-woman-600nw-2071168457.webp" alt="Avatar Sofia" class="avatar">
       <div class="testimonial-content">
@@ -147,7 +123,7 @@
       </div>
     </div>
 
-    <!-- Témoignage 2 -->
+    {# Témoignage 2  #}
     <div class="testimonial-card">
       <img src="/assets/image/2275848-icone-avatar-hipster-de-homme-barbu-a-lunettes-vectoriel.jpg" alt="Avatar Julien" class="avatar">
       <div class="testimonial-content">

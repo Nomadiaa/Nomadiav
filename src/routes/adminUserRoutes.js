@@ -16,26 +16,31 @@ import upload from '../utils/upload.js';
 
 const router = express.Router();
 
-// Affichage de la page utilisateurs
+// Affiche la liste de tous les utilisateurs
 router.get('/admin/adminUserView', isAdmin, getAllUsers);
 
-// Affichage du profil utilisateur
+// Affiche le profil d’un utilisateur spécifique
 router.get('/admin/users/:userId', isAdmin, viewUserProfile);
 
-// Suppression utilisateur
+// Supprime un utilisateur
 router.post('/admin/users/delete/:userId', isAdmin, deleteUserById);
 
-// Avis destination
+// Affiche les avis d’une destination
 router.get('/admin/destinations/:destinationId/reviews', isAdmin, viewDestinationReviews);
+
+// Supprime un avis utilisateur
 router.post('/admin/reviews/:reviewId/delete', isAdmin, deleteReview);
 
-// Ban/Unban depuis modération d'avis (POST)
+// Bannit un utilisateur depuis un avis
 router.post('/admin/users/:userId/ban', isAdmin, banUser);
+
+// Débannit un utilisateur depuis un avis
 router.post('/admin/users/:userId/unban', isAdmin, unbanUser);
 
-// Ban/Unban depuis la liste utilisateurs (GET ou POST selon ce que tu veux)
+// Bannit un utilisateur depuis la liste des utilisateurs
 router.get('/admin/users/:userId/ban-from-list', isAdmin, banUserFromList);
-router.get('/admin/users/:userId/unban-from-list', isAdmin, unbanUserFromList);
 
+// Débannit un utilisateur depuis la liste des utilisateurs
+router.get('/admin/users/:userId/unban-from-list', isAdmin, unbanUserFromList);
 
 export default router;

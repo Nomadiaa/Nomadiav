@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import {
   renderUserBoard,
   renderUserProfile,
@@ -10,41 +10,21 @@ import {
   addVoyageAndChecklist,
   renderPublicProfile,
   renderPublicJournals
-} from '../controllers/userController.js'
+} from '../controllers/userController.js';
 
-import { requireAuth, attachUser, checkNotBanned } from '../middlewares/authMiddleware.js'
-
-import upload from '../utils/upload.js'
+import { requireAuth, attachUser, checkNotBanned } from '../middlewares/authMiddleware.js';
+import upload from '../utils/upload.js';
 import { addTripToUser } from '../controllers/userController.js';
 
+const router = express.Router();
 
-const router = express.Router()
-
-// 🔐 Page d'accueil utilisateur après login
-router.get('/userBoard', attachUser, requireAuth, renderUserBoard)
-
-// 👤 Page profil utilisateur
-router.get('/profil', attachUser, requireAuth, renderUserProfile)
-
-// ✏️ Modifier les infos texte ET les images du profil
-router.post(
-  '/profil/update',
-  attachUser,
-  requireAuth,
-  upload.fields([
-    { name: 'avatar', maxCount: 1 },
-    { name: 'coverImage', maxCount: 1 }
-  ]),
-  updateUserProfile
-)
-
-// 🔐 Page d'accueil utilisateur après login
+// Affiche le tableau de bord utilisateur (après connexion)
 router.get('/userBoard', attachUser, requireAuth, checkNotBanned, renderUserBoard);
 
-// 👤 Page profil utilisateur
+// Affiche la page profil de l'utilisateur connecté
 router.get('/profil', attachUser, requireAuth, checkNotBanned, renderUserProfile);
 
-// ✏️ Modifier le profil
+// Met à jour le profil (texte + avatar + image de couverture)
 router.post(
   '/profil/update',
   attachUser,
@@ -57,24 +37,28 @@ router.post(
   updateUserProfile
 );
 
-// 🔐 Modifier mot de passe
+// Met à jour le mot de passe
 router.post('/profil/password', attachUser, requireAuth, checkNotBanned, changePassword);
 
-// ❌ Supprimer le compte
+// Supprime définitivement le compte utilisateur
 router.post('/profil/delete', attachUser, requireAuth, checkNotBanned, deleteAccount);
 
-// 👁️ Changer visibilité publique/privée
+// Met à jour la visibilité du profil (public/privé)
 router.post('/profil/privacy', attachUser, requireAuth, checkNotBanned, updatePrivacy);
 
-// 🌍 Changer type d'aventurier
+// Met à jour le type d'aventurier sélectionné
 router.post('/profil/adventurer-type', attachUser, requireAuth, checkNotBanned, updateAdventurerType);
 
+// Ajoute une destination au profil de l'utilisateur (voyage simple)
 router.post('/add-trip/:destinationId', attachUser, requireAuth, checkNotBanned, addTripToUser);
 
+// Ajoute une destination + checklist initiale
 router.post('/add-voyage/:destinationId', attachUser, requireAuth, checkNotBanned, addVoyageAndChecklist);
 
+// Affiche le profil public d'un membre (consultation par d'autres)
 router.get('/membre/:id', renderPublicProfile);
 
+// Affiche les carnets publics d'un membre
 router.get('/membre/:id/carnets', renderPublicJournals);
 
-export default router
+export default router;

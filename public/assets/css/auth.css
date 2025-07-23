@@ -1,113 +1,128 @@
-
+/* ==========================
+   BODY GLOBAL
+========================== */
 body {
-    background: linear-gradient(to bottom, #FFD6C5, #FE9063);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  
+  background: linear-gradient(to bottom, #FFD6C5, #FE9063);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-/* Conteneur du formulaire */
+/* ==========================
+   FORMULAIRE - CONTENEUR
+========================== */
 .divForm {
-    background-color: #972C00;
-    padding: 30px;
-    border-radius: 10% 0% 10% 10% / 10% 10% 10% 10% ;
-    width: 350px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #972C00;
+  padding: 30px;
+  border-radius: 10% 0% 10% 10% / 10% 10% 10% 10%;
+  width: 350px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Titre principal */
 h1 {
-    text-align: center;
-    color: #972C00;
-    font-size: 50px;
-    font-weight: bold;
+  text-align: center;
+  color: #972C00;
+  font-size: 50px;
+  font-weight: bold;
 }
 
-/* Style des champs de formulaire */
+/* ==========================
+   CHAMPS DE FORMULAIRE
+========================== */
 input {
-    width: 90%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 8px;
-    background-color: #FFD6C5;
-    font-size: 16px;
-    color: #8b5a2b;
-    font-weight: bold;
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #FFD6C5;
+  font-size: 16px;
+  color: #8b5a2b;
+  font-weight: bold;
 }
 
 input::placeholder {
-    color: #8b5a2b;
-    font-weight: bold;
+  color: #8b5a2b;
+  font-weight: bold;
 }
 
-/* Bouton */
+/* ==========================
+   BOUTON PRINCIPAL
+========================== */
 button {
-    width: 97%;
-    padding: 12px;
-    background-color: #ff652f;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
+  width: 97%;
+  padding: 12px;
+  background-color: #ff652f;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #e04e1f;
+  background-color: #e04e1f;
 }
 
-/* Lien de connexion */
+/* ==========================
+   LIEN DE CONNEXION
+========================== */
 p {
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #873717;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #873717;
 }
 
 p a {
-    color: #ff652f;
-    text-decoration: none;
+  color: #ff652f;
+  text-decoration: none;
 }
 
 p a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-.mb-7 p{
-    border: 2px solid red; /* Juste pour le debugging */
-    color: #972C00;
+/* Variante spéciale (ex: avec marge ou débug temporaire) */
+.mb-7 p {
+  color: #972C00;
+  border: 2px solid red; /* Debug uniquement */
 }
 
-
-
-/* Position des boutons inscription et connexion */
+/* ==========================
+   BOUTONS EN HAUT DE PAGE (ex : Connexion / Inscription)
+========================== */
 .header-buttons {
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
 }
 
 .header-buttons button {
-    width: auto;
-    padding: 10px 20px;
+  width: auto;
+  padding: 10px 20px;
 }
 
-/* Copyright en bas à gauche */
+/* ==========================
+   FOOTER COPYRIGHT
+========================== */
 .footer {
-   
-    bottom: 10px;
-    left: 10px;
-    color: #972C00;
-    font-weight: bold;
-} 
+  bottom: 10px;
+  left: 10px;
+  color: #972C00;
+  font-weight: bold;
+}
 
+/* ==========================
+   MESSAGE D'ERREUR (LOGIN FAIL)
+========================== */
 .login-error {
   background: #fff4ef;
   color: #e95b0c;
@@ -118,10 +133,12 @@ p a:hover {
   font-weight: 600;
   font-size: 1.05em;
   border: 1.2px solid #ffd6ad;
-  box-shadow: 0 2px 10px rgba(255,92,28,0.05);
+  box-shadow: 0 2px 10px rgba(255, 92, 28, 0.05);
   animation: fadeIn 0.5s;
 }
+
+/* Animation fadeIn */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px);}
-  to { opacity: 1; transform: translateY(0);}
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

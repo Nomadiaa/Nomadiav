@@ -1,6 +1,6 @@
 import prisma from '../config/prisma.js';
 
-// 📘 Création d’un carnet de voyage
+// Création d’un carnet de voyage
 export async function createTravelJournal(req, res) {
   const userId = req.session.user?.id;
   if (!userId) return res.status(401).send("Non connecté");
@@ -49,12 +49,12 @@ export async function createTravelJournal(req, res) {
 
     res.redirect(`/carnet/${newJournal.id}`);
   } catch (error) {
-    console.error("❌ Erreur création carnet:", error);
+    console.error("Erreur création carnet:", error);
     res.status(500).send("Erreur lors de la création du carnet de voyage");
   }
 }
 
-// 📖 Afficher un carnet (lecture)
+// Afficher un carnet 
 export async function showTravelJournal(req, res) {
   const journalId = req.params.id;
 
@@ -73,7 +73,7 @@ export async function showTravelJournal(req, res) {
   res.render('user/showCarnet.twig', { journal });
 }
 
-// 📚 Afficher tous les carnets d'une destination
+// Afficher tous les carnets d'une destination
 export async function renderAllJournalsForDestination(req, res) {
   const destinationId = req.params.id;
 
@@ -97,7 +97,7 @@ export async function renderAllJournalsForDestination(req, res) {
   });
 }
 
-// ❌ Supprimer un carnet
+// Supprimer un carnet
 export async function deleteTravelJournal(req, res) {
   const { id } = req.params;
   const userId = req.session.user?.id;
@@ -112,7 +112,7 @@ export async function deleteTravelJournal(req, res) {
     await prisma.travelJournal.delete({ where: { id } });
     res.redirect('/profil/carnets');
   } catch (err) {
-    console.error("❌ Erreur suppression carnet :", err);
+    console.error("Erreur suppression carnet :", err);
     res.status(500).send("Erreur lors de la suppression");
   }
 }

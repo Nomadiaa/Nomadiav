@@ -1,5 +1,6 @@
-/* ======= PAGE LISTE AVIS (UTILISATEUR & ADMIN) ======= */
-
+/* =======================
+   PAGE LISTE AVIS (UTILISATEUR & ADMIN)
+======================= */
 .full-reviews {
   max-width: 900px;
   margin: 0 auto 70px auto;
@@ -28,7 +29,9 @@
   width: 100%;
 }
 
-/* ==== LISTE DES AVIS (CARTES) ==== */
+/* =======================
+   LISTE DES AVIS (CARTES)
+======================= */
 .testimonial-list {
   display: flex;
   flex-direction: column;
@@ -49,15 +52,25 @@
   animation: fadeIn 0.5s;
 }
 
+/* Style spécial si utilisateur banni */
+.testimonial-card.banned {
+  opacity: 0.65;
+  border: 2px solid #ffa2a2;
+  background: #fff2f2;
+  filter: grayscale(0.18);
+}
+
+/* Avatar utilisateur */
 .avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 2px 10px rgba(255,92,28,0.10);
+  box-shadow: 0 2px 10px rgba(255, 92, 28, 0.10);
   border: 3px solid #ffe4d5;
 }
 
+/* Contenu du commentaire */
 .testimonial-content {
   flex: 1;
 }
@@ -88,12 +101,16 @@
   margin-top: 6px;
 }
 
+/* =======================
+   BOUTONS : LIKE & ADMIN
+======================= */
 .testimonial-likes {
   margin-top: 10px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
 .testimonial-likes .like-btn,
 .testimonial-likes .admin-btn {
   background: #fdf0e8;
@@ -106,47 +123,44 @@
   transition: background 0.22s, color 0.18s;
   font-weight: 600;
 }
+
 .testimonial-likes .like-btn:hover,
 .testimonial-likes .admin-btn:hover {
   background: #ffdab9;
   color: #c75008;
 }
 
-/* ====== ADMIN : Boutons & états spéciaux ====== */
-.admin-btn { 
-  background: #ffe8db; 
-  color: #e95512; 
-  font-weight: bold; 
-  border-radius: 8px; 
-  padding: 0.35em 1em; 
+/* Boutons admin seuls */
+.admin-btn {
+  background: #ffe8db;
+  color: #e95512;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.35em 1em;
   border: none;
-  margin-left: 0.5em; 
-  cursor: pointer; 
-  transition: background .2s, color .2s;
+  margin-left: 0.5em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
   font-size: 15px;
 }
-.admin-btn:hover { 
-  background: #ffdabd; 
-  color: #792f1d; 
-}
-.admin-link { 
-  color: #ff6d2e; 
-  text-decoration: underline dotted; 
+
+.admin-btn:hover {
+  background: #ffdabd;
+  color: #792f1d;
 }
 
-/* Pour signaler un utilisateur banni */
-.testimonial-card.banned {
-  opacity: 0.65;
-  border: 2px solid #ffa2a2;
-  background: #fff2f2;
-  filter: grayscale(0.18);
+.admin-link {
+  color: #ff6d2e;
+  text-decoration: underline dotted;
 }
 
-/* ====== FORMULAIRE AJOUT AVIS ====== */
+/* =======================
+   FORMULAIRE D'AJOUT D'AVIS
+======================= */
 .add-review-section {
   background: #fff4ef;
   border-radius: 18px;
-  box-shadow: 0 2px 10px rgba(255,92,28,0.04);
+  box-shadow: 0 2px 10px rgba(255, 92, 28, 0.04);
   padding: 2.2rem 2rem 2rem 2rem;
   max-width: 700px;
   margin: 0 auto 50px auto;
@@ -203,7 +217,7 @@
   padding: 12px 0;
   font-size: 1.07rem;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(255,92,28,0.08);
+  box-shadow: 0 2px 10px rgba(255, 92, 28, 0.08);
   transition: background 0.2s;
 }
 
@@ -211,30 +225,39 @@
   background: #e95b0c;
 }
 
-    .admin-btn { 
-      background: #ffe8db; color: #e95512; font-weight: bold; border-radius: 8px; padding: 0.35em 1em; border: none;
-      margin-left: 0.5em; cursor:pointer; transition: background .2s, color .2s;
-    }
-    .admin-btn:hover { background: #ffdabd; color: #792f1d; }
-    .admin-link { color: #ff6d2e; text-decoration: underline dotted; }
-    .testimonial-card.banned {
-      opacity: 0.65;
-      border: 2px solid #ffa2a2;
-      background: #fff2f2;
-      filter: grayscale(0.18);
-    }
-
-/* ======= ANIMATION & RESPONSIVE ======= */
+/* =======================
+   ANIMATION ET RESPONSIVE
+======================= */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px);}
-  to { opacity: 1; transform: translateY(0);}
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 700px) {
-  .full-reviews { padding: 6vw 2vw 0 2vw; }
-  .testimonial-card { flex-direction: column; align-items: center; gap: 11px; }
-  .avatar { width: 62px; height: 62px; }
-  .add-review-section { padding: 1.2rem 0.8rem 1.4rem 0.8rem;}
-  .add-review-title { font-size: 1.18rem; }
-  .reviews-title { font-size: 1.3rem; }
+  .full-reviews {
+    padding: 6vw 2vw 0 2vw;
+  }
+
+  .testimonial-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .avatar {
+    width: 62px;
+    height: 62px;
+  }
+
+  .add-review-section {
+    padding: 1.2rem 0.8rem 1.4rem 0.8rem;
+  }
+
+  .add-review-title {
+    font-size: 1.18rem;
+  }
+
+  .reviews-title {
+    font-size: 1.3rem;
+  }
 }

@@ -1,23 +1,23 @@
-/* ===== NOTIFICATIONS PAGE ===== */
+/* ================= NOTIFICATIONS PAGE ================= */
 
 body {
   background-color: #fffefb;
   font-family: 'Segoe UI', sans-serif;
 }
 
-main{
+main {
   margin-top: 90px;
 }
 
 h1 {
   text-align: center;
   font-size: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   color: #972C00;
 }
 
-/* === LISTE DE NOTIFICATIONS === */
+/* ================= LISTE DES NOTIFICATIONS ================= */
+
 .notifications-list {
   max-width: 800px;
   margin: 0 auto;
@@ -28,26 +28,28 @@ h1 {
   gap: 1.2rem;
 }
 
-/* === ÉLÉMENT DE NOTIF === */
+/* ================= ÉLÉMENT DE NOTIFICATION ================= */
+
 .notifications-list li {
   background: #fff5ec;
   padding: 1.2rem 1.5rem;
   border-radius: 15px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   gap: 1rem;
-  transition: background 0.3s;
   position: relative;
+  transition: background 0.3s;
+  padding-right: 2.5em; /* espace pour bouton suppression */
 }
 
-/* === NON LU === */
+/* Variante non lue */
 .notif-unread {
   border-left: 6px solid #ff5c1c;
   background: #fff0e8;
 }
 
-/* === AVATAR === */
+/* Avatar */
 .notif-avatar {
   width: 48px;
   height: 48px;
@@ -57,24 +59,25 @@ h1 {
   border: 2px solid #ffe1d6;
 }
 
-/* === ICÔNE NOTIF (emoji) === */
+/* Icône emoji */
 .notif-icon {
   font-size: 1.8rem;
   margin-right: 0.6rem;
 }
 
-/* === TEXTE DE NOTIF === */
+/* Texte principal */
 .notifications-list li div {
   flex: 1;
   font-size: 1rem;
   color: #333;
 }
 
+/* Mots importants */
 .notifications-list strong {
   color: #d04f1d;
 }
 
-/* === DATE === */
+/* Date */
 .notif-date {
   display: block;
   font-size: 0.85rem;
@@ -82,7 +85,7 @@ h1 {
   margin-top: 0.4rem;
 }
 
-/* === LIEN === */
+/* Lien d'action */
 .notifications-list a {
   display: inline-block;
   margin-top: 0.6rem;
@@ -99,6 +102,8 @@ h1 {
   background-color: #e9470b;
 }
 
+/* ================= ACTIONS (SUPPRESSION) ================= */
+
 .delete-form {
   position: absolute;
   top: 8px;
@@ -112,13 +117,9 @@ h1 {
   font-size: 1.1em;
   cursor: pointer;
   padding: 0;
+  transition: color 0.2s ease;
 }
 
 .delete-btn:hover {
   color: #c00;
-}
-  
-.notifications-list li {
-  position: relative; /* pour positionner la croix à l’intérieur */
-  padding-right: 2.5em; /* espace pour la croix */
 }

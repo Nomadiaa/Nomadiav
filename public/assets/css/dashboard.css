@@ -1,4 +1,6 @@
-/* --- RESET GÉNÉRAL --- */
+/* ==========================
+   RESET GÉNÉRAL
+========================== */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -23,13 +25,17 @@ a:hover {
   color: #d94e12;
 }
 
-/* --- LAYOUT GLOBAL --- */
+/* ==========================
+   LAYOUT PRINCIPAL
+========================== */
 .main-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* --- SIDEBAR --- */
+/* ==========================
+   SIDEBAR ADMIN
+========================== */
 .admin-sidebar {
   background: linear-gradient(to bottom, #ffd6bb, #ffb38a);
   color: #792f1d;
@@ -38,7 +44,7 @@ a:hover {
   position: sticky;
   top: 0;
   height: 100vh;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar-title {
@@ -69,14 +75,18 @@ a:hover {
   transform: translateX(5px);
 }
 
-/* --- CONTENU PRINCIPAL --- */
+/* ==========================
+   CONTENU PRINCIPAL
+========================== */
 .admin-main-content {
   flex: 1;
   padding: 2rem;
   animation: fadeIn 0.4s ease-in-out;
 }
 
-/* --- BOUTON AJOUTER --- */
+/* ==========================
+   BOUTON "AJOUTER"
+========================== */
 .btn-ajouter {
   display: inline-block;
   margin: 1.5rem 0;
@@ -93,7 +103,9 @@ a:hover {
   background-color: #e95512;
 }
 
-/* --- TABLEAU DESTINATIONS --- */
+/* ==========================
+   TABLEAU DESTINATIONS
+========================== */
 .destinations-table {
   width: 100%;
   border-collapse: collapse;
@@ -124,7 +136,9 @@ a:hover {
   background-color: #fff2ea;
 }
 
-/* --- CARTES DE STATISTIQUES --- */
+/* ==========================
+   CARTES DE STATISTIQUES
+========================== */
 .admin-stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -139,7 +153,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
 }
 
@@ -168,6 +182,9 @@ a:hover {
   color: #555;
 }
 
+/* ==========================
+   BOUTONS D'ACTION (MODIFIER, SUPPRIMER)
+========================== */
 .admin-btn {
   background: #ffe8db;
   color: #ff6d2e;
@@ -175,24 +192,34 @@ a:hover {
   border: none;
   font-weight: bold;
   cursor: pointer;
-  transition: background .18s, color .18s;
+  transition: background 0.18s, color 0.18s;
   text-decoration: none;
   margin-left: 0.4em;
 }
+
 .admin-btn:hover {
   background: #ffdabd;
   color: #792f1d;
   text-decoration: underline;
 }
 
-
-/* --- ANIMATION --- */
+/* ==========================
+   ANIMATION
+========================== */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* --- RESPONSIVE --- */
+/* ==========================
+   RESPONSIVE MOBILE / TABLETTE
+========================== */
 @media (max-width: 768px) {
   .main-container {
     flex-direction: column;

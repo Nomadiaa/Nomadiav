@@ -1,7 +1,7 @@
 import prisma from '../config/prisma.js';
 
 export async function getDestinationDetails(req, res) {
-  const destinationId = req.params.id; // ✅ ne pas convertir
+  const destinationId = req.params.id;
   const userId = req.session.user?.id;
 
   if (!destinationId || typeof destinationId !== 'string') {
@@ -82,14 +82,14 @@ const travelJournals = await prisma.travelJournal.findMany({
     });
 
   } catch (err) {
-    console.error('❌ Erreur getDestinationDetails :', err);
+    console.error('Erreur getDestinationDetails :', err);
     res.status(500).render('error.twig', { message: 'Erreur serveur' });
   }
 }
 
 
 
-// ✅ Affiche toutes les destinations groupées par continent POUR L'UTILISATEUR CONNECTÉ
+// Affiche toutes les destinations groupées par continent POUR L'UTILISATEUR CONNECTÉ
 export async function getAllDestinationsGrouped(req, res) {
   try {
     const user = req.session.user; // Récupère l'utilisateur connecté
@@ -124,7 +124,7 @@ export async function getAllDestinationsGrouped(req, res) {
       user, // Passe l'utilisateur à la vue
     })
   } catch (err) {
-    console.error('❌ Erreur récupération destinations :', err)
+    console.error('Erreur récupération destinations :', err)
     res.status(500).render('error.twig', { message: 'Erreur serveur' })
   }
 }
@@ -132,12 +132,12 @@ export async function getAllDestinationsGrouped(req, res) {
 export function attachUser(req, res, next) {
   if (req.session && req.session.user) {
     req.user = req.session.user;
-    res.locals.user = req.session.user; // utile dans les vues Twig
+    res.locals.user = req.session.user;
   }
   next();
 }
 
-// ✅ Affiche toutes les destinations d’un continent
+// Affiche toutes les destinations d’un continent
 export async function getContinentDestinations(req, res) {
   const { continent } = req.params;
   const user = req.session.user;
@@ -153,7 +153,7 @@ export async function getContinentDestinations(req, res) {
         pays: true,
         continent: true,
         imagePrincipale: true,
-        description: true, // ou d’autres champs si tu veux
+        description: true,
       }
     });
 
@@ -163,7 +163,7 @@ export async function getContinentDestinations(req, res) {
       user
     });
   } catch (err) {
-    console.error('❌ Erreur getContinentDestinations :', err);
+    console.error('Erreur getContinentDestinations :', err);
     res.status(500).render('error.twig', { message: 'Erreur serveur' });
   }
 }

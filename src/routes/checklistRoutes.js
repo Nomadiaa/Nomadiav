@@ -16,34 +16,34 @@ import { requireAuth, attachUser } from '../middlewares/authMiddleware.js'
 
 const router = express.Router();
 
-// ✅ suprimmer une checklist complète
+// suprimmer une checklist complète
 router.post('/checklist/:id/delete',attachUser, requireAuth, deleteChecklist);
 
-// ✅ Créer une checklist lors de l'ajout d'un voyage
+// Créer une checklist lors de l'ajout d'un voyage
 router.post('/checklist/:id',attachUser, requireAuth, createChecklistOnAddTrip);
 
-// ✅ Afficher une checklist complète
+// Afficher une checklist complète
 router.get('/checklist/:id',attachUser, requireAuth, getChecklistDetails);
 
-// ✅ Cocher/décocher un item (on ajoute :checklistId)
+// Cocher/décocher un item
 router.post('/checklist/:checklistId/item/:itemId/toggle',attachUser, requireAuth, updateChecklistItem);
 
-// ✅ Ajouter un item personnalisé à une catégorie
+// Ajouter un item personnalisé à une catégorie
 router.post('/checklist/:checklistId/category/:categoryId/item/add',attachUser, requireAuth, addChecklistItem);
 
-// ✅ Supprimer un item (on ajoute :checklistId)
+// Supprimer un item
 router.post('/checklist/:checklistId/item/:itemId/delete',attachUser , requireAuth, deleteChecklistItem);
 
-// ✅ Tout cocher/décocher dans une checklist
+// Tout cocher/décocher dans une checklist
 router.post('/checklist/:checklistId/toggle-all',attachUser, requireAuth, toggleAllChecklistItems);
 
-// ✅ Réinitialiser la checklist (tout décocher)
+// Réinitialiser la checklist (tout décocher)
 router.post('/checklist/:checklistId/reset',attachUser ,requireAuth, resetChecklist);
 
-// ✅ Voir toutes les checklists de l'utilisateur
+// Voir toutes les checklists de l'utilisateur
 router.get('/allChecklist',attachUser, requireAuth, getAllUserChecklists);
 
-// ✅ Ajouter une checklist et un voyage
+// Ajouter une checklist et un voyage
 router.post('/add-checklist-and-voyage/:id', attachUser, requireAuth, addChecklistAndUserVoyage);
 
 export default router;

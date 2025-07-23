@@ -1,33 +1,35 @@
-import multer from 'multer'
-import path from 'path'
+import multer from 'multer';
+import path from 'path';
 
-// 📁 Configuration du stockage pour les fichiers uploadés
+// Configuration du stockage des fichiers uploadés
 const storage = multer.diskStorage({
+  // Dossier de destination des fichiers
   destination: function (req, file, cb) {
-    cb(null, './public/uploads/') // 📁 Dossier de destination
+    cb(null, './public/uploads/');
   },
+  // Génère un nom de fichier unique avec extension
   filename: function (req, file, cb) {
-    const ext = path.extname(file.originalname).toLowerCase() // 🔍 Extension en minuscule
-    const uniqueName = Date.now() + '-' + Math.round(Math.random() * 1e9) + ext
-    cb(null, uniqueName) // 🏷️ Nom unique
+    const ext = path.extname(file.originalname).toLowerCase();
+    const uniqueName = Date.now() + '-' + Math.round(Math.random() * 1e9) + ext;
+    cb(null, uniqueName);
   }
-})
+});
 
-// 🛡️ Vérifie que seuls certains formats sont acceptés
+// Filtre les fichiers autorisés (images uniquement)
 const fileFilter = function (req, file, cb) {
-  const allowed = ['.png', '.jpg', '.jpeg', '.webp']
-  const ext = path.extname(file.originalname).toLowerCase()
+  const allowed = ['.png', '.jpg', '.jpeg', '.webp'];
+  const ext = path.extname(file.originalname).toLowerCase();
   if (allowed.includes(ext)) {
-    cb(null, true) // ✅ Format accepté
+    cb(null, true);
   } else {
-    cb(new Error('❌ Seuls les fichiers image (.png, .jpg, .jpeg, .webp) sont autorisés'))
+    cb(new Error('Seuls les fichiers image (.png, .jpg, .jpeg, .webp) sont autorisés'));
   }
-}
+};
 
-// ✅ Middleware Multer complet
+// Configuration complète de Multer avec stockage + filtre
 const upload = multer({
   storage,
   fileFilter
-})
+});
 
-export default upload
+export default upload;

@@ -1,10 +1,15 @@
-/* ==== Carnets de voyage ==== */
+/* ==========================
+   CARNETS DE VOYAGE - WRAPPER PRINCIPAL
+========================== */
 .travel-journals {
   max-width: 1100px;
   margin: 3rem auto;
   padding: 0 2rem;
 }
 
+/* ==========================
+   EN-TÊTE : BANNIÈRE + TITRE
+========================== */
 .testimonial-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -38,7 +43,9 @@
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
 }
 
-/* 🟣 Liste des carnets */
+/* ==========================
+   LISTE DES CARNETS (GRID)
+========================== */
 .testimonial-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -46,6 +53,9 @@
   margin-top: 2rem;
 }
 
+/* ==========================
+   CARTE INDIVIDUELLE DE CARNET
+========================== */
 .testimonial-card {
   background: #fff;
   border-radius: 15px;
@@ -62,7 +72,9 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* 🖼 Image carnet */
+/* ==========================
+   IMAGE (AVATAR / ILLUSTRATION)
+========================== */
 .testimonial-card .avatar {
   width: 140px;
   height: 140px;
@@ -72,7 +84,9 @@
   box-shadow: 0 0 0 2px #eee;
 }
 
-/* 👤 Nom + note */
+/* ==========================
+   TEXTE : NOM / NOTE / CONTENU
+========================== */
 .testimonial-name {
   font-size: 1.1rem;
   font-weight: 600;
@@ -81,14 +95,12 @@
   color: #333;
 }
 
-/* ⭐ Étoiles */
 .stars {
   font-size: 1rem;
   color: #ffc107;
   margin-bottom: 0.8rem;
 }
 
-/* ✍️ Contenu */
 .testimonial-text {
   font-size: 0.95rem;
   color: #555;
@@ -97,7 +109,9 @@
   min-height: 80px;
 }
 
-/* 📅 Date + lien */
+/* ==========================
+   INFOS COMPLÉMENTAIRES (DATE, LIEN)
+========================== */
 .testimonial-card span,
 .testimonial-card a {
   font-size: 0.9rem;

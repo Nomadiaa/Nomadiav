@@ -2,34 +2,6 @@
 
 {% block style %}
   <link rel="stylesheet" href="/assets/css/auth.css">
-  <style>
-    /* Toast personnalisé */
-    .custom-toast {
-      position: fixed;
-      left: 50%;
-      bottom: 55px;
-      transform: translateX(-50%) translateY(100px);
-      min-width: 240px;
-      max-width: 90vw;
-      background: #ffe9e6;
-      color: #c0392b;
-      padding: 1em 2em;
-      border-radius: 24px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.12);
-      opacity: 0;
-      z-index: 9999;
-      font-size: 1.06rem;
-      transition: opacity .28s, transform .3s;
-      pointer-events: none;
-      text-align: center;
-    }
-    .custom-toast.toast-error { background: #ffd9d9; color: #c0392b; }
-    .custom-toast.toast-info  { background: #e3fcf8; color: #257a6a; }
-    .custom-toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-  </style>
 {% endblock %}
 
 {% block title %}Connexion – Nomadia{% endblock %}

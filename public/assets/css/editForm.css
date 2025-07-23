@@ -1,4 +1,4 @@
-/* Reset basique */
+/* ==================== RESET & BASE ==================== */
 form, input, select, textarea, button {
   font-family: 'Segoe UI', sans-serif;
   outline: none;
@@ -6,14 +6,14 @@ form, input, select, textarea, button {
   box-sizing: border-box;
 }
 
-/* Titres */
+/* ==================== TITRES ==================== */
 h1, h2 {
   text-align: center;
   margin-bottom: 1rem;
   color: #792f1d;
 }
 
-/* Formulaire global */
+/* ==================== FORMULAIRE GLOBAL ==================== */
 #destination-form {
   max-width: 850px;
   margin: 0 auto;
@@ -24,7 +24,7 @@ h1, h2 {
   animation: fadeIn 0.6s ease-in-out;
 }
 
-/* Champs du formulaire */
+/* ==================== CHAMPS DU FORMULAIRE ==================== */
 label {
   display: block;
   margin-top: 1.2rem;
@@ -52,7 +52,7 @@ select:focus {
   box-shadow: 0 0 0 4px rgba(255, 109, 46, 0.15);
 }
 
-/* Boutons */
+/* ==================== BOUTONS ==================== */
 button {
   margin-top: 1rem;
   padding: 0.7rem 1.5rem;
@@ -69,7 +69,7 @@ button:hover {
   background: #e95512;
 }
 
-/* Bouton secondaire */
+/* ▶ Bouton secondaire */
 .btn-secondary {
   background-color: #ffa163;
 }
@@ -77,7 +77,7 @@ button:hover {
   background-color: #e88b46;
 }
 
-/* Bouton de suppression */
+/* ▶ Bouton de suppression (section/image) */
 button.delete-section-btn,
 button[onclick*="markDeleted"] {
   background: #aa2c2c !important;
@@ -87,7 +87,7 @@ button[onclick*="markDeleted"]:hover {
   background: #851f1f !important;
 }
 
-/* Section principale */
+/* ==================== BLOCS DE FORMULAIRE ==================== */
 .section-block {
   padding: 1.5rem;
   margin-top: 2rem;
@@ -98,7 +98,7 @@ button[onclick*="markDeleted"]:hover {
   animation: slideIn 0.5s ease-in-out;
 }
 
-/* Sous-blocs */
+/* ▶ Sous-blocs (images, bullet points) */
 .images-wrapper,
 .grouped-bullets-wrapper {
   margin-top: 1.5rem;
@@ -115,20 +115,20 @@ button[onclick*="markDeleted"]:hover {
   border-radius: 10px;
 }
 
-/* Prévisualisation image */
+/* ==================== IMAGE PRÉVISUALISÉE ==================== */
 .image-preview {
   position: relative;
   display: inline-block;
   margin-right: 10px;
 }
 
+/* ▶ Bouton de suppression image */
 .image-preview .close-section-btn {
   position: absolute;
   top: -5px;
   right: -5px;
 }
 
-/* Bouton croix pour supprimer une section/image */
 .close-section-btn {
   background: none;
   border: none;
@@ -140,7 +140,7 @@ button[onclick*="markDeleted"]:hover {
   margin-right: 0.3rem;
 }
 
-/* Responsive */
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
   #destination-form {
     padding: 1.5rem 1rem;
@@ -151,7 +151,7 @@ button[onclick*="markDeleted"]:hover {
   }
 }
 
-/* Animations */
+/* ==================== ANIMATIONS ==================== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }

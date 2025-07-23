@@ -1,4 +1,4 @@
-import prisma from '../config/prisma.js'; // ton client Prisma
+import prisma from '../config/prisma.js';
 import { hashPassword, comparePassword } from '../utils/hash.js';
 
 // Affiche la page d’inscription
@@ -44,8 +44,6 @@ export async function handleSignup(req, res) {
   res.redirect('/login');
 }
 
-// Ajoute en haut si besoin
-// import flash from 'connect-flash';
 
 export async function handleLogin(req, res) {
   const { email, password } = req.body;
@@ -83,9 +81,9 @@ export async function handleLogin(req, res) {
 export function logoutUser(req, res) {
   req.session.destroy(err => {
     if (err) {
-      console.error('❌ Erreur de déconnexion :', err);
+      console.error('Erreur de déconnexion :', err);
       return res.redirect('/'); // ou gérer une page d'erreur
     }
-    res.redirect('/login'); // ✅ Redirige vers la page de connexion
+    res.redirect('/login'); // Redirige vers la page de connexion
   });
 }

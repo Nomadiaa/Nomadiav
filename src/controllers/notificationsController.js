@@ -1,4 +1,3 @@
-// --- notificationsController.js ---
 import prisma from '../config/prisma.js';
 
 // Récupère et affiche les notifications de l'utilisateur connecté
@@ -44,7 +43,7 @@ export async function getAllUserNotifications(req, res) {
       fromUser: true,
       review: true,
       destination: true,
-      // checklistItem: true, // Ajoute ça si tu veux l’item lié au rappel
+      
     }
   });
 
@@ -60,7 +59,7 @@ export async function deleteNotification(req, res) {
       where: { id: Number(id) },
     });
 
-    // ✅ Redirige proprement vers la page de notification
+    // Redirige proprement vers la page de notification
     return res.redirect("/notification");
   } catch (error) {
     console.error("Erreur suppression notification :", error);

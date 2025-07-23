@@ -10,21 +10,16 @@ import {
   setAdventurerType
 } from '../services/userService.js'
 
-// ✅ Affiche la page userBoard avec l'utilisateur connecté ET les destinations groupées par continent
+// Affiche la page userBoard avec l'utilisateur connecté ET les destinations groupées par continent
 export async function renderUserBoard(req, res) {
   try {
-    // console.log('DEBUG renderUserBoard - req.user:', req.user);
-    if (!req.user) {
-      // console.log('DEBUG renderUserBoard - req.user est undefined !');
-    }
+    
     const userId = req.user.id;
-    // console.log('DEBUG renderUserBoard - userId:', userId);
 
-    // 🔍 Récupère les données utilisateur (nom, voyages, etc.)
+    // Récupère les données utilisateur (nom, voyages, etc.)
     const user = await fetchUserProfile(userId);
-    // console.log('DEBUG renderUserBoard - user profile:', user);
 
-    // 🌍 Récupère toutes les destinations pour les afficher par continent
+    // Récupère toutes les destinations pour les afficher par continent
     const destinations = await prisma.destination.findMany({
       orderBy: { continent: 'asc' },
       select: {
@@ -36,9 +31,8 @@ export async function renderUserBoard(req, res) {
         description: true
       },
     });
-    // console.log('DEBUG renderUserBoard - destinations:', destinations.length);
 
-    // 📦 Regroupe les destinations par continent
+    // Regroupe les destinations par continent
     const grouped = {};
     destinations.forEach(dest => {
       const continent = dest.continent || 'Autres';
@@ -46,21 +40,21 @@ export async function renderUserBoard(req, res) {
       grouped[continent].push(dest);
     });
 
-    // 🖼️ Rendu de la page avec utilisateur et destinations groupées
+    // Rendu de la page avec utilisateur et destinations groupées
     res.render('user/userBoard', {
       user,
       groupedDestinations: grouped
     });
 
   } catch (err) {
-    console.error("❌ Erreur renderUserBoard :", err);
+    console.error("Erreur renderUserBoard :", err);
     res.status(500).send("Erreur serveur");
   }
 }
 
 
 
-// 🧑‍💼 Affiche la page profil
+// Affiche la page profil
 export async function renderUserProfile(req, res) {
   try {
 
@@ -76,12 +70,12 @@ export async function renderUserProfile(req, res) {
     
     res.render('user/profil', { user });
   } catch (err) {
-    console.error("❌ Erreur renderUserProfile :", err);
+    console.error("Erreur renderUserProfile :", err);
     res.status(500).send("Erreur serveur");
   }
 }
 
-// 📷 Upload avatar
+// Upload avatar
 export async function uploadAvatar(req, res) {
   try {
     const file = req.file
@@ -94,12 +88,12 @@ export async function uploadAvatar(req, res) {
 
     res.redirect('/profil')
   } catch (err) {
-    console.error("❌ Erreur uploadAvatar :", err)
+    console.error("Erreur uploadAvatar :", err)
     res.status(500).send("Erreur upload avatar")
   }
 }
 
-// 🖼️ Upload image de couverture
+// Upload image de couverture
 export async function uploadCover(req, res) {
   try {
     const file = req.file
@@ -112,7 +106,7 @@ export async function uploadCover(req, res) {
 
     res.redirect('/profil')
   } catch (err) {
-    console.error("❌ Erreur uploadCover :", err)
+    console.error("Erreur uploadCover :", err)
     res.status(500).send("Erreur upload cover")
   }
 }
@@ -121,7 +115,7 @@ export async function updateUserProfile(req, res) {
   try {
     const userId = req.user.id;
 
-    // 🧼 Si un champ doit être effacé (ex: clearField=instagram)
+    // Si un champ doit être effacé (ex: clearField=instagram)
     if (req.body.clearField) {
       const fieldToClear = req.body.clearField;
 
@@ -137,7 +131,7 @@ export async function updateUserProfile(req, res) {
       return res.redirect('/profil');
     }
 
-    // ✅ Traitement normal de mise à jour du profil
+    // Traitement normal de mise à jour du profil
     const { prenom, nom, bio, instagram, facebook, youtube } = req.body;
 
     const avatarFile = req.files?.avatar?.[0];
@@ -159,60 +153,60 @@ export async function updateUserProfile(req, res) {
 
     res.redirect('/profil');
   } catch (err) {
-    console.error("❌ Erreur updateUserProfile :", err);
+    console.error("Erreur updateUserProfile :", err);
     res.status(500).send("Erreur lors de la mise à jour du profil");
   }
 }
 
 
-// 🔐 Change le mot de passe
+// Change le mot de passe
 export async function changePassword(req, res) {
   try {
     const { currentPassword, newPassword } = req.body
     await updateUserPassword(req.user.id, currentPassword, newPassword)
     res.redirect('/profil')
   } catch (err) {
-    console.error("❌ Erreur changePassword :", err)
+    console.error("Erreur changePassword :", err)
     res.status(400).send("Mot de passe incorrect ou erreur")
   }
 }
 
-// ❌ Supprime le compte utilisateur
+// Supprime le compte utilisateur
 export async function deleteAccount(req, res) {
   try {
     await removeUser(req.user.id)
     res.redirect('/logout')
   } catch (err) {
-    console.error("❌ Erreur deleteAccount :", err)
+    console.error("Erreur deleteAccount :", err)
     res.status(500).send("Erreur lors de la suppression")
   }
 }
 
-// 👁️ Modifie la visibilité du profil
+// Modifie la visibilité du profil
 export async function updatePrivacy(req, res) {
   try {
     const isPublic = req.body.isPublic === 'on'
     await setPrivacy(req.user.id, isPublic)
     res.redirect('/profil')
   } catch (err) {
-    console.error("❌ Erreur updatePrivacy :", err)
+    console.error("Erreur updatePrivacy :", err)
     res.status(500).send("Erreur mise à jour visibilité")
   }
 }
 
-// 🌍 Change le type d'aventurier
+// Change le type d'aventurier
 export async function updateAdventurerType(req, res) {
   try {
     const type = req.body.type
     await setAdventurerType(req.user.id, type)
     res.redirect('/profil')
   } catch (err) {
-    console.error("❌ Erreur updateAdventurerType :", err)
+    console.error("Erreur updateAdventurerType :", err)
     res.status(500).send("Erreur mise à jour type")
   }
 }
 
-// 📁 src/controllers/userController.js
+
 export async function addTripToUser(req, res) {
   const userId = req.user.id;
   const destinationId = req.params.destinationId;
@@ -227,9 +221,9 @@ export async function addTripToUser(req, res) {
       }
     });
 
-    res.redirect('/profil'); // ou un status JSON si tu préfères l'ajax
+    res.redirect('/profil');
   } catch (err) {
-    console.error('❌ Erreur ajout voyage :', err);
+    console.error('Erreur ajout voyage :', err);
     res.status(500).send("Erreur serveur");
   }
 }
@@ -245,9 +239,9 @@ export async function addVoyageToUser(req, res) {
         destinationId,
       }
     });
-    res.redirect('/profil'); // ou autre page de confirmation
+    res.redirect('/profil');
   } catch (err) {
-    if (err.code === 'P2002') { // entrée déjà existante
+    if (err.code === 'P2002') {
       res.redirect('/profil');
     } else {
       console.error('Erreur ajout voyage:', err);
@@ -256,6 +250,7 @@ export async function addVoyageToUser(req, res) {
   }
 }
 
+// Ajoute une destination à un utilisateur dans la base de donnée
 export async function addVoyageAndChecklist(req, res) {
   const userId = req.user.id;
   const destinationId = req.params.destinationId;
@@ -326,7 +321,7 @@ export async function renderPublicProfile(req, res) {
       return res.status(404).render('404.twig', { message: 'Utilisateur introuvable.' });
     }
 
-    // 📘 On récupère ses carnets publics
+    // récupère ses carnets publics
     const publicJournals = await prisma.travelJournal.findMany({
       where: {
         userId: user.id,
@@ -348,12 +343,12 @@ export async function renderPublicProfile(req, res) {
     });
 
   } catch (err) {
-    console.error('❌ Erreur renderPublicProfile :', err);
+    console.error('Erreur renderPublicProfile :', err);
     res.status(500).send('Erreur lors du chargement du profil public');
   }
 }
 
-
+// Affiche la page privée des carnets de voyage d’un utilisateur connecté (publics ou non)
 export async function getUserJournals(req, res) {
   const userId = req.session.user?.id;
   if (!userId) return res.redirect('/login');
@@ -375,6 +370,7 @@ export async function getUserJournals(req, res) {
   }
 }
 
+// Afficher la page publique des carnets de voyage d’un utilisateur donné.
 export async function renderPublicJournals(req, res) {
   const userId = parseInt(req.params.id, 10);
 

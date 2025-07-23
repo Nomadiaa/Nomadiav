@@ -1,4 +1,6 @@
-/* --- RESET GÉNÉRAL --- */
+/* ======================
+   RESET GLOBAL
+====================== */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -23,12 +25,31 @@ a:hover {
   color: #d94e12;
 }
 
-/* --- Layout global --- */
+/* ======================
+   LAYOUT PRINCIPAL
+====================== */
 .admin-main-content {
   display: flex;
   min-height: 100vh;
 }
 
+.admin-contain {
+  flex: 1;
+  padding: 2rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.admin-contain h1 {
+  font-size: 2.1rem;
+  margin-bottom: 2.2rem;
+  font-weight: bold;
+  color: #792f1d;
+  letter-spacing: 0.01em;
+}
+
+/* ======================
+   SIDEBAR ADMIN
+====================== */
 .admin-sidebar {
   background: linear-gradient(to bottom, #ffd6bb, #ffb38a);
   color: #792f1d;
@@ -76,22 +97,9 @@ a:hover {
   color: #ff6d2e;
 }
 
-/* --- CONTENU PRINCIPAL --- */
-.admin-contain {
-  flex: 1;
-  padding: 2rem;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-.admin-contain h1 {
-  font-size: 2.1rem;
-  margin-bottom: 2.2rem;
-  font-weight: bold;
-  color: #792f1d;
-  letter-spacing: 0.01em;
-}
-
-/* --- TABLEAU UTILISATEURS --- */
+/* ======================
+   TABLEAU UTILISATEURS
+====================== */
 .users-table {
   width: 100%;
   background-color: white;
@@ -125,8 +133,11 @@ a:hover {
   transition: background 0.12s;
 }
 
-/* --- BOUTON SUPPRIMER --- */
-.users-table button[type="submit"] {
+/* ======================
+   BOUTONS D’ACTIONS
+====================== */
+.users-table button[type="submit"],
+.btn-view {
   background: #ff6d2e;
   color: #fff;
   border: none;
@@ -144,13 +155,60 @@ a:hover {
   transform: scale(1.04);
 }
 
-/* --- ANIMATION --- */
+.btn-view {
+  background: #ffe8db;
+  color: #ff6d2e;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.btn-view:hover {
+  background: #ffdabd;
+  color: #792f1d;
+  transform: scale(1.05);
+  text-decoration: underline;
+}
+
+/* ======================
+   BADGES ET BOUTONS BAN
+====================== */
+.banned-label {
+  color: #e95512;
+  font-weight: 600;
+  font-size: 0.97em;
+  margin-left: 0.2em;
+}
+
+.ban-btn,
+.unban-btn {
+  background: #ffe8db;
+  color: #e95512;
+  border: none;
+  border-radius: 8px;
+  padding: 0.3em 1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 0.5em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ban-btn:hover,
+.unban-btn:hover {
+  background: #ffd3b9;
+  color: #792f1d;
+}
+
+/* ======================
+   ANIMATIONS
+====================== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* --- RESPONSIVE --- */
+/* ======================
+   RESPONSIVE
+====================== */
 @media (max-width: 800px) {
   .admin-main-content {
     flex-direction: column;
@@ -168,69 +226,35 @@ a:hover {
     margin-left: 0;
     padding: 1.5rem 0.6rem;
   }
-  .users-table th, .users-table td {
+
+  .users-table th,
+  .users-table td {
     padding: 0.8rem 0.5rem;
     font-size: 0.97rem;
   }
+
   .sidebar-nav a {
     padding: 0.6rem 0.8rem;
     font-size: 1rem;
   }
 }
 
-/* --- Scrollbar douce --- */
+/* ======================
+   SCROLLBAR PERSONNALISÉE
+====================== */
 .admin-contain, .admin-sidebar {
   scrollbar-width: thin;
   scrollbar-color: #ffd6ad #fffdfc;
 }
+
 .admin-contain::-webkit-scrollbar,
 .admin-sidebar::-webkit-scrollbar {
   width: 6px;
   background: #fffdfc;
 }
+
 .admin-contain::-webkit-scrollbar-thumb,
 .admin-sidebar::-webkit-scrollbar-thumb {
   background: #ffd6ad;
   border-radius: 12px;
 }
-
-.btn-view {
-  display: inline-block;
-  padding: 0.6rem 1.1rem;
-  margin-right: 0.3rem;
-  background: #ffe8db;
-  color: #ff6d2e;
-  border-radius: 10px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.18s, color 0.18s, transform 0.15s;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.btn-view:hover {
-  background: #ffdabd;
-  color: #792f1d;
-  transform: scale(1.05);
-  text-decoration: underline;
-}
-
-  .banned-label {
-    color: #e95512;
-    font-weight: 600;
-    font-size: 0.97em;
-    margin-left: 0.2em;
-  }
-  .ban-btn, .unban-btn {
-    background: #ffe8db;
-    color: #e95512;
-    border: none;
-    border-radius: 8px;
-    padding: 0.3em 1em;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 0.5em;
-    transition: background .2s, color .2s;
-  }
-  .ban-btn:hover, .unban-btn:hover { background: #ffd3b9; color: #792f1d; }

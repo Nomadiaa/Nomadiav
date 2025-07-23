@@ -1,20 +1,21 @@
+/* ============ BASE GLOBALE ============ */
 body {
   font-family: 'Inter', sans-serif;
 }
 
-
-/* === RESET === */
+/* ===== RESET CSS ===== */
 a {
   text-decoration: none;
   color: inherit;
 }
+
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* === NAVBAR GLASSMORPHISME === */
+/* ============ NAVBAR GLASSMORPHIQUE ============ */
 .navbar-glass {
   position: absolute;
   top: 0;
@@ -24,7 +25,7 @@ ul {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* === CONTENU INTÉRIEUR === */
+/* Contenu centré de la navbar */
 .navbar-content {
   max-width: 1280px;
   margin: 0 auto;
@@ -34,7 +35,7 @@ ul {
   color: black;
 }
 
-/* === LIENS === */
+/* ============ LIENS NAVBAR ============ */
 .nav-links {
   display: flex;
   gap: 1rem;
@@ -48,7 +49,7 @@ ul {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1.2rem;
-  color: #792f1d; 
+  color: #792f1d;
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -58,27 +59,27 @@ ul {
 .nav-links a:hover {
   background: rgba(255, 255, 255, 0.388);
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
-   border-radius: 999px;
+  border-radius: 999px;
   transform: translateY(-1px);
 }
 
-/* === LOGO === */
+/* ============ LOGO DE GAUCHE ============ */
 .logo {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.6rem;
   font-weight: 900;
   color: #ffb84c;
   letter-spacing: 1.5px;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* === TABBAR MOBILE === */
+/* ============ TABBAR MOBILE ============ */
 .tabbar-mobile {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(14px);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
@@ -88,7 +89,7 @@ ul {
   z-index: 100;
 }
 
-/* Icônes normales */
+/* Icônes classiques de la tabbar */
 .tab-item img {
   width: 24px;
   height: 24px;
@@ -100,13 +101,13 @@ ul {
   transform: scale(1.1);
 }
 
-/* Icône centrale (profil) stylisée */
+/* Icône centrale (profil ou bouton principal) */
 .circle-icon {
   background: rgba(255, 255, 255, 0.12);
   padding: 0.7rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(8px);
   transform: translateY(-15%);
 }
@@ -115,14 +116,16 @@ ul {
   margin: 0 -0.2rem;
 }
 
-/* === RESPONSIVE : cache NAVBAR desktop sur mobile === */
+/* ============ RESPONSIVE DESIGN ============ */
+
+/* Cache la navbar desktop sur petit écran */
 @media (max-width: 768px) {
   .navbar-glass {
     display: none;
   }
 }
 
-/* === RESPONSIVE : cache TABBAR mobile sur desktop === */
+/* Cache la tabbar mobile sur grand écran */
 @media (min-width: 769px) {
   .tabbar-mobile {
     display: none;

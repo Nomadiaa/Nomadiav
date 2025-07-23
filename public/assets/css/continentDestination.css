@@ -1,4 +1,6 @@
-/* ----------- Base container ----------- */
+/* ==========================
+   CONTAINER GLOBAL
+========================== */
 .container {
   max-width: 1300px;
   margin: 0 auto;
@@ -6,7 +8,9 @@
   box-sizing: border-box;
 }
 
-/* ----------- Grille de cartes ----------- */
+/* ==========================
+   GRILLE DE DESTINATIONS
+========================== */
 .destinations-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -14,14 +18,16 @@
   margin-top: 2.5rem;
 }
 
-/* ----------- Carte destination ----------- */
+/* ==========================
+   CARTE DESTINATION
+========================== */
 .destination-card {
   display: block;
+  background-color: #000;
+  color: #fff;
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
-  background-color: #000;
-  color: white;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -39,14 +45,16 @@
   display: block;
 }
 
-/* ----------- Informations sur la carte ----------- */
+/* ==========================
+   INFOS DE LA DESTINATION
+========================== */
 .destination-card .info {
-  padding: 1rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
   box-sizing: border-box;
 }
 
@@ -63,24 +71,30 @@
   color: #eee;
 }
 
-.admin-btn { 
-  background: #ffe8db; 
-  color: #e95512; 
-  font-weight: bold; 
-  border-radius: 8px; 
-  padding: 0.35em 1em; 
-  border: none;
-  margin-left: 0.5em; 
-  cursor: pointer; 
-  transition: background .2s, color .2s;
+/* ==========================
+   BOUTON ADMIN (MODIFIER / SUPPRIMER)
+========================== */
+.admin-btn {
+  background: #ffe8db;
+  color: #e95512;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.35em 1em;
   font-size: 15px;
-}
-.admin-btn:hover { 
-  background: #ffdabd; 
-  color: #792f1d; 
+  border: none;
+  margin-left: 0.5em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* ----------- Responsive mobile ----------- */
+.admin-btn:hover {
+  background: #ffdabd;
+  color: #792f1d;
+}
+
+/* ==========================
+   RESPONSIVE (TABLETTES & MOBILES)
+========================== */
 @media (max-width: 768px) {
   .destination-card img {
     height: 180px;

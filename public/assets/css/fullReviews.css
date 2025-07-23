@@ -1,12 +1,11 @@
-/* ======= PAGE LISTE AVIS ======= */
-
+/* ====== CONTAINER PRINCIPAL ====== */
 .full-reviews {
   max-width: 900px;
   margin: 0 auto 70px auto;
   padding: 30px 15px 0 15px;
 }
 
-/* ==== HEADER ==== */
+/* ====== TITRE + SÉPARATEUR ====== */
 .reviews-header {
   text-align: center;
   margin-bottom: 38px;
@@ -29,23 +28,23 @@
   width: 100%;
 }
 
-/* ==== LISTE DES AVIS (CARTES) ==== */
+/* ====== LISTE DES AVIS ====== */
 .testimonial-list {
   display: flex;
   flex-direction: column;
   gap: 30px;
   max-width: 900px;
   margin: 0 auto;
-  padding: 0;
 }
 
+/* ====== CARTE AVIS ====== */
 .testimonial-card {
   display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
   background-color: #fff4ef;
   border-radius: 20px;
-  padding: 20px;
-  gap: 20px;
-  align-items: flex-start;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   animation: fadeIn 0.5s;
 }
@@ -55,7 +54,7 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 2px 10px rgba(255,92,28,0.10);
+  box-shadow: 0 2px 10px rgba(255, 92, 28, 0.10);
   border: 3px solid #ffe4d5;
 }
 
@@ -66,16 +65,15 @@
 .testimonial-name {
   font-weight: bold;
   font-size: 24px;
-  margin-bottom: 6px;
   color: #972C00;
+  margin-bottom: 6px;
   display: inline-block;
   vertical-align: middle;
-  font-family: inherit;
 }
 
 .stars {
-  color: #fcd34d;
   font-size: 24px;
+  color: #fcd34d;
   margin-left: 8px;
   letter-spacing: 1px;
   vertical-align: middle;
@@ -83,37 +81,40 @@
 
 .testimonial-text {
   font-size: 18px;
-  line-height: 1.6;
-  text-align: justify;
   color: #333;
   margin-top: 6px;
+  line-height: 1.6;
+  text-align: justify;
 }
 
+/* ====== LIKE BOUTON ====== */
 .testimonial-likes {
   margin-top: 10px;
 }
-.testimonial-likes .like-btn {
+
+.like-btn {
   background: #fdf0e8;
   color: #e95b0c;
   border: none;
   border-radius: 30px;
   padding: 5px 18px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.22s;
-  font-weight: 600;
 }
-.testimonial-likes .like-btn:hover {
+
+.like-btn:hover {
   background: #ffdab9;
   color: #c75008;
 }
 
-/* ====== FORMULAIRE AJOUT AVIS ====== */
+/* ====== FORMULAIRE D’AJOUT D’AVIS ====== */
 .add-review-section {
   background: #fff4ef;
   border-radius: 18px;
-  box-shadow: 0 2px 10px rgba(255,92,28,0.04);
-  padding: 2.2rem 2rem 2rem 2rem;
+  box-shadow: 0 2px 10px rgba(255, 92, 28, 0.04);
+  padding: 2.2rem 2rem;
   max-width: 700px;
   margin: 0 auto 50px auto;
 }
@@ -136,8 +137,8 @@
 .add-review-form label {
   font-weight: 600;
   color: #e95b0c;
-  margin-bottom: 5px;
   font-size: 1.08rem;
+  margin-bottom: 5px;
   letter-spacing: 0.5px;
 }
 
@@ -146,10 +147,10 @@
   font-size: 1.09rem;
   padding: 10px;
   border-radius: 11px;
-  border: 1.5px solid #ffe4d5;
   background: #fff;
   color: #333;
   resize: vertical;
+  border: 1.5px solid #ffe4d5;
   outline: none;
   transition: border-color 0.22s;
 }
@@ -161,15 +162,15 @@
 
 .add-review-btn {
   margin-top: 7px;
-  background: linear-gradient(90deg, #ff5c1c, #e95b0c 80%);
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 30px;
   padding: 12px 0;
   font-size: 1.07rem;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(255,92,28,0.08);
+  background: linear-gradient(90deg, #ff5c1c, #e95b0c 80%);
+  box-shadow: 0 2px 10px rgba(255, 92, 28, 0.08);
   transition: background 0.2s;
 }
 
@@ -177,34 +178,57 @@
   background: #e95b0c;
 }
 
-.admin-btn { 
-  background: #ffe8db; 
-  color: #e95512; 
-  font-weight: bold; 
-  border-radius: 8px; 
-  padding: 0.35em 1em; 
+/* ====== BOUTON ADMIN (Supprimer, modérer, etc.) ====== */
+.admin-btn {
+  background: #ffe8db;
+  color: #e95512;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.35em 1em;
   border: none;
-  margin-left: 0.5em; 
-  cursor: pointer; 
-  transition: background .2s, color .2s;
+  margin-left: 0.5em;
+  cursor: pointer;
   font-size: 15px;
-}
-.admin-btn:hover { 
-  background: #ffdabd; 
-  color: #792f1d; 
+  transition: background 0.2s, color 0.2s;
 }
 
-/* ======= ANIMATION & RESPONSIVE ======= */
+.admin-btn:hover {
+  background: #ffdabd;
+  color: #792f1d;
+}
+
+/* ====== ANIMATION ====== */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px);}
-  to { opacity: 1; transform: translateY(0);}
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+/* ====== RESPONSIVE ====== */
 @media (max-width: 700px) {
-  .full-reviews { padding: 6vw 2vw 0 2vw; }
-  .testimonial-card { flex-direction: column; align-items: center; gap: 11px; }
-  .avatar { width: 62px; height: 62px; }
-  .add-review-section { padding: 1.2rem 0.8rem 1.4rem 0.8rem;}
-  .add-review-title { font-size: 1.18rem; }
-  .reviews-title { font-size: 1.3rem; }
+  .full-reviews {
+    padding: 6vw 2vw 0 2vw;
+  }
+
+  .testimonial-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .avatar {
+    width: 62px;
+    height: 62px;
+  }
+
+  .add-review-section {
+    padding: 1.2rem 0.8rem 1.4rem 0.8rem;
+  }
+
+  .add-review-title {
+    font-size: 1.18rem;
+  }
+
+  .reviews-title {
+    font-size: 1.3rem;
+  }
 }

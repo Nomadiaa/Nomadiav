@@ -38,7 +38,8 @@
             </div>
             <div class="testimonial-likes">
               👍 {{ review.likes|length }} like{{ review.likes|length > 1 ? 's' : '' }}
-              <!-- Bouton de suppression admin -->
+            
+              {# Bouton de suppression admin #}
               <form action="/admin/reviews/{{ review.id }}/delete" method="POST" style="display:inline;">
                 <input type="hidden" name="destinationId" value="{{ destinationId }}">
                 <button type="submit" class="admin-btn" onclick="return confirm('Supprimer cet avis ?')">🗑 Supprimer</button>

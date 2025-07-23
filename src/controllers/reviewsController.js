@@ -46,11 +46,9 @@ export async function getAllReviews(req, res) {
   }
 }
 
-
-// Liker ou retirer le like d'un avis
 // Liker ou retirer le like d'un avis
 export async function toggleLikeReview(req, res) {
-  const userId = req.session.user?.id || req.user?.id; // selon ton middleware d'auth
+  const userId = req.session.user?.id || req.user?.id; 
   const { reviewId } = req.params;
 
   if (!userId) {
@@ -155,7 +153,7 @@ export async function addReview(req, res) {
     if (req.headers.accept && req.headers.accept.includes('application/json')) {
       return res.status(401).json({ message: "Non autorisé" });
     } else {
-      return res.redirect('/login'); // ou autre redirection côté web
+      return res.redirect('/login'); 
     }
   }
 

@@ -1,9 +1,8 @@
-/* ======= FORMULAIRE NOUVEAU CARNET ======= */
+/* ================= FORMULAIRE NOUVEAU CARNET ================= */
 
 .container {
   max-width: 850px;
-  margin: 0 auto;
-  margin-top: 50px;
+  margin: 50px auto 0;
   padding: 30px 20px;
   background: #fffdfb;
   border-radius: 20px;
@@ -18,7 +17,8 @@
   margin-bottom: 25px;
 }
 
-/* ======= FORM STYLING ======= */
+/* ================= FORMULAIRE ================= */
+
 form label {
   display: block;
   margin-top: 18px;
@@ -56,14 +56,14 @@ form textarea {
   resize: vertical;
 }
 
-/* Checkbox */
 form input[type="checkbox"] {
   margin-right: 8px;
   transform: scale(1.2);
   accent-color: #e95b0c;
 }
 
-/* ======= BOUTON ======= */
+/* ================= BOUTONS ================= */
+
 form .btn {
   display: inline-block;
   background: linear-gradient(90deg, #ff5c1c, #e95b0c 80%);
@@ -82,24 +82,26 @@ form .btn:hover {
   background: #e95b0c;
 }
 
-.admin-btn { 
-  background: #ffe8db; 
-  color: #e95512; 
-  font-weight: bold; 
-  border-radius: 8px; 
-  padding: 0.35em 1em; 
+.admin-btn {
+  background: #ffe8db;
+  color: #e95512;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.35em 1em;
   border: none;
-  margin-left: 0.5em; 
-  cursor: pointer; 
-  transition: background .2s, color .2s;
+  margin-left: 0.5em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
   font-size: 15px;
 }
-.admin-btn:hover { 
-  background: #ffdabd; 
-  color: #792f1d; 
+
+.admin-btn:hover {
+  background: #ffdabd;
+  color: #792f1d;
 }
 
-/* ======= RESPONSIVE ======= */
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 700px) {
   .container {
     padding: 20px 15px;
@@ -119,8 +121,15 @@ form .btn:hover {
   }
 }
 
-/* ======= ANIMATION ======= */
+/* ================= ANIMATION ================= */
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px);}
-  to { opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

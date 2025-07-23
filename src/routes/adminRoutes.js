@@ -16,13 +16,10 @@ router.get('/dashAdm', isAdmin, showAllDestinations);
 // Suppression d'une destination
 router.post('/admin/destinations/delete/:id', isAdmin, deleteDestination);
 
-// Modification d'une destination
+// affiche le formulaire deModification d'une destination(get)
 router.get('/admin/destinations/edit/:id', isAdmin, renderEditDestination);
-router.post(
-  '/admin/destinations/edit/:id',
-  isAdmin,
-  upload.single('imagePrincipale'),
-  handleEditDestination
-);
+
+// Modifie une destination (post)
+router.post('/admin/destinations/edit/:id', isAdmin, upload.single('imagePrincipale'), handleEditDestination);
 
 export default router;

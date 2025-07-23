@@ -1,24 +1,27 @@
-/* === FOOTER GLASSMORPHISME === */
-.body{
+/* ==================== RESET ==================== */
+.body {
   margin: 0;
 }
 
+/* ==================== FOOTER GLASS ==================== */
 .footer-glass {
   margin-top: 4rem;
   padding: 2rem 1.5rem;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.3);                /* Couleur sombre transparente */
+  backdrop-filter: blur(10px);                   /* Flou de fond */
+  -webkit-backdrop-filter: blur(10px);           /* Compatibilité Safari */
+  border-top: 1px solid rgba(255, 255, 255, 0.15);/* Liseré haut */
+  color: #fff;                                    /* Texte blanc */
 }
 
+/* ==================== CONTENU CENTRÉ ==================== */
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
 
+/* ==================== LOGO FOOTER ==================== */
 .footer-logo {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.4rem;
@@ -28,15 +31,16 @@
   letter-spacing: 1px;
 }
 
+/* ▶ Si logo en image */
 .footer-logo img {
-  width: 120px;        /* Ajuste la taille comme tu veux (50-100px c'est idéal) */
-  max-width: 100%;    /* Pour éviter le débordement sur petits écrans */
-  height: auto;       /* Garde les proportions du logo */
+  width: 120px;           /* Ajuste la taille comme tu veux */
+  max-width: 100%;        /* Évite le dépassement */
+  height: auto;
   display: block;
-  margin: 0 auto;     /* Centre le logo dans son div */
+  margin: 0 auto;
 }
 
-/* === LIENS DU FOOTER === */
+/* ==================== LIENS ==================== */
 .footer-links {
   display: flex;
   justify-content: center;
@@ -48,21 +52,21 @@
 .footer-link {
   color: #f5f5f5;
   font-weight: 500;
-  transition: color 0.3s ease;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .footer-link:hover {
   color: #ffb84c;
 }
 
-/* === COPYRIGHT === */
+/* ==================== COPYRIGHT ==================== */
 .footer-copy {
   font-size: 0.85rem;
   color: #ccc;
 }
 
-/* === RESPONSIVE === */
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 600px) {
   .footer-links {
     flex-direction: column;

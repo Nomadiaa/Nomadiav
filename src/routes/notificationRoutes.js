@@ -20,7 +20,7 @@ router.get('/notification/read', attachUser, requireAuth, markAllNotificationsAs
 // Toutes les notifs
 router.get('/notifications', attachUser, requireAuth, getAllUserNotifications);
 
-// ✅ Route suppression d'une notif
+// Route suppression d'une notif
 router.post('/notifications/:id/delete', attachUser, requireAuth, deleteNotification);
 
 export default router;
