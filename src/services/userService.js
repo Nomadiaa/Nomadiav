@@ -1,7 +1,7 @@
 import prisma from '../config/prisma.js'
 import { comparePassword, hashPassword } from '../utils/hash.js'
 
-// 🔍 Récupère l'utilisateur connecté avec ses données utiles
+// Récupère l'utilisateur connecté avec ses données utiles
 export async function fetchUserProfile(userId) {
   const user = await prisma.user.findUnique({
     where: { id: userId },
@@ -10,11 +10,11 @@ export async function fetchUserProfile(userId) {
     }
   })
 
-  if (!user) throw new Error("Utilisateur introuvable ❌")
+  if (!user) throw new Error("Utilisateur introuvable ")
   return user
 }
 
-// ✏️ Met à jour les infos de base du profil (y compris image)
+// Met à jour les infos de base du profil (y compris image)
 export async function updateUserInfo(userId, data) {
   await prisma.user.update({
     where: { id: userId },
@@ -25,13 +25,13 @@ export async function updateUserInfo(userId, data) {
       instagram: data.instagram,
       facebook: data.facebook,
       youtube: data.youtube,
-      avatar: data.avatar,             // si présent
-      coverImage: data.coverImage      // si présent
+      avatar: data.avatar,             
+      coverImage: data.coverImage      
     }
   })
 }
 
-// 🔐 Met à jour le mot de passe après vérification
+// Met à jour le mot de passe après vérification
 export async function updateUserPassword(userId, currentPassword, newPassword) {
   const user = await prisma.user.findUnique({ where: { id: userId } })
   if (!user) throw new Error("Utilisateur non trouvé")
@@ -47,14 +47,14 @@ export async function updateUserPassword(userId, currentPassword, newPassword) {
   })
 }
 
-// ❌ Supprime le compte utilisateur
+// Supprime le compte utilisateur
 export async function removeUser(userId) {
   await prisma.user.delete({
     where: { id: userId }
   })
 }
 
-// 👁️ Met à jour la visibilité du profil
+// Met à jour la visibilité du profil
 export async function setPrivacy(userId, isPublic) {
   await prisma.user.update({
     where: { id: userId },
@@ -62,7 +62,7 @@ export async function setPrivacy(userId, isPublic) {
   })
 }
 
-// 🌍 Change le type d'aventurier
+// Change le type d'aventurier
 export async function setAdventurerType(userId, type) {
   await prisma.user.update({
     where: { id: userId },
